@@ -1,4 +1,4 @@
-package TESTE.avaliacao;
+package Classes.avaliacao;
 
 public class Candidato extends Pessoa {
     private String telefone;
