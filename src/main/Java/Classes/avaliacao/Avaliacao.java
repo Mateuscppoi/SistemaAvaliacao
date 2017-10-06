@@ -1,4 +1,4 @@
-package TESTE.avaliacao;
+package Classes.avaliacao;
 
 import java.util.Date;
 
