@@ -1,4 +1,4 @@
-package Classes.avaliacao;
+package model;
 
 public class Candidato extends Pessoa {
     private String telefone;

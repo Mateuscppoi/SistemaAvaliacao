@@ -18,7 +18,7 @@
         <p:messages />
 
         <h:panelGrid columns="4" cellpadding="5">
-            <h:outputLabel for="name" value="Name: (@Size(min=2,max=5))" />
+            <h:outputLabel for="name" value="Nome: (@Size(min=2,max=5))" />
             <p:inputText id="name" value="#{beanValidationView.name}" label="Name"/>
             <p:message for="name" />
             <h:outputText value="#{beanValidationView.name}" />
