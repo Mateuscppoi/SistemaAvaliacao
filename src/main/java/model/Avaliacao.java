@@ -1,4 +1,4 @@
-package Classes.avaliacao;
+package model;
 
 import java.util.Date;
 
