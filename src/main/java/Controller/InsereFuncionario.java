@@ -1,44 +1,25 @@
-package model;
+package Controller;
 
-import javax.persistence.*;
+import model.Avaliacao;
+import model.Funcionario;
+import model.TipoProva;
+
+import javax.faces.bean.ManagedBean;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.util.List;
 
-@Entity
-@Table(name = "funcionario", schema = "sistemadeavaliacao")
-public class Funcionario {
+@ManagedBean
+public class InsereFuncionario {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column
     private String nome;
-
-    @Column
     private String email;
-
-    @Column
     private String senha;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario" )
     private List<TipoProva> especialidade;
-
-    @Column
     private Boolean avaliador;
-
-    @Column
     private Boolean administrador;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario")
     private List<Avaliacao> avaliacao;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -72,7 +53,6 @@ public class Funcionario {
         this.especialidade = especialidade;
     }
 
-
     public Boolean getAvaliador() {
         return avaliador;
     }
@@ -95,5 +75,26 @@ public class Funcionario {
 
     public void setAvaliacao(List<Avaliacao> avaliacao) {
         this.avaliacao = avaliacao;
+    }
+
+
+
+    public String retornaFuncionario() {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
+        EntityManager manager = factory.createEntityManager();
+
+
+        Funcionario funcionario = new Funcionario();
+        funcionario.setAdministrador(administrador);
+        funcionario.setAvaliador(avaliador);
+        funcionario.setNome(nome);
+        funcionario.setEmail(email);
+        funcionario.setSenha(senha);
+        funcionario.setEspecialidade(getEspecialidade());
+        manager.getTransaction().begin();
+        manager.persist(funcionario);
+        manager.getTransaction().commit();
+
+        return "Completado";
     }
 }

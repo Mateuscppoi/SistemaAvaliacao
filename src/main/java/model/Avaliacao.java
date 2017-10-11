@@ -1,20 +1,49 @@
 package model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "avaliacao", schema = "sistemadeavaliacao")
 public class Avaliacao {
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private  Prova prova;
+
+    @Column
     private String linkProva;
+
+    @Column
     private String pontosFortes;
+
+    @Column
     private String pontosMelhorar;
-    private byte imagemMelhorarProva;
+
+    @Column
     private String parecer;
-    private Date dataEntregaProvaCandidato;
+
+    @Column
     private Date dataEntregaProvaAvaliador;
+
+    @Column
     private Date dataConclusaoAvaliacao;
-    private Candidato candidato;
-    private Funcionario avaliador;
-    private CriteriosProva criteriosProva;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "avaliador_id", nullable = false)
+    private Funcionario funcionario;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getLinkProva() {
         return linkProva;
@@ -40,28 +69,12 @@ public class Avaliacao {
         this.pontosMelhorar = pontosMelhorar;
     }
 
-    public byte getImagemMelhorarProva() {
-        return imagemMelhorarProva;
-    }
-
-    public void setImagemMelhorarProva(byte imagemMelhorarProva) {
-        this.imagemMelhorarProva = imagemMelhorarProva;
-    }
-
     public String getParecer() {
         return parecer;
     }
 
     public void setParecer(String parecer) {
         this.parecer = parecer;
-    }
-
-    public Date getDataEntregaProvaCandidato() {
-        return dataEntregaProvaCandidato;
-    }
-
-    public void setDataEntregaProvaCandidato(Date dataEntregaProvaCandidato) {
-        this.dataEntregaProvaCandidato = dataEntregaProvaCandidato;
     }
 
     public Date getDataEntregaProvaAvaliador() {
@@ -80,28 +93,20 @@ public class Avaliacao {
         this.dataConclusaoAvaliacao = dataConclusaoAvaliacao;
     }
 
-    public Candidato getCandidato() {
-        return candidato;
+
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
-    public void setCandidato(Candidato candidato) {
-        this.candidato = candidato;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
-    public Funcionario getAvaliador() {
-        return avaliador;
+    public Prova getProva() {
+        return prova;
     }
 
-    public void setAvaliador(Funcionario avaliador) {
-        this.avaliador = avaliador;
-    }
-
-    public Integer getId() {
-
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+    public void setProva(Prova prova) {
+        this.prova = prova;
     }
 }
