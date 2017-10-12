@@ -1,7 +1,7 @@
 package Controller;
 
 import model.CriteriosProva;
-import model.TipoProva;
+import model.Linguagem;
 
 import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
@@ -14,7 +14,7 @@ public class InsereCriterios {
     private CriteriosProva criteriosProva = new CriteriosProva();
     private String descricao;
     private Boolean criteriosObrigatorios;
-    private TipoProva tipoProva;
+    private Linguagem linguagem;
 
     public CriteriosProva getCriteriosProva() {
         return criteriosProva;
@@ -40,12 +40,12 @@ public class InsereCriterios {
         this.criteriosObrigatorios = criteriosObrigatorios;
     }
 
-    public TipoProva getTipoProva() {
-        return tipoProva;
+    public Linguagem getLinguagem() {
+        return linguagem;
     }
 
-    public void setTipoProva(TipoProva tipoProva) {
-        this.tipoProva = tipoProva;
+    public void setLinguagem(Linguagem linguagem) {
+        this.linguagem = linguagem;
     }
 
     public String retornaCriterios() {
@@ -57,7 +57,7 @@ public class InsereCriterios {
         CriteriosProva criteriosProva = new CriteriosProva();
         criteriosProva.setDescricao(descricao);
         criteriosProva.setCriteriosObrigatorios(criteriosObrigatorios);
-        criteriosProva.setTipoprova(getTipoProva());
+        criteriosProva.setLinguagem(getLinguagem());
         manager.getTransaction().begin();
         manager.persist(criteriosProva);
         manager.getTransaction().commit();

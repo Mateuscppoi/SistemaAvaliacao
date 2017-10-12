@@ -1,6 +1,6 @@
 package Controller;
 
-import model.TipoProva;
+import model.Linguagem;
 
 import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
@@ -10,15 +10,15 @@ import javax.persistence.Persistence;
 @ManagedBean
 public class InsereTipoProva {
 
-    private TipoProva tipoProva;
+    private Linguagem linguagem;
     private String descricao;
 
-    public TipoProva getTipoProva() {
-        return tipoProva;
+    public Linguagem getLinguagem() {
+        return linguagem;
     }
 
-    public void setTipoProva(TipoProva tipoProva) {
-        this.tipoProva = tipoProva;
+    public void setLinguagem(Linguagem linguagem) {
+        this.linguagem = linguagem;
     }
 
     public String getDescricao() {
@@ -33,10 +33,10 @@ public class InsereTipoProva {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
         EntityManager manager = factory.createEntityManager();
 
-        TipoProva tipoProva = new TipoProva();
-        tipoProva.setDescricao(descricao);
+        Linguagem linguagem = new Linguagem();
+        linguagem.setDescricao(descricao);
         manager.getTransaction().begin();
-        manager.persist(tipoProva);
+        manager.persist(linguagem);
         manager.getTransaction().commit();
 
         factory.close();

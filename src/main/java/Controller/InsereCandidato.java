@@ -1,43 +1,20 @@
-package model;
+package Controller;
 
-import javax.persistence.*;
-import java.util.List;
+import model.Candidato;
 
-@Entity
-@Table(name = "candidato", schema = "sistemadeavaliacao")
-public class Candidato {
+import javax.faces.bean.ManagedBean;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @PrimaryKeyJoinColumn
-    private Long id_candidato;
+@ManagedBean
+public class InsereCandidato {
 
-    @Column
     private String nome;
-
-    @Column
     private String email;
-
-    @Column
     private String telefone;
-
-    @Column
     private String rede_social;
-
-    @Column
     private Boolean contratado;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "candidato")
-    private List<Prova> prova;
-
-
-    public Long getId_candidato() {
-        return id_candidato;
-    }
-
-    public void setId_candidato(Long id_candidato) {
-        this.id_candidato = id_candidato;
-    }
 
     public String getNome() {
         return nome;
@@ -67,8 +44,8 @@ public class Candidato {
         return rede_social;
     }
 
-    public void setRede_social(String redeSocial) {
-        this.rede_social = redeSocial;
+    public void setRede_social(String rede_social) {
+        this.rede_social = rede_social;
     }
 
     public Boolean getContratado() {
@@ -77,5 +54,19 @@ public class Candidato {
 
     public void setContratado(Boolean contratado) {
         this.contratado = contratado;
+    }
+
+    public String retornaCandidato() {
+
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
+        EntityManager manager = factory.createEntityManager();
+
+        Candidato candidato = new Candidato();
+        candidato.setNome(nome);
+        candidato.setEmail(email);
+        candidato.setTelefone(telefone);
+        candidato.setRede_social(rede_social);
+        candidato.setContratado(false);
+        return "Completado";
     }
 }

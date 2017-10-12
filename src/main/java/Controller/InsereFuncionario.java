@@ -2,7 +2,7 @@ package Controller;
 
 import model.Avaliacao;
 import model.Funcionario;
-import model.TipoProva;
+import model.Linguagem;
 
 import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
@@ -16,7 +16,7 @@ public class InsereFuncionario {
     private String nome;
     private String email;
     private String senha;
-    private List<TipoProva> especialidade;
+    private List<Linguagem> especialidade;
     private Boolean avaliador;
     private Boolean administrador;
     private List<Avaliacao> avaliacao;
@@ -45,11 +45,11 @@ public class InsereFuncionario {
         this.senha = senha;
     }
 
-    public List<TipoProva> getEspecialidade() {
+    public List<Linguagem> getEspecialidade() {
         return especialidade;
     }
 
-    public void setEspecialidade(List<TipoProva> especialidade) {
+    public void setEspecialidade(List<Linguagem> especialidade) {
         this.especialidade = especialidade;
     }
 
@@ -90,7 +90,7 @@ public class InsereFuncionario {
         funcionario.setNome(nome);
         funcionario.setEmail(email);
         funcionario.setSenha(senha);
-        funcionario.setEspecialidade(getEspecialidade());
+        funcionario.setEspecialidade(manager.find(Linguagem.class, especialidade));
         manager.getTransaction().begin();
         manager.persist(funcionario);
         manager.getTransaction().commit();

@@ -1,7 +1,7 @@
 package br.com.db1.model;
 
 import model.CriteriosProva;
-import model.TipoProva;
+import model.Linguagem;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -18,7 +18,7 @@ public class TesteCriterios {
         CriteriosProva criteriosProva = new CriteriosProva();
         criteriosProva.setDescricao("Sprint");
         criteriosProva.setCriteriosObrigatorios(true);
-        criteriosProva.setTipoprova(manager.find(TipoProva.class, 1L));
+        criteriosProva.setLinguagem(manager.find(Linguagem.class, 1L));
         manager.getTransaction().begin();
         manager.persist(criteriosProva);
         manager.getTransaction().commit();
@@ -32,10 +32,10 @@ public class TesteCriterios {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
         EntityManager manager = factory.createEntityManager();
 
-        TipoProva tipoProva= new TipoProva();
-        tipoProva.setDescricao("Java");
+        Linguagem linguagem = new Linguagem();
+        linguagem.setDescricao("C#");
         manager.getTransaction().begin();
-        manager.persist(tipoProva);
+        manager.persist(linguagem);
         manager.getTransaction().commit();
 
         factory.close();

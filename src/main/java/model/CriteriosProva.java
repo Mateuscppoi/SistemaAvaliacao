@@ -9,15 +9,15 @@ public class CriteriosProva {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private String descricao;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
     private Boolean criteriosObrigatorios;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tipoprova_id", nullable = false)
-    private TipoProva tipoprova;
+    @JoinColumn(name = "linguagem_id", nullable = false)
+    private Linguagem linguagem;
 
 
     public Long getId() {
@@ -44,11 +44,13 @@ public class CriteriosProva {
         this.criteriosObrigatorios = criteriosObrigatorios;
     }
 
-    public TipoProva getTipoprova() {
-        return tipoprova;
+    public Linguagem getLinguagem() {
+        return linguagem;
     }
 
-    public void setTipoprova(TipoProva tipoprova) {
-        this.tipoprova = tipoprova;
+    public void setLinguagem(Linguagem linguagem) {
+        this.linguagem = linguagem;
     }
 }
+
+

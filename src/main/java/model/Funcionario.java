@@ -20,8 +20,9 @@ public class Funcionario {
     @Column
     private String senha;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario" )
-    private List<TipoProva> especialidade;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "especialidade", nullable = false)
+    private Linguagem especialidade;
 
     @Column
     private Boolean avaliador;
@@ -64,14 +65,13 @@ public class Funcionario {
         this.senha = senha;
     }
 
-    public List<TipoProva> getEspecialidade() {
+    public Linguagem getEspecialidade() {
         return especialidade;
     }
 
-    public void setEspecialidade(List<TipoProva> especialidade) {
+    public void setEspecialidade(Linguagem especialidade) {
         this.especialidade = especialidade;
     }
-
 
     public Boolean getAvaliador() {
         return avaliador;

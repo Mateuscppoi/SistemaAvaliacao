@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tipoprova", schema = "sistemadeavaliacao")
-public class TipoProva {
+@Table(name = "linguagem", schema = "sistemadeavaliacao")
+public class Linguagem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -13,13 +13,11 @@ public class TipoProva {
     @Column
     private String descricao;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "tipoprova")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "linguagem")
     private List<CriteriosProva> criteriosProvas;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "especialidade", nullable = false)
-    private Funcionario funcionario;
-
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "especialidade")
+    private List<Funcionario> funcionario;
 
     public Long getId() {
         return id;
@@ -45,11 +43,11 @@ public class TipoProva {
         this.criteriosProvas = criteriosProvas;
     }
 
-    public Funcionario getFuncionario() {
+    public List<Funcionario> getFuncionario() {
         return funcionario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
+    public void setFuncionario(List<Funcionario> funcionario) {
         this.funcionario = funcionario;
     }
 }
