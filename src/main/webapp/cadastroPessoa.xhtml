@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<ui:composition template="/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                lang="pt-br">
+    <ui:define name="corpo">
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h:commandButton class="btn btn-lg btn-dark" href="" value="Novo"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h:form class="" method="post" action="https://formspree.io/">
+                            <div class="form-group"> <label class="">Nome:</label>
+                                <h:inputText type="text" name="nome" class="form-control" placeholder="Informe o nome" value="#{insereFuncionario.nome}"/>
+                            </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group"> <label class="">Telefone:</label>
+                            <h:inputText type="text" name="telefone" class="form-control" placeholder="Informe o telefone"/>
+                            </div>
+                        </div>
+                    <div class="col-md-6">
+                        <div class="form-group"> <label class="">E-mail:</label>
+                            <h:inputText type="text" name="email" class="form-control" placeholder="Informe o e-mail" value="#{insereFuncionario.email}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group"> <label class="">Rede social:</label>
+                            <h:inputText type="text" name="redesocial" class="form-control" placeholder="Informe a rede social"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6" style="">
+                        <div class="form-group"> <label class="">Especialidade:</label>
+                            <h:inputText type="text" name="especialidade" class="form-control" placeholder="Informe a especialidade" value="#{insereFuncionario.especialidade}"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group"> <label class="">Senha:</label>
+                            <h:inputText type="password" name="senha" class="form-control" placeholder="Informe a senha" value="#{insereFuncionario.senha}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h:selectManyCheckbox>
+                            <f:selectItem intemValue="#{insereFuncionario.administrador}" itemLabel="Adminitrador"/>
+                            <f:selectItem intemValue="#{insereFuncionario.avaliador}" itemLabel="Avaliador"/>
+                            <f:selectItem intemValue="4" itemLabel="Camdidato"/>
+                        </h:selectManyCheckbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar"/>
+                    </div>
+                </div>
+                        </h:form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+    </ui:define>
+</ui:composition>
