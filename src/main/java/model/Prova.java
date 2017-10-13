@@ -9,21 +9,21 @@ public class Prova {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_prova;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "candidato_id", nullable = false)
+    @JoinColumn(name = "candidato_id_candidato", nullable = false)
     private Candidato candidato;
 
     @Column
-    private byte import_avaliacao;
+    private String import_avaliacao;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "linguagem_id", nullable = false)
+    @JoinColumn(name = "linguagem_id_linguagem", nullable = false)
     private CriteriosProva criteriosProva;
 
     @Column
-    private Date prazo;
+    private Integer prazo;
 
     @Column
     private Date data_solic_ava;
@@ -33,12 +33,20 @@ public class Prova {
     @JoinColumn(name = "prova_id")
     private Avaliacao avaliacao;
 
-    public Long getId() {
-        return id;
+    public Long getId_prova() {
+        return id_prova;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_prova(Long id_prova) {
+        this.id_prova = id_prova;
+    }
+
+    public Avaliacao getAvaliacao() {
+        return avaliacao;
+    }
+
+    public void setAvaliacao(Avaliacao avaliacao) {
+        this.avaliacao = avaliacao;
     }
 
     public Candidato getCandidato() {
@@ -49,14 +57,6 @@ public class Prova {
         this.candidato = candidato;
     }
 
-    public byte getImport_avaliacao() {
-        return import_avaliacao;
-    }
-
-    public void setImport_avaliacao(byte import_avaliacao) {
-        this.import_avaliacao = import_avaliacao;
-    }
-
     public CriteriosProva getCriteriosProva() {
         return criteriosProva;
     }
@@ -65,11 +65,19 @@ public class Prova {
         this.criteriosProva = criteriosProva;
     }
 
-    public Date getPrazo() {
+    public String getImport_avaliacao() {
+        return import_avaliacao;
+    }
+
+    public void setImport_avaliacao(String import_avaliacao) {
+        this.import_avaliacao = import_avaliacao;
+    }
+
+    public Integer getPrazo() {
         return prazo;
     }
 
-    public void setPrazo(Date prazo) {
+    public void setPrazo(Integer prazo) {
         this.prazo = prazo;
     }
 

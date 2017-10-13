@@ -8,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @ManagedBean
-public class InsereTipoProva {
+public class InsereLinguagem {
 
     private Linguagem linguagem;
     private String descricao;
