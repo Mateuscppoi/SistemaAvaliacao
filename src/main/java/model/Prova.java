@@ -16,7 +16,7 @@ public class Prova {
     private Candidato candidato;
 
     @Column
-    private String import_avaliacao;
+    private String import_prova;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "linguagem_id_linguagem", nullable = false)
@@ -27,11 +27,10 @@ public class Prova {
 
     @Column
     private Date data_solic_ava;
-
-    @MapsId
-    @OneToOne
-    @JoinColumn(name = "prova_id")
-    private Avaliacao avaliacao;
+   // @MapsId
+   // @OneToOne
+   // @JoinColumn(name = "prova_id")
+   // private Avaliacao avaliacao;
 
     public Long getId_prova() {
         return id_prova;
@@ -39,14 +38,6 @@ public class Prova {
 
     public void setId_prova(Long id_prova) {
         this.id_prova = id_prova;
-    }
-
-    public Avaliacao getAvaliacao() {
-        return avaliacao;
-    }
-
-    public void setAvaliacao(Avaliacao avaliacao) {
-        this.avaliacao = avaliacao;
     }
 
     public Candidato getCandidato() {
@@ -65,12 +56,12 @@ public class Prova {
         this.criteriosProva = criteriosProva;
     }
 
-    public String getImport_avaliacao() {
-        return import_avaliacao;
+    public String getImport_prova() {
+        return import_prova;
     }
 
-    public void setImport_avaliacao(String import_avaliacao) {
-        this.import_avaliacao = import_avaliacao;
+    public void setImport_prova(String import_prova) {
+        this.import_prova = import_prova;
     }
 
     public Integer getPrazo() {

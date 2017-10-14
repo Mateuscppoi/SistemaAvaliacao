@@ -18,7 +18,7 @@ public class TesteCriterios {
         CriteriosProva criteriosProva = new CriteriosProva();
         criteriosProva.setDescricao("Sprint");
         criteriosProva.setCriteriosObrigatorios(true);
-        criteriosProva.setLinguagem(manager.find(Linguagem.class, 1L));
+        criteriosProva.setLinguagem(manager.find(Linguagem.class, 2L));
         manager.getTransaction().begin();
         manager.persist(criteriosProva);
         manager.getTransaction().commit();

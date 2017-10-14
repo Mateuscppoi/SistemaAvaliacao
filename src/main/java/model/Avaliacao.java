@@ -14,6 +14,11 @@ public class Avaliacao {
     @PrimaryKeyJoinColumn
     private  Prova prova;
 
+
+
+    @Column
+    private Boolean corrigida;
+
     @Column
     private String linkProva;
 
@@ -108,5 +113,13 @@ public class Avaliacao {
 
     public void setProva(Prova prova) {
         this.prova = prova;
+    }
+
+    public Boolean getCorrigida() {
+        return corrigida;
+    }
+
+    public void setCorrigida(Boolean corrigida) {
+        this.corrigida = corrigida;
     }
 }

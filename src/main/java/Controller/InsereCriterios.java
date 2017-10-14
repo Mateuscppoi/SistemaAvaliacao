@@ -16,6 +16,7 @@ public class InsereCriterios {
     private Boolean criteriosObrigatorios;
     private Linguagem linguagem;
 
+
     public CriteriosProva getCriteriosProva() {
         return criteriosProva;
     }

@@ -9,7 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -17,12 +17,12 @@ import java.util.Date;
 public class InsereProva {
 
     private Candidato candidato;
-    private String import_avaliacao;
+    private String import_prova;
     private CriteriosProva criteriosProva;
     private String linguagem;
     private Integer prazo;
     private Date data_solic_ava;
-    private Avaliacao avaliacao;
+ //   private Avaliacao avaliacao;
 
     public Candidato getCandidato() {
         return candidato;
@@ -32,12 +32,12 @@ public class InsereProva {
         this.candidato = candidato;
     }
 
-    public String getImport_avaliacao() {
-        return import_avaliacao;
+    public String getImport_prova() {
+        return import_prova;
     }
 
-    public void setImport_avaliacao(String import_avaliacao) {
-        this.import_avaliacao = import_avaliacao;
+    public void setImport_prova(String import_prova) {
+        this.import_prova = import_prova;
     }
 
     public CriteriosProva getCriteriosProva() {
@@ -68,13 +68,13 @@ public class InsereProva {
         this.data_solic_ava = data_solic_ava;
     }
 
-    public Avaliacao getAvaliacao() {
-        return avaliacao;
-    }
+ //   public Avaliacao getAvaliacao() {
+ //       return avaliacao;
+ //   }
 
-    public void setAvaliacao(Avaliacao avaliacao) {
-        this.avaliacao = avaliacao;
-    }
+ //   public void setAvaliacao(Avaliacao avaliacao) {
+ //       this.avaliacao = avaliacao;
+ //   }
 
     public String retornaProva() {
 
@@ -82,10 +82,17 @@ public class InsereProva {
         EntityManager manager = factory.createEntityManager();
 
         Prova prova = new Prova();
-        prova.setCandidato(manager.find(Candidato.class, candidato.getId_candidato()));
-        prova.setImport_avaliacao("www.seilaoq.com.br");
+        prova.setCandidato(manager.find(Candidato.class, getCandidato()));
+        prova.setImport_prova(import_prova);
         prova.setCriteriosProva(manager.find(CriteriosProva.class, getLinguagem()));
+        Date data  = new Date();
+        prova.setData_solic_ava(data);
+        prova.setPrazo(prazo);
+        manager.getTransaction().begin();
+        manager.persist(prova);
+        manager.getTransaction().commit();
 
+        factory.close();
 
         return"Completado";
     }

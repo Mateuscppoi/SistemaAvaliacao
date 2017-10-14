@@ -15,6 +15,8 @@ public class InsereCandidato {
     private String telefone;
     private String rede_social;
     private Boolean contratado;
+    private Boolean visivel;
+
 
     public String getNome() {
         return nome;
@@ -54,6 +56,14 @@ public class InsereCandidato {
 
     public void setContratado(Boolean contratado) {
         this.contratado = contratado;
+    }
+
+    public Boolean getVisivel() {
+        return visivel;
+    }
+
+    public void setVisivel(Boolean visivel) {
+        this.visivel = visivel;
     }
 
     public String retornaCandidato() {
