@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css"/>
     <link rel="stylesheet" href="css/theme.css" type="text/css" />
     <link rel="stylesheet" href="css/MeuCSS.css" type="text/css"/>
-    <h:title>Login - Db1 Start</h:title>
+    <title>Login - Db1 Start</title>
 </h:head>
 <h:body>
     <div class="py-5 text-white opaque-overlay my-5">
@@ -27,7 +27,7 @@
                     <div class="form-group"> <label>Senha</label>
                         <p:inputText type="password" name="password" class="form-control" placeholder="Password" value="#{login.senha}"/>
                     </div>
-                    <p:commandButton type="submit" class="btn btn-dark" value="Entrar"/>
+                    <p:commandButton type="submit" class="btn btn-dark" value="Entrar" action="#{login.autentica}"/>
                 </h:form>
             </div>
         </div>
