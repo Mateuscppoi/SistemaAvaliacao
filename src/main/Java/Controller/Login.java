@@ -29,10 +29,8 @@ public class Login {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
-    //MÉTODO
-    //CHAMAR OUTRA CLASSE, VALIDANDO LOGIN;
-    
+
+
     public String autentica() {
     	FacesContext fc = FacesContext.getCurrentInstance();
 
@@ -44,7 +42,7 @@ public class Login {
 
 			return "/homeRH";
 		} else {
-			FacesMessage fm = new FacesMessage("usuário e/ou senha inválidos");
+			FacesMessage fm = new FacesMessage("usuï¿½rio e/ou senha invï¿½lidos");
 			fm.setSeverity(FacesMessage.SEVERITY_ERROR);
 			fc.addMessage(null, fm);
 			return "/login";
