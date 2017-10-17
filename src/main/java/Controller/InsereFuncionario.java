@@ -1,4 +1,4 @@
-package DAO;
+package Controller;
 
 import model.Avaliacao;
 import model.Funcionario;

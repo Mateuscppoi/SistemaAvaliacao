@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 @ManagedBean
 public class Login {
+
 	private static final String USUARIO_CORRETO = "admin";
 	private static final String SENHA_CORRETA = "admin";
 
@@ -42,7 +43,7 @@ public class Login {
 
 			return "/homeRH";
 		} else {
-			FacesMessage fm = new FacesMessage("usuï¿½rio e/ou senha invï¿½lidos");
+			FacesMessage fm = new FacesMessage("Usuário e/ou senha inválidos");
 			fm.setSeverity(FacesMessage.SEVERITY_ERROR);
 			fc.addMessage(null, fm);
 			return "/login";
