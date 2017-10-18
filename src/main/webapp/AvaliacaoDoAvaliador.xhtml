@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<ui:composition template="/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                lang="pt-br">
+
+    <ui:define name="corpo">
+
+        <br></br>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <p class="border border-danger text-center">Pontos Fortes</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form"> <textarea name="message" rows="8" cols="100"></textarea> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <p class="border border-danger text-center">Pontos a Melhorar</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form"> <textarea name="message" rows="8" cols="100"></textarea> </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="POST" action="uploadFile" enctype="multipart/form-data" class="text-left"> <strong class="text-danger">Enviar Imagem</strong>
+                            <input type="file" name="file"/> </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="" alt="" style="width:300;height:400;"/>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div class="py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <p class="border border-danger text-center">Parecer</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form"> <textarea name="message" rows="8" cols="100"></textarea> </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2">
+                                <br></br>
+                                <br></br>
+                                <br></br>
+                                <a class="btn btn-danger" href="">Salvar </a>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>
