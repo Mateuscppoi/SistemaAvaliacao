@@ -9,9 +9,9 @@
 		<properties>
 
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.user" value="postgres" />
-			<property name="javax.persistence.jdbc.password" value="mcpp130499" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/testSolutions" />
+			<property name="javax.persistence.jdbc.user" value="krpzdsclmduqtx" />
+			<property name="javax.persistence.jdbc.password" value="f280eb3d71994a31a10d76044c2bc4470dd88411c4e59ec5b473f5c00354b048" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgres://krpztsclmduqtx:f280eb3d71994a31a10d76044c2bc4470dd88411c4e59ec5b473f5c00354b048@ec2-54-204-41-80.compute-1.amazonaws.com:5432/dcqvl2cp5f1bt4" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />

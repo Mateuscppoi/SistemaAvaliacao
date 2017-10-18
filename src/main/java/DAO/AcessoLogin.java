@@ -1,7 +1,5 @@
 package DAO;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -14,11 +12,12 @@ public class AcessoLogin {
 	@Inject
 	private EntityManager manager;
 	
-	public List<Funcionario> findByName(String email, String senha) {
-		Query query = manager.createQuery("Select c.email from Funcionario where c.email = :pEmail and c.senha = :pSenha");
+	public Funcionario findByName(String email, String senha) {
+		Query query = manager.createQuery("Select c from Funcionario c where c.email = :pEmail and c.senha = :pSenha ");
 		query.setParameter("pEmail", email);
 		query.setParameter("pSenha", senha);
-		return query.getResultList();
+		query.setMaxResults(1);
+		return (Funcionario)query.getSingleResult();
 	}
 
 

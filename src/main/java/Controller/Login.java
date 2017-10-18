@@ -1,16 +1,25 @@
 package Controller;
 
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
-@ManagedBean
-public class Login {
+import DAO.AcessoLogin;
+import model.Funcionario;
 
-	private static final String USUARIO_CORRETO = "admin";
-	private static final String SENHA_CORRETA = "admin";
+@ManagedBean
+@RequestScoped
+@Named
+public class Login {
+	
+	@Inject
+	private AcessoLogin acesso;
+	
 
     private String email;
     private String senha;
@@ -27,15 +36,27 @@ public class Login {
         this.email = email;
     }
 
-    public void setSenha(String senha) {
+
+	public void setSenha(String senha) {
         this.senha = senha;
     }
 
 
     public String autentica() {
+    	Funcionario funcionario = acesso.findByName(email, senha);
+    	
     	FacesContext fc = FacesContext.getCurrentInstance();
+    	
+    	if (funcionario.getAvaliador()) {
 
-		if (USUARIO_CORRETO.equals(this.email) && SENHA_CORRETA.equals(this.senha)) {
+			ExternalContext ec = fc.getExternalContext();
+			HttpSession session = (HttpSession) ec.getSession(false);
+			session.setAttribute("email", this.email);
+
+			return "/homeAval";
+    	}
+    	
+		if (funcionario.getAdministrador()) {
 
 			ExternalContext ec = fc.getExternalContext();
 			HttpSession session = (HttpSession) ec.getSession(false);
