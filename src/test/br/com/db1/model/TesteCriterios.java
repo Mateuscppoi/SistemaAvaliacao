@@ -33,7 +33,7 @@ public class TesteCriterios {
         EntityManager manager = factory.createEntityManager();
 
         Linguagem linguagem = new Linguagem();
-        linguagem.setDescricao("C#");
+        linguagem.setDescricao("sedrfghjk");
         manager.getTransaction().begin();
         manager.persist(linguagem);
         manager.getTransaction().commit();

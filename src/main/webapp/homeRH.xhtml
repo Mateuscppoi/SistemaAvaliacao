@@ -8,23 +8,27 @@
                 lang="pt-br">
 
     <ui:define name="corpo">
-        <div class="py-5">
+        <div class="py-1">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 m-4">
+                    <div class="col-md-12 m-1">
                         <h2 class="">Home</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                            <li class="breadcrumb-item active">Avaliador</li>
+                            <li class="breadcrumb-item active">Provas Pendedntes</li>
                         </ul>
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                            <li class="breadcrumb-item active">Fusca</li>
-                            <li class="breadcrumb-item">
-                                <a href="#">Provas aguardando correção(0)</a>
-                            </li>
+                           <h:dataTable value="#{multAvaliacao.funcionarios}" var="avaliador" >
+                               <h:column>
+                                   <f:facet name="header">Nome</f:facet>#{avaliador.nome}
+                               </h:column>
+                               <h:column>
+                                   <a href="#">Provas aguardando correção(#{avaliador.qtd_provas})</a>
+                               </h:column>
+                           </h:dataTable>
                         </ul>
                     </div>
                 </div>

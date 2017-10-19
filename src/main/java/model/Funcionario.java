@@ -33,6 +33,17 @@ public class Funcionario {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario")
     private List<Avaliacao> avaliacao;
 
+    @Column
+    private Integer qtd_provas;
+
+    public Integer getQtd_provas() {
+        return qtd_provas;
+    }
+
+    public void setQtd_provas(Integer qtd_provas) {
+        this.qtd_provas = qtd_provas;
+    }
+
     public Long getId() {
         return id;
     }
