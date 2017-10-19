@@ -14,7 +14,7 @@ public class MostraAvaliadores {
     private EntityManager manager;
 
     public List<Funcionario> showFuncionarios () {
-        return manager.createQuery("select f from Funcionario f").getResultList();
+        return manager.createQuery("select f from Funcionario f where avaliador = true ").getResultList();
     }
 
 }

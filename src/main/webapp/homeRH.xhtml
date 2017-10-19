@@ -18,30 +18,20 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                            <li class="breadcrumb-item active">Provas Pendedntes</li>
+                            <li class="breadcrumb-item active">Provas Pendentes</li>
                         </ul>
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
                            <h:dataTable value="#{multAvaliacao.funcionarios}" var="avaliador" >
                                <h:column>
-                                   <f:facet name="header">Nome</f:facet>#{avaliador.nome}
+                                   <f:facet name="header">Avaliador</f:facet>#{avaliador.nome}
                                </h:column>
                                <h:column>
-                                   <a href="#">Provas aguardando correção(#{avaliador.qtd_provas})</a>
+                                   <a href="#">Provas aguardando correção (#{avaliador.qtd_provas})</a>
                                </h:column>
                            </h:dataTable>
                         </ul>
                     </div>
                 </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                        <li class="breadcrumb-item active">João</li>
-                        <li class="breadcrumb-item">
-                            <a href="#">Provas aguardando correção(0)</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
             </div>
         </div>
 
