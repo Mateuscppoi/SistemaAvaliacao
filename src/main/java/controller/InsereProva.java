@@ -1,6 +1,5 @@
-package Controller;
+package controller;
 
-import model.Avaliacao;
 import model.Candidato;
 import model.CriteriosProva;
 import model.Prova;
@@ -9,7 +8,6 @@ import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 

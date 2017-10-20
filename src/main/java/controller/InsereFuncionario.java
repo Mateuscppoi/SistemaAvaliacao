@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import model.Avaliacao;
 import model.Funcionario;

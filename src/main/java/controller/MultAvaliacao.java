@@ -1,6 +1,6 @@
-package Controller;
+package controller;
 
-import DAO.MostraAvaliadores;
+import dao.MostraAvaliadores;
 import model.Funcionario;
 
 

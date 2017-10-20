@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
 
-import DAO.AcessoLogin;
+import dao.AcessoLogin;
 import model.Funcionario;
 
 @ManagedBean
@@ -64,7 +64,7 @@ public class Login {
 
 			return "/homeRH";
 		} else {
-			FacesMessage fm = new FacesMessage("Usuário e/ou senha inválidos");
+			FacesMessage fm = new FacesMessage("Usuï¿½rio e/ou senha invï¿½lidos");
 			fm.setSeverity(FacesMessage.SEVERITY_ERROR);
 			fc.addMessage(null, fm);
 			return "/login";

@@ -1,4 +1,4 @@
-package DAO;
+package dao;
 
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
