@@ -12,7 +12,7 @@ import java.util.Date;
 
 
 @ManagedBean
-public class InsereProva {
+public class ProvaController {
 
     private Candidato candidato;
     private String import_prova;

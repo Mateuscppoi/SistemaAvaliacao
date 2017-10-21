@@ -9,7 +9,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @ManagedBean
-public class InsereCriterios {
+public class CriteriosController {
 
     private CriteriosProva criteriosProva = new CriteriosProva();
     private String descricao;

@@ -22,7 +22,7 @@
                     <div class="col-md-12">
                         <h:form class="" method="post" action="https://formspree.io/">
                             <div class="form-group"> <label class="">Nome:</label>
-                                <h:inputText type="text" name="nome" class="form-control" placeholder="Informe o nome" value="#{insereFuncionario.nome}"/>
+                                <h:inputText type="text" name="nome" class="form-control" placeholder="Informe o nome" value="#{funcionarioController.nome}"/>
                             </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -32,7 +32,7 @@
                         </div>
                     <div class="col-md-6">
                         <div class="form-group"> <label class="">E-mail:</label>
-                            <h:inputText type="text" name="email" class="form-control" placeholder="Informe o e-mail" value="#{insereFuncionario.email}"/>
+                            <h:inputText type="text" name="email" class="form-control" placeholder="Informe o e-mail" value="#{funcionarioController.email}"/>
                         </div>
                     </div>
                 </div>
@@ -46,20 +46,20 @@
                 <div class="row">
                     <div class="col-md-6" style="">
                         <div class="form-group"> <label class="">Especialidade:</label>
-                            <h:inputText type="text" name="especialidade" class="form-control" placeholder="Informe a especialidade" value="#{insereFuncionario.especialidade}"/>
+                            <h:inputText type="text" name="especialidade" class="form-control" placeholder="Informe a especialidade" value="#{funcionarioController.especialidade}"/>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group"> <label class="">Senha:</label>
-                            <h:inputText type="password" name="senha" class="form-control" placeholder="Informe a senha" value="#{insereFuncionario.senha}"/>
+                            <h:inputText type="password" name="senha" class="form-control" placeholder="Informe a senha" value="#{funcionarioController.senha}"/>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
                         <h:selectManyCheckbox>
-                            <f:selectItem intemValue="#{insereFuncionario.administrador}" itemLabel="Adminitrador"/>
-                            <f:selectItem intemValue="#{insereFuncionario.avaliador}" itemLabel="Avaliador"/>
+                            <f:selectItem intemValue="#{funcionarioController.administrador}" itemLabel="Adminitrador"/>
+                            <f:selectItem intemValue="#{funcionarioController.avaliador}" itemLabel="Avaliador"/>
                             <f:selectItem intemValue="4" itemLabel="Candidato"/>
                         </h:selectManyCheckbox>
                     </div>

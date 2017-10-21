@@ -11,7 +11,7 @@ import javax.persistence.Persistence;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TesteInsereProva {
+public class TesteProvaController {
 
     @Test
     public void insereProva() {

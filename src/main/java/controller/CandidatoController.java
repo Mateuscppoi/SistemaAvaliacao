@@ -8,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @ManagedBean
-public class InsereCandidato {
+public class CandidatoController {
 
     private String nome;
     private String email;

@@ -1,11 +1,8 @@
 package controller;
 
-import dao.MostraAvaliadores;
+import dao.FuncionarioDAO;
 import model.Funcionario;
-
-
 import javax.annotation.PostConstruct;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -16,10 +13,14 @@ import java.util.List;
 @ManagedBean
 @ApplicationScoped
 @Named
-public class MultAvaliacao {
+public class AvaliacaoController {
+
+    public AvaliacaoController() {
+        funcionarios = new ArrayList<Funcionario>();
+    }
 
     @Inject
-    private MostraAvaliadores mostra;
+    private FuncionarioDAO dao;
 
     private List<Funcionario> funcionarios;
 
@@ -46,13 +47,8 @@ public class MultAvaliacao {
         return funcionarios;
     }
 
-    public MostraAvaliadores getMostra() {
-        return mostra;
-    }
-
     @PostConstruct
     public void showFuncionario() {
-        funcionarios = new ArrayList<Funcionario>();
-        funcionarios.addAll(mostra.showFuncionarios());
+        funcionarios.addAll(dao.showFuncionarios());
     }
 }

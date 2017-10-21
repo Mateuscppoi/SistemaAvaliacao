@@ -36,6 +36,9 @@ public class Funcionario {
     @Column
     private Integer qtd_provas;
 
+    @Column
+    private Boolean ativo;
+
     public Integer getQtd_provas() {
         return qtd_provas;
     }
@@ -98,6 +101,14 @@ public class Funcionario {
 
     public void setAdministrador(Boolean administrador) {
         this.administrador = administrador;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
 
     public List<Avaliacao> getAvaliacao() {

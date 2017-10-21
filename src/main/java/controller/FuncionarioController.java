@@ -1,17 +1,19 @@
 package controller;
 
+import dao.FuncionarioDAO;
+import dto.funcionarios.DTOFuncionarioInsert;
 import model.Avaliacao;
-import model.Funcionario;
 import model.Linguagem;
 
 import javax.faces.bean.ManagedBean;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.inject.Inject;
 import java.util.List;
 
 @ManagedBean
-public class InsereFuncionario {
+public class FuncionarioController {
+
+    @Inject
+    private FuncionarioDAO dao;
 
     private String nome;
     private String email;
@@ -20,6 +22,7 @@ public class InsereFuncionario {
     private Boolean avaliador;
     private Boolean administrador;
     private List<Avaliacao> avaliacao;
+    private Boolean ativo;
 
     public String getNome() {
         return nome;
@@ -77,24 +80,16 @@ public class InsereFuncionario {
         this.avaliacao = avaliacao;
     }
 
+    public Boolean getAtivo() {
+        return ativo;
+    }
 
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
 
     public String retornaFuncionario() {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
-        EntityManager manager = factory.createEntityManager();
-
-
-        Funcionario funcionario = new Funcionario();
-        funcionario.setAdministrador(administrador);
-        funcionario.setAvaliador(avaliador);
-        funcionario.setNome(nome);
-        funcionario.setEmail(email);
-        funcionario.setSenha(senha);
-        funcionario.setEspecialidade(manager.find(Linguagem.class, especialidade));
-        manager.getTransaction().begin();
-        manager.persist(funcionario);
-        manager.getTransaction().commit();
-
-        return "Completado";
+        DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email, senha, especialidade, avaliador, administrador, avaliacao, ativo);
+        return dao.novoFuncionario(funcionario);
     }
 }
