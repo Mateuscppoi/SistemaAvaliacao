@@ -20,4 +20,28 @@ public class DTOCandidatoInsert {
         this.contratado = contratado;
         this.prova = prova;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public String getRede_social() {
+        return rede_social;
+    }
+
+    public Boolean getContratado() {
+        return contratado;
+    }
+
+    public List<Prova> getProva() {
+        return prova;
+    }
 }
