@@ -3,18 +3,18 @@ package dto.funcionarios;
 public class DTOFuncionarioDelete {
 
     private final Boolean ativo;
-    private final Long id;
+    private final String nome;
 
-    public DTOFuncionarioDelete(Boolean ativo, Long id) {
+    public DTOFuncionarioDelete(Boolean ativo, String nome) {
         this.ativo = ativo;
-        this.id = id;
+        this.nome = nome;
     }
 
     public Boolean getAtivo() {
         return ativo;
     }
 
-    public Long getId() {
-        return id;
+    public String getNome() {
+        return nome;
     }
 }

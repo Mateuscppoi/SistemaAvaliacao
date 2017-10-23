@@ -9,6 +9,7 @@ import model.Linguagem;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
 
 @Named
@@ -16,9 +17,19 @@ public class FuncionarioDAO {
     @Inject
     private EntityManager manager;
 
+    private Integer idFuncionario;
+
     public List<Funcionario> showFuncionarios () {
         return manager.createQuery("select f from Funcionario f where avaliador = true ").getResultList();
     }
+
+   /* public Integer IdFuncionario(String nome) {
+        Query query = manager.createQuery("select f.id from funcionario f where f.nome = :pNome");
+        query.setParameter("pNome", "%"+nome+"%");
+        idFuncionario = query.getFirstResult();
+
+        return idFuncionario;
+    }*/
 
     public String novoFuncionario(DTOFuncionarioInsert request){
         Funcionario funcionario = new Funcionario();
@@ -37,13 +48,19 @@ public class FuncionarioDAO {
         return "Completado";
     }
 
-    public String DeleteFuncionario(DTOFuncionarioDelete request, String id){
-        Funcionario funcionario = new Funcionario();
-        funcionario.setId(funcionario.getId());
-        funcionario.setAtivo(false);
-        manager.getTransaction().begin();
-        manager.persist(funcionario);
-        manager.getTransaction().commit();
+    public String DeleteFuncionario(DTOFuncionarioDelete request, String nome){
+        try {
+            Query query = manager.createQuery("select f.id from funcionario f where f.nome = :pNome");
+            query.setParameter("pNome", "%"+nome+"%");
+            idFuncionario = query.getFirstResult();
+            manager.getTransaction().begin();
+            Query query1 =  manager.createQuery("update funcionario f set f.ativo = false where f.id = :pId");
+            query.setParameter("pId", idFuncionario);
+            manager.getTransaction().commit();
+        } catch (Exception e) {
+            System.err.println();
+            return "Erro";
+        }
 
         return "Completado";
     }
