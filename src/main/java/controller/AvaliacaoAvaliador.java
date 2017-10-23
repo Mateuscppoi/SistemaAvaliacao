@@ -1,14 +1,27 @@
 package controller;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
+import model.Avaliacao;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@ManagedBean
+@ApplicationScoped
+@Named
 public class AvaliacaoAvaliador {
+
+    @Inject
+    private Avaliacao dao;
 
     private String pontosFortes;
     private String pontosAMelhorar;
     private String linkProvaCorrigida;
     private String parecer;
+
 
     public String getPontosFortes() {
         return pontosFortes;
