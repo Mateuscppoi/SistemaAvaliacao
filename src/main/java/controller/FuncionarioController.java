@@ -3,13 +3,20 @@ package controller;
 import dao.FuncionarioDAO;
 import dto.funcionarios.DTOFuncionarioInsert;
 import model.Avaliacao;
+import model.Funcionario;
 import model.Linguagem;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.inject.Named;
+import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean
+@ApplicationScoped
+@Named
 public class FuncionarioController {
 
     @Inject
@@ -23,6 +30,16 @@ public class FuncionarioController {
     private Boolean administrador;
     private List<Avaliacao> avaliacao;
     private Boolean ativo;
+
+    public FuncionarioController() {
+        funcionarios = new ArrayList<Funcionario>();
+    }
+
+    private List<Funcionario> funcionarios;
+
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
 
     public String getNome() {
         return nome;
@@ -88,8 +105,8 @@ public class FuncionarioController {
         this.ativo = ativo;
     }
 
-    public String retornaFuncionario() {
-        DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email, senha, especialidade, avaliador, administrador, avaliacao, ativo);
-        return dao.novoFuncionario(funcionario);
+    @PostConstruct
+    public void showFuncionario() {
+        funcionarios.addAll(dao.showFuncionarios());
     }
-}
+    }
