@@ -12,18 +12,16 @@
             <div class="container text-dark">
                 <div class="row">
                     <div class="col-md-12">
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item">
-                                <a href="homeRH.xhtml" class="nav-link text-dark"><i class="fa fa-home fa-home"></i>Home</a>
+                        <ul class="nav nav-tabs" >
+
+                            <li class="nav-item" value="#{funcionarioController.funcionarios}">
+                                <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes</a>
                             </li>
                             <li class="nav-item">
-                                <a href="cadastroPessoa.xhtml" class="nav-link text-danger">Cadastro</a>
+                                <a href="andamentoAvaliador.xhtml" class="nav-link text-danger">Em andamento</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">Avaliações</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">Configurações da prova</a>
+                                <a href="finalizadaAvaliador.xhtml" class="nav-link text-danger">Finalizadas</a>
                             </li>
                         </ul>
                     </div>
@@ -34,23 +32,20 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 m-1">
-                        <h2 class="">Home</h2>
+                        <h2 class="">Correções finalizadas</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                            <li class="breadcrumb-item active">Provas Pendentes</li>
-                        </ul>
-                        <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                           <h:dataTable value="#{avaliacaoController.funcionarios}" var="avaliador" >
-                               <h:column>
-                                   <f:facet name="header">Avaliador</f:facet>#{avaliador.nome}
-                               </h:column>
-                               <h:column>
-                                   <a href="#">Provas aguardando correção (#{avaliador.qtd_provas})</a>
-                               </h:column>
-                           </h:dataTable>
+                            <h:dataTable value="#{provaController.status}" >
+                                <h:column>
+                                    <f:facet name="header">Prova</f:facet>#{provaController.id}
+                                </h:column>
+                                <h:column>
+                                    <a href="AvaliacaoDoAvaliador.xhtml">Prazo para correção (#{provaController.prazo})</a>
+                                </h:column>
+                            </h:dataTable>
                         </ul>
                     </div>
                 </div>

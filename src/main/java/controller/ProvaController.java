@@ -14,13 +14,18 @@ import java.util.Date;
 @ManagedBean
 public class ProvaController {
 
+
     private Candidato candidato;
+    private Integer id;
     private String import_prova;
     private CriteriosProva criteriosProva;
     private String linguagem;
     private Integer prazo;
     private Date data_solic_ava;
- //   private Avaliacao avaliacao;
+    private String status;
+
+
+//   private Avaliacao avaliacao;
 
     public Candidato getCandidato() {
         return candidato;
@@ -66,7 +71,22 @@ public class ProvaController {
         this.data_solic_ava = data_solic_ava;
     }
 
- //   public Avaliacao getAvaliacao() {
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    //   public Avaliacao getAvaliacao() {
  //       return avaliacao;
  //   }
 

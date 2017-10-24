@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<ui:composition template="/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                lang="pt-br">
+
+    <ui:define name="corpo">
+        <div class="py-5">
+            <div class="container text-dark">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs" >
+
+                            <li class="nav-item" value="#{funcionarioController.funcionarios}">
+                                <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes</a>
+                    </li>
+                            <li class="nav-item">
+                                <a href="andamentoAvaliador.xhtml" class="nav-link text-danger">Em andamento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="finalizadaAvaliador.xhtml" class="nav-link text-danger">Finalizadas</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 m-1">
+                        <h2 class="">Provas pendentes</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
+                            <h:dataTable value="#{provaController.status}" >
+                                <h:column>
+                                    <f:facet name="header">Prova</f:facet>#{provaController.id}
+                                </h:column>
+                                <h:column>
+                                    <a href="AvaliacaoDoAvaliador.xhtml">Prazo para correção (#{provaController.prazo})</a>
+                        </h:column>
+                            </h:dataTable>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>

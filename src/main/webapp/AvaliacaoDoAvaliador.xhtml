@@ -8,8 +8,25 @@
                 lang="pt-br">
 
     <ui:define name="corpo">
-
-        <br></br>
+        <div class="py-5">
+            <div class="container text-dark">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-danger">Pendentes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-danger">Em andamento</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-danger">Finalizadas</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="py-5">
             <div class="container">
                 <div class="row">
@@ -36,12 +53,12 @@
                         <div class="form"> <textarea name="message" rows="8" cols="100"></textarea> </div>
                     </div>
                 </div>
-                <div class="row">
+                <!--div class="row">
                     <div class="col-md-12">
                         <form method="POST" action="uploadFile" enctype="multipart/form-data" class="text-left"> <strong class="text-danger">Enviar Imagem</strong>
                             <input type="file" name="file"/> </form>
                     </div>
-                </div>
+                </div-->
                 <div class="row">
                     <div class="col-md-12">
                         <img src="" alt="" style="width:300;height:400;"/>
@@ -72,7 +89,7 @@
                                 <br></br>
                                 <br></br>
                                 <br></br>
-                                <a class="btn btn-danger" href="">Salvar </a>
+                                <a class="btn btn-dark" href="">Salvar </a>
                             </div>
                             <div class="col-md-2"></div>
                         </div>

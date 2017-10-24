@@ -1,6 +1,10 @@
 package dto.avaliacao;
 
+<<<<<<< HEAD
 import javax.persistence.Query;
+=======
+
+>>>>>>> b90266edeffc000919ae1a6a04bac8351e594bbb
 import java.util.Date;
 
 public class DTOAvaliacaoUpdate {
@@ -38,4 +42,8 @@ public class DTOAvaliacaoUpdate {
     public Date getConclusao_avaliacao() {
         return conclusao_avaliacao;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> b90266edeffc000919ae1a6a04bac8351e594bbb
 }
