@@ -16,7 +16,6 @@ public class DTOFuncionarioUpdate {
     private final List<Avaliacao> avaliacao;
     private final Boolean ativo;
 
-
     public DTOFuncionarioUpdate(String nome, String email, String senha, List<Linguagem> especialidade, Boolean avaliador, Boolean administrador, List<Avaliacao> avaliacao, Boolean ativo) {
         this.nome = nome;
         this.email = email;
@@ -58,5 +57,6 @@ public class DTOFuncionarioUpdate {
 
     public Boolean getAtivo() {
         return ativo;
+
     }
 }
