@@ -6,6 +6,7 @@
                 xmlns:p="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 lang="pt-br">
+
     <ui:define name="corpo">
         <div class="py-5">
             <div class="container text-dark">
@@ -19,7 +20,7 @@
                                 <a href="cadastroPessoa.xhtml" class="nav-link text-danger">Cadastro</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">Avaliações</a>
+                                <a href="solicitarCorrecaoRH.xhtml" class="nav-link text-danger">Avaliações</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-danger">Configurações da prova</a>
@@ -29,15 +30,21 @@
                 </div>
             </div>
         </div>
-        <div class="py-5">
+        <!--div class="py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <h:commandButton class="btn btn-lg btn-dark" href="" value="Novo"/>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="form-inline m-0">
+                            <h:inputText class="form-control mr-2"/>
+                            <h:commandButton class="btn btn-dark" value="Pesquisar"/>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div-->
         <div class="py-5">
             <div class="container">
                 <div class="row">
@@ -79,11 +86,11 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <h:selectManyCheckbox>
+                        <h:selectOneRadio>
                             <f:selectItem intemValue="#{funcionarioController.administrador}" itemLabel="Adminitrador"/>
                             <f:selectItem intemValue="#{funcionarioController.avaliador}" itemLabel="Avaliador"/>
-                            <f:selectItem intemValue="4" itemLabel="Candidato"/>
-                        </h:selectManyCheckbox>
+                            <f:selectItem intemValue="#{candidatoController.visivel}" itemLabel="Candidato"/>
+                        </h:selectOneRadio>
                     </div>
                 </div>
                 <div class="row">
