@@ -16,9 +16,9 @@ public class TesteFuncionarioController {
         EntityManager manager = factory.createEntityManager();
 
         Funcionario funcionario = new Funcionario();
-        funcionario.setNome("Toico");
-        funcionario.setEmail("toico.rules@db1.com.br");
-        funcionario.setSenha("eaecambada");
+        funcionario.setNome("Tamara");
+        funcionario.setEmail("tamara.rules@db1.com.br");
+        funcionario.setSenha("sein");
         funcionario.setAvaliador(false);
         funcionario.setAdministrador(true);
         funcionario.setEspecialidade(manager.find(Linguagem.class, 3L));

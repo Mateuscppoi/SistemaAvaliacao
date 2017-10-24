@@ -3,6 +3,7 @@ package controller;
 import dao.FuncionarioDAO;
 import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioInsert;
+import dto.funcionarios.DTOFuncionarioUpdate;
 import model.Avaliacao;
 import model.Funcionario;
 import model.Linguagem;
@@ -36,6 +37,7 @@ public class FuncionarioController {
     private Boolean administrador;
     private List<Avaliacao> avaliacao;
     private Boolean ativo;
+
 
     public List<Funcionario> getFuncionarios() {
         return funcionarios;
@@ -112,6 +114,11 @@ public class FuncionarioController {
 
     public String deleteFuncionario() {
         DTOFuncionarioDelete funcionario = new DTOFuncionarioDelete(false, nome);
-        return dao.DeleteFuncionario(funcionario, nome);
+        return dao.DeleteFuncionario(funcionario);
+    }
+
+    public String updateFuncionario() {
+        DTOFuncionarioUpdate funcionario = new DTOFuncionarioUpdate(nome,email,senha);
+        return dao.updateFuncionario(funcionario);
     }
 }

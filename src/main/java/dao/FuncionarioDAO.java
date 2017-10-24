@@ -17,20 +17,25 @@ public class FuncionarioDAO {
     @Inject
     private EntityManager manager;
 
-    private Integer idFuncionario;
-
     public List<Funcionario> showFuncionarios () {
         return manager.createQuery("select f from Funcionario f where avaliador = true ").getResultList();
     }
 
-   /* public Integer IdFuncionario(String nome) {
-        Query query = manager.createQuery("select f.id from funcionario f where f.nome = :pNome");
-        query.setParameter("pNome", "%"+nome+"%");
-        idFuncionario = query.getFirstResult();
+    public Funcionario getById(Long id) {
+        Query query = manager.createQuery("select f from Funcionario f where id = :pId");
+        query.setParameter("pId",id);
 
-        return idFuncionario;
-    }*/
+        return (Funcionario) query.getSingleResult();
+    }
 
+    public Funcionario getByName(String nome) {
+        Query query = manager.createQuery("select f from Funcionario f where nome like :pNome");
+        query.setParameter("pNome","%"+nome+"%");
+
+        return (Funcionario) query.getSingleResult();
+    }
+
+    @Transactional
     public String novoFuncionario(DTOFuncionarioInsert request){
         Funcionario funcionario = new Funcionario();
         funcionario.setAdministrador(request.getAdministrador());
@@ -40,32 +45,36 @@ public class FuncionarioDAO {
         funcionario.setSenha(request.getSenha());
         funcionario.setEspecialidade(manager.find(Linguagem.class, request.getEspecialidade()));
         funcionario.setAtivo(true);
-
-        manager.getTransaction().begin();
         manager.persist(funcionario);
-        manager.getTransaction().commit();
 
         return "Completado";
     }
 
-    public String DeleteFuncionario(DTOFuncionarioDelete request, String nome){
+    @Transactional
+    public String DeleteFuncionario(DTOFuncionarioDelete request){
+        Funcionario funcionario = getByName(request.getNome());
+        funcionario.setAtivo(Boolean.FALSE);
         try {
-            Query query = manager.createQuery("select f.id from funcionario f where f.nome = :pNome");
-            query.setParameter("pNome", "%"+nome+"%");
-            idFuncionario = query.getFirstResult();
-            manager.getTransaction().begin();
-            Query query1 =  manager.createQuery("update funcionario f set f.ativo = false where f.id = :pId");
-            query.setParameter("pId", idFuncionario);
-            manager.getTransaction().commit();
+            manager.merge(funcionario);
         } catch (Exception e) {
-            System.err.println();
+            System.err.println(e.getMessage());
             return "Erro";
         }
-
         return "Completado";
     }
 
-    public String UpdateFuncionario (DTOFuncionarioUpdate request) {
+    @Transactional
+    public String updateFuncionario (DTOFuncionarioUpdate request) {
+
+        Funcionario funcionario = getByName(request.getNome());
+        funcionario.setEmail(request.getEmail());
+        funcionario.setSenha(request.getSenha());
+        try {
+            manager.merge(funcionario);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            return "Erro";
+        }
 
         return "Completado";
     }

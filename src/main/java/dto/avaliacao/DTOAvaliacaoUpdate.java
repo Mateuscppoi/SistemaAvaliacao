@@ -1,16 +1,10 @@
 package dto.avaliacao;
 
-<<<<<<< HEAD
 import javax.persistence.Query;
-
-public class DTOAvaliacaoUpdate {
-
-  /*  Query query = manager.createQuery("Select u from Uf u where u.id = :pId");
-		query.setParameter("pId", id);*/
-=======
 import java.util.Date;
 
 public class DTOAvaliacaoUpdate {
+
     private final String link_prova;
     private final String pontos_fortes;
     private final String pontos_melhorar;
@@ -44,5 +38,4 @@ public class DTOAvaliacaoUpdate {
     public Date getConclusao_avaliacao() {
         return conclusao_avaliacao;
     }
->>>>>>> 957a9ad36b27476f7aa65a9882cd96e709388ccb
 }

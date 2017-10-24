@@ -7,13 +7,15 @@
       lang="pt-br">
 
 <head>
-</head>harset="utf-8"/>
+</head>
 
 <h:body>
 
     <h:form class="form-inline" method="post" action="https://formspree.io/">
         <h:inputText value="#{funcionarioController.nome}" />
-        <button type="submit" value="#{funcionarioController.deleteFuncionario}">Subscribe</button>
+        <h:inputText value="#{funcionarioController.email}" />
+        <h:inputText value="#{funcionarioController.senha}" />
+        <h:commandButton type="submit" action="#{funcionarioController.updateFuncionario}"/>
     </h:form>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
