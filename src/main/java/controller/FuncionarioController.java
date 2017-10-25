@@ -110,9 +110,9 @@ public class FuncionarioController {
 
     @PostConstruct
     public void showFuncionario() {
+        funcionarios = new ArrayList<Funcionario>();
         funcionarios.addAll(dao.showFuncionarios());
     }
-
 
 
     public String deleteFuncionario() {
