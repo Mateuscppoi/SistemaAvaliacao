@@ -1,5 +1,7 @@
 package dto.avaliacao;
 
+
+import javax.persistence.Query;
 import java.util.Date;
 
 public class DTOAvaliacaoUpdate {
@@ -40,4 +42,5 @@ public class DTOAvaliacaoUpdate {
     public Date getConclusao_avaliacao() {
         return conclusao_avaliacao;
     }
+
 }

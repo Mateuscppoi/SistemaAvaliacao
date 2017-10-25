@@ -17,7 +17,12 @@
                                 <a href="homeRH.xhtml" class="nav-link text-dark"><i class="fa fa-home fa-home"></i>Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="cadastroPessoa.xhtml" class="nav-link text-danger">Cadastro</a>
+                                <button class="btn dropdown-toggle btn-outline-danger border border-light" data-toggle="dropdown"> Cadastro </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="cadastroCandidato.xhtml">Candidato</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="cadastroFuncionario.xhtml">Funcionário</a>
+                                </div>
                             </li>
                             <li class="nav-item">
                                 <a href="solicitarCorrecaoRH.xhtml" class="nav-link text-danger">Avaliações</a>
@@ -39,27 +44,49 @@
                 </div>
             </div>
         </div>
+        <div class="py-5"><div class="container"><div class="row">
+            <div class="col-md-6"><h4 class="text-left">Avaliador</h4>
+                <h:selectOneListbox>Selecione o avaliador:
+                    <f:selectItem itemValue="#{funcionarioController.nome}"></f:selectItem>
+                </h:selectOneListbox></div>
+            <div class="col-md-6">
+                <h4 class="">Candidato</h4>
+                <form class="form-inline" method="post" action="https://formspree.io/">
+                    <h:inputText name="email" class="form-control" placeholder="Pesquise nome candidato" value="#{candidatoController.nome}"/>
+                    <h:commandButton class="btn btn-dark" value="Pesquisar"/>
+                </form>
+            </div>
+        </div>
+        </div>
+        </div>
         <div class="py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="">Avaliador</h4>
-                        <div class="btn-group">
-                            <!--button class="btn dropdown-toggle btn-outline-danger" data-toggle="dropdown"> Dropdown </button>
-                            <div class="dropdown-menu"-->
-                                <h:selectOneListbox>
-                                    <f:selectItem itemValue="Tessteeeee">Testeeee</f:selectItem>
-                                </h:selectOneListbox>
-                            </div>
-                        </div>
+                    <div class="col-md-12">
+                        <h5 class="">Candidatos encontrados</h5>
                     </div>
-                    <div class="col-md-6">
-                        <form class="form-inline" method="post" action="https://formspree.io/">
-                            <h:inputText name="nomeCandidatoPesquisa" class="form-control" placeholder="Nome candidatos"/>
-                            <h:commandButton class="btn btn-dark" value="Buscar"/>
-                        </form>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
+                        <h:dataTable value="#{candidatoController.nome}" var="candidato" >
+                            <h:column>
+                                <f:facet name="header">Nome</f:facet>#{candidato.nome}
+                            </h:column>
+                        </h:dataTable>
+                    </ul>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn btn-dark" href="">Enviar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
         </ui:define>
         </ui:composition>

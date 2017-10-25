@@ -3,6 +3,7 @@ package controller;
 import dao.FuncionarioDAO;
 import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioUpdate;
+
 import model.Avaliacao;
 import model.Funcionario;
 import model.Linguagem;
@@ -33,9 +34,23 @@ public class FuncionarioController {
     private Boolean ativo;
     private List<Funcionario> funcionarios;
 
+    public FuncionarioDAO getDao() {
+        return dao;
+    }
+
+    public void setDao(FuncionarioDAO dao) {
+        this.dao = dao;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
+
     public FuncionarioController() {
         funcionarios = new ArrayList<Funcionario>();
     }
+
+
     public List<Funcionario> getFuncionarios() {
         return funcionarios;
     }
@@ -106,8 +121,10 @@ public class FuncionarioController {
 
     @PostConstruct
     public void showFuncionario() {
+        funcionarios = new ArrayList<Funcionario>();
         funcionarios.addAll(dao.showFuncionarios());
     }
+
 
     public String deleteFuncionario() {
         DTOFuncionarioDelete funcionario = new DTOFuncionarioDelete(false, nome);

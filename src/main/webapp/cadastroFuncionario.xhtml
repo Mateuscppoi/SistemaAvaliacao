@@ -17,13 +17,12 @@
                                 <a href="homeRH.xhtml" class="nav-link text-dark"><i class="fa fa-home fa-home"></i>Home</a>
                             </li>
                             <li class="nav-item">
-                                <button class="btn dropdown-toggle btn-outline-danger" data-toggle="dropdown"> Cadastro </button>
+                                <button class="btn dropdown-toggle btn-outline-danger border border-light" data-toggle="dropdown"> Cadastro </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="cadastroCandidato.xhtml">Candidato</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="cadastroPessoa.xhtml">Funcionário</a>
+                                    <a class="dropdown-item" href="cadastroFuncionario.xhtml">Funcionário</a>
                                 </div>
-                                <!--a href="cadastroPessoa.xhtml" class="nav-link text-danger">Cadastro</a-->
                             </li>
                             <li class="nav-item">
                                 <a href="solicitarCorrecaoRH.xhtml" class="nav-link text-danger">Avaliações</a>
@@ -51,6 +50,15 @@
                 </div>
             </div>
         </div-->
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="">Cadastro de funcionários</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="py-5">
             <div class="container">
                 <div class="row">
@@ -87,7 +95,7 @@
                     </div>
                             <div class="col-md-6">
                                 <h:selectBooleanCheckbox>
-                                    <f:selectItem intemValue="#{funcionarioController.ativo}" itemLabel="Inativo"></f:selectItem>
+                                    <f:selectItem intemValue="#{funcionarioController.ativo}">Inativo </f:selectItem>
                                 </h:selectBooleanCheckbox>
                             </div>
                 </div>

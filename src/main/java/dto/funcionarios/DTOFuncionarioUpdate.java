@@ -6,6 +6,7 @@ public class DTOFuncionarioUpdate {
     private final String senha;
 
     public DTOFuncionarioUpdate( String nome, String email, String senha) {
+
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -21,4 +22,5 @@ public class DTOFuncionarioUpdate {
     public String getSenha() {
         return senha;
     }
+
 }
