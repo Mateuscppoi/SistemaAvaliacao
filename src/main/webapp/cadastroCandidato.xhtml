@@ -57,50 +57,37 @@
                     <div class="col-md-12">
                         <h:form class="" method="post" action="https://formspree.io/">
                             <div class="form-group"> <label class="">Nome:</label>
-                                <h:inputText type="text" name="nome" class="form-control" placeholder="Informe o nome" value="#{funcionarioController.nome}"/>
+                                <h:inputText type="text" name="nome" class="form-control" placeholder="Informe o nome" value="#{candidatoController.nome}"/>
                             </div>
-                    <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group"> <label class="">E-mail:</label>
-                            <h:inputText type="text" name="email" class="form-control" placeholder="Informe o e-mail" value="#{funcionarioController.email}"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" style="">
-                        <div class="form-group"> <label class="">Especialidade:</label>
-                            <h:inputText type="text" name="especialidade" class="form-control" placeholder="Informe a especialidade" value="#{funcionarioController.especialidade}"/>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group"> <label class="">Senha:</label>
-                            <h:inputText type="password" name="senha" class="form-control" placeholder="Informe a senha" value="#{funcionarioController.senha}"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <h:selectOneRadio>
-                            <f:selectItem intemValue="#{funcionarioController.administrador}" itemLabel="Adminitrador"/>
-                            <f:selectItem intemValue="#{funcionarioController.avaliador}" itemLabel="Avaliador"/>
-                        </h:selectOneRadio>
-                    </div>
-                            <div class="col-md-6">
-                                <h:selectBooleanCheckbox>
-                                    <f:selectItem intemValue="#{funcionarioController.ativo}" itemLabel="Inativo"></f:selectItem>
-                                </h:selectBooleanCheckbox>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"> <label class="">Telefone:</label>
+                                        <h:inputText type="text" name="telefone" class="form-control" placeholder="Informe o telefone" value="#{candidatoController.telefone}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> <label class="">E-mail:</label>
+                                        <h:inputText type="text" name="email" class="form-control" placeholder="Informe o e-mail" value="#{candidatoController.email}"/>
+                                    </div>
+                                </div>
                             </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar"/>
-                    </div>
-                </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group"> <label class="">Rede social:</label>
+                                        <h:inputText type="text" name="redesocial" class="form-control" placeholder="Informe a rede social" value="#{candidatoController.rede_social}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar"/>
+                                </div>
+                            </div>
                         </h:form>
-                    </div>
                     </div>
                 </div>
             </div>
+        </div>
 
     </ui:define>
 </ui:composition>
