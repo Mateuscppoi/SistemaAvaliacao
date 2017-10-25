@@ -1,27 +1,25 @@
 package dto.avaliacao;
 
-<<<<<<< HEAD
-import javax.persistence.Query;
-=======
-
->>>>>>> b90266edeffc000919ae1a6a04bac8351e594bbb
 import java.util.Date;
 
 public class DTOAvaliacaoUpdate {
-
+    private final Long id;
     private final String link_prova;
     private final String pontos_fortes;
     private final String pontos_melhorar;
     private final String parecer;
     private final Date conclusao_avaliacao;
 
-    public DTOAvaliacaoUpdate(String link_prova, String pontos_fortes, String pontos_melhorar, String parecer, Date conclusao_avaliacao) {
+    public DTOAvaliacaoUpdate(Long id,String link_prova, String pontos_fortes, String pontos_melhorar, String parecer, Date conclusao_avaliacao) {
+        this.id = id;
         this.link_prova = link_prova;
         this.pontos_fortes = pontos_fortes;
         this.pontos_melhorar = pontos_melhorar;
         this.parecer = parecer;
         this.conclusao_avaliacao = conclusao_avaliacao;
     }
+
+    public Long getId() { return id; }
 
     public String getLink_prova() {
         return link_prova;
@@ -42,8 +40,4 @@ public class DTOAvaliacaoUpdate {
     public Date getConclusao_avaliacao() {
         return conclusao_avaliacao;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> b90266edeffc000919ae1a6a04bac8351e594bbb
 }
