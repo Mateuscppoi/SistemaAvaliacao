@@ -1,13 +1,16 @@
 package controller;
 
-import dao.FuncionarioDAO;
-import model.Funcionario;
+import dao.AvaliacaoDAO;
+import dto.avaliacao.DTOAvaliacaoDelete;
+import dto.avaliacao.DTOAvaliacaoUpdate;
+import model.Avaliacao;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @ManagedBean
@@ -15,41 +18,114 @@ import java.util.List;
 @Named
 public class AvaliacaoController {
 
-    public AvaliacaoController() {
-        funcionarios = new ArrayList<Funcionario>();
-    }
-
     @Inject
-    private FuncionarioDAO dao;
+    private AvaliacaoDAO dao;
 
-    private List<Funcionario> funcionarios;
+    private Long id;
+    private Boolean corrigida;
+    private String linkProva;
+    private String pontosFortes;
+    private String pontosMelhorar;
+    private String parecer;
+    private Date dataEntregaProvaAvaliador;
+    private Date dataConclusaoAvaliacao;
+    private List<Avaliacao> avaliacoes;
 
-    private String nome;
-    private Integer qtd_provas;
-
-    public String getNome() {
-        return nome;
+    public AvaliacaoController() {
+        avaliacoes = new ArrayList<Avaliacao>();
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public AvaliacaoDAO getDao() {
+        return dao;
     }
 
-    public Integer getQtd_provas() {
-        return qtd_provas;
+    public void setDao(AvaliacaoDAO dao) {
+        this.dao = dao;
     }
 
-    public void setQtd_provas(Integer qtd_provas) {
-        this.qtd_provas = qtd_provas;
+    public Long getId() {
+        return id;
     }
 
-    public List<Funcionario> getFuncionarios() {
-        return funcionarios;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Boolean getCorrigida() {
+        return corrigida;
+    }
+
+    public List<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
+
+    public void setCorrigida(Boolean corrigida) {
+        this.corrigida = corrigida;
+    }
+
+    public String getLinkProva() {
+        return linkProva;
+    }
+
+    public void setLinkProva(String linkProva) {
+        this.linkProva = linkProva;
+    }
+
+    public String getPontosFortes() {
+        return pontosFortes;
+    }
+
+    public void setPontosFortes(String pontosFortes) {
+        this.pontosFortes = pontosFortes;
+    }
+
+    public String getPontosMelhorar() {
+        return pontosMelhorar;
+    }
+
+    public void setPontosMelhorar(String pontosMelhorar) {
+        this.pontosMelhorar = pontosMelhorar;
+    }
+
+    public String getParecer() {
+        return parecer;
+    }
+
+    public void setParecer(String parecer) {
+        this.parecer = parecer;
+    }
+
+    public Date getDataEntregaProvaAvaliador() {
+        return dataEntregaProvaAvaliador;
+    }
+
+    public void setDataEntregaProvaAvaliador(Date dataEntregaProvaAvaliador) {
+        this.dataEntregaProvaAvaliador = dataEntregaProvaAvaliador;
+    }
+
+    public Date getDataConclusaoAvaliacao() {
+        return dataConclusaoAvaliacao;
+    }
+
+    public void setDataConclusaoAvaliacao(Date dataConclusaoAvaliacao) {
+        this.dataConclusaoAvaliacao = dataConclusaoAvaliacao;
     }
 
     @PostConstruct
-    public void showFuncionario() {
-        funcionarios = new ArrayList<Funcionario>();
-        funcionarios.addAll(dao.showFuncionarios());
+    public void showAvaliacao() {
+        avaliacoes.addAll(dao.showAvaliacoes());
+    }
+
+    public String deleteAvaliacao() {
+        DTOAvaliacaoDelete avaliacao = new DTOAvaliacaoDelete(id);
+        return "Deletado";
+    }
+    public String updateAvaliacao(){
+        DTOAvaliacaoUpdate avaliacao = new DTOAvaliacaoUpdate(id,linkProva,pontosFortes,pontosMelhorar,parecer,dataEntregaProvaAvaliador);
+    return "Editado";
     }
 }

@@ -2,16 +2,16 @@ package controller;
 
 import dao.FuncionarioDAO;
 import dto.funcionarios.DTOFuncionarioDelete;
-import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
+
+import dto.funcionarios.DTOFuncionarioDelete;;
+
 
 import model.Avaliacao;
 import model.Funcionario;
 import model.Linguagem;
 
-
 import javax.annotation.PostConstruct;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -24,7 +24,6 @@ import java.util.List;
 @Named
 public class FuncionarioController {
 
-
     @Inject
     private FuncionarioDAO dao;
 
@@ -36,9 +35,25 @@ public class FuncionarioController {
     private Boolean administrador;
     private List<Avaliacao> avaliacao;
     private Boolean ativo;
-
-
     private List<Funcionario> funcionarios;
+
+    public FuncionarioDAO getDao() {
+        return dao;
+    }
+
+    public void setDao(FuncionarioDAO dao) {
+        this.dao = dao;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
+
+
+    public FuncionarioController() {
+        funcionarios = new ArrayList<Funcionario>();
+    }
+
 
     public List<Funcionario> getFuncionarios() {
         return funcionarios;
@@ -110,9 +125,9 @@ public class FuncionarioController {
 
     @PostConstruct
     public void showFuncionario() {
+        funcionarios = new ArrayList<Funcionario>();
         funcionarios.addAll(dao.showFuncionarios());
     }
-
 
 
     public String deleteFuncionario() {
