@@ -41,7 +41,7 @@ public class CriteriosDAO {
         CriteriosProva criteriosProva = new CriteriosProva();
         criteriosProva.setDescricao(request.getDescricao());
         criteriosProva.setCriteriosObrigatorios(request.getObrigatorio());
-        criteriosProva.setLinguagem(request.getLinguagem());
+        //criteriosProva.setLinguagem(request.getLinguagem());
 
         manager.persist(criteriosProva);
 
