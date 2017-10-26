@@ -40,10 +40,10 @@ public class ProvaDAO {
     @Transactional
     public String novoProva(DTOProvaInsert request){
         Prova prova = new Prova();
-        prova.setId_prova(request.getLink_prova());
+     /*   prova.setId_prova(request.getLink_prova());
         prova.setPrazo(request.getPrazo());
         prova.setData_solic_ava(request.getData_solic_ava());
-        prova.setCandidato(request.getCandidato());
+        prova.setCandidato(request.getCandidato());*/
         manager.persist(prova);
 
         return "Completado";

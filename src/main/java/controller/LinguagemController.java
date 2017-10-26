@@ -63,6 +63,6 @@ public class LinguagemController {
 
     @PostConstruct
     public void showLinguagem(){
-        linguagem.addAll(dao.showLinguaguem());
+        linguagem.addAll(dao.showLinguagem());
     }
 }
