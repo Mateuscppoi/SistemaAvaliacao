@@ -5,6 +5,9 @@ import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
 
+import dto.funcionarios.DTOFuncionarioDelete;;
+
+
 import model.Avaliacao;
 import model.Funcionario;
 import model.Linguagem;
@@ -46,6 +49,7 @@ public class FuncionarioController {
     public void setFuncionarios(List<Funcionario> funcionarios) {
         this.funcionarios = funcionarios;
     }
+
 
     public FuncionarioController() {
         funcionarios = new ArrayList<Funcionario>();
