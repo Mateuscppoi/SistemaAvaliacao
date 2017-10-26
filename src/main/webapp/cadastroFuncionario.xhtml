@@ -76,9 +76,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6" style="">
-                        <div class="form-group"> <label class="">Especialidade:</label>
-                            <h:inputText type="text" name="especialidade" class="form-control" placeholder="Informe a especialidade" value="#{funcionarioController.especialidade}"/>
-                        </div>
+                      <div class="form-group"> <label class="">Especialidade:</label>
+                          <h:selectOneListbox>
+                              <f:selectItem>Teste</f:selectItem>
+                          </h:selectOneListbox>
+                                <!--<div class="dropdown-menu">
+                                    <button class="btn dropdown-toggle btn-outline-danger border border-light" data-toggle="dropdown"> Cadastro </button>
+                                </div>-->
+                      </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group"> <label class="">Senha:</label>
@@ -88,9 +93,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <h:selectOneRadio>
-                            <f:selectItem intemValue="#{funcionarioController.administrador}" itemLabel="Adminitrador"/>
-                            <f:selectItem intemValue="#{funcionarioController.avaliador}" itemLabel="Avaliador"/>
+                        <h:selectOneRadio value="#{funcionarioController.administrador}">
+                            <f:selectItem itemValue="true" itemLabel="Adminitrador"/>
+                            <f:selectItem itemValue="false" itemLabel="Avaliador"/>
                         </h:selectOneRadio>
                     </div>
                             <div class="col-md-6">
@@ -101,7 +106,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar"/>
+                        <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar" action="#{funcionarioController.novoFuncionario}"/>
                     </div>
                 </div>
                         </h:form>

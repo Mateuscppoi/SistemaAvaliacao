@@ -33,8 +33,8 @@ public class AvaliacaoDAO {
         avaliacao.setPontosFortes(request.getPontos_fortes());
         avaliacao.setPontosMelhorar(request.getPontos_melhorar());
         avaliacao.setParecer(request.getParecer());
-        avaliacao.setDataEntregaProvaAvaliador(request.getEntrega_prova_avaliador());
-        avaliacao.setDataConclusaoAvaliacao(request.getConclusao_avaliacao());
+     //   avaliacao.setDataEntregaProvaAvaliador(request.getEntrega_prova_avaliador());
+       // avaliacao.setDataConclusaoAvaliacao(request.getConclusao_avaliacao());
         manager.persist(avaliacao);
         return "Avaliação Corrigida";
     }

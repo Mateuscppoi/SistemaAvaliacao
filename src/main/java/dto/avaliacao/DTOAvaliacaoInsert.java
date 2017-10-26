@@ -9,17 +9,19 @@ public class DTOAvaliacaoInsert {
     private final String pontos_fortes;
     private final String pontos_melhorar;
     private final String parecer;
-    private final Date entrega_prova_avaliador;
-    private final Date conclusao_avaliacao;
+  //  private final Date entrega_prova_avaliador;
+   // private final Date conclusao_avaliacao;
+    private String status_ava;
 
-    public DTOAvaliacaoInsert(Boolean nome, String link_prova, String pontos_fortes, String pontos_melhorar, String parecer, Date entrega_prova_avaliador, Date conclusao_avaliacao) {
+    public DTOAvaliacaoInsert(Boolean nome, String link_prova, String pontos_fortes, String pontos_melhorar, String parecer, String status_ava) {
         this.nome = nome;
         this.link_prova = link_prova;
         this.pontos_fortes = pontos_fortes;
         this.pontos_melhorar = pontos_melhorar;
         this.parecer = parecer;
-        this.entrega_prova_avaliador = entrega_prova_avaliador;
-        this.conclusao_avaliacao = conclusao_avaliacao;
+     //   this.entrega_prova_avaliador = entrega_prova_avaliador;
+     //   this.conclusao_avaliacao = conclusao_avaliacao;
+        this.status_ava = status_ava;
     }
 
     public Boolean getNome() {
@@ -42,11 +44,15 @@ public class DTOAvaliacaoInsert {
         return parecer;
     }
 
-    public Date getEntrega_prova_avaliador() {
-        return entrega_prova_avaliador;
-    }
+  //  public Date getEntrega_prova_avaliador() {
+  //      return entrega_prova_avaliador;
+  //  }
 
-    public Date getConclusao_avaliacao() {
-        return conclusao_avaliacao;
+  //  public Date getConclusao_avaliacao() {
+   //     return conclusao_avaliacao;
+  //  }
+
+    public String getStatus_ava() {
+        return status_ava;
     }
 }
