@@ -1,10 +1,5 @@
 package dto.avaliacao;
 
-<<<<<<< HEAD
-=======
-
-import javax.persistence.Query;
->>>>>>> cb99e61b6facb1e27edeac1566132adf27db3b69
 import java.util.Date;
 
 public class DTOAvaliacaoUpdate {

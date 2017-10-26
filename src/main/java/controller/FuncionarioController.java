@@ -3,11 +3,10 @@ package controller;
 import dao.FuncionarioDAO;
 import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioUpdate;
-<<<<<<< HEAD
-import dto.funcionarios.DTOFuncionarioDelete;;
-=======
 
->>>>>>> cb99e61b6facb1e27edeac1566132adf27db3b69
+import dto.funcionarios.DTOFuncionarioDelete;;
+
+
 import model.Avaliacao;
 import model.Funcionario;
 import model.Linguagem;
@@ -42,8 +41,6 @@ public class FuncionarioController {
         return dao;
     }
 
-<<<<<<< HEAD
-=======
     public void setDao(FuncionarioDAO dao) {
         this.dao = dao;
     }
@@ -52,7 +49,7 @@ public class FuncionarioController {
         this.funcionarios = funcionarios;
     }
 
->>>>>>> cb99e61b6facb1e27edeac1566132adf27db3b69
+
     public FuncionarioController() {
         funcionarios = new ArrayList<Funcionario>();
     }
