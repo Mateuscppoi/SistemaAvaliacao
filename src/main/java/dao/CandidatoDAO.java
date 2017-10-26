@@ -32,7 +32,7 @@ public class CandidatoDAO {
 
 
         manager.getTransaction().begin();
-        manager.persist(Candidato);
+        manager.persist(candidato);
         manager.getTransaction().commit();
 
         return "Realizado com sucesso";
