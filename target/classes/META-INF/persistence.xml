@@ -10,7 +10,11 @@
 
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.user" value="postgres" />
+<<<<<<< HEAD
 			<property name="javax.persistence.jdbc.password" value="mcpp130499" />
+=======
+			<property name="javax.persistence.jdbc.password" value="fcv" />
+>>>>>>> cb99e61b6facb1e27edeac1566132adf27db3b69
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/testSolutions" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />

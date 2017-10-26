@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<ui:composition template="/template.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                lang="pt-br">
+
+    <ui:define name="corpo">
+        <div class="py-5">
+            <div class="container text-dark">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a href="homeRH.xhtml" class="nav-link text-dark"><i class="fa fa-home fa-home"></i>Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <button class="btn dropdown-toggle btn-outline-danger border border-light" data-toggle="dropdown"> Cadastro </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="cadastroCandidato.xhtml">Candidato</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="cadastroFuncionario.xhtml">Funcionário</a>
+                                </div>
+                                <!--a href="cadastroFuncionario.xhtml" class="nav-link text-danger">Cadastro</a-->
+                            </li>
+                            <li class="nav-item">
+                                <a href="solicitarCorrecaoRH.xhtml" class="nav-link text-danger">Avaliações</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-danger">Configurações da prova</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h:commandButton class="btn btn-lg btn-dark" href="" value="Novo"/>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="form-inline m-0">
+                            <h:inputText class="form-control mr-2"/>
+                            <h:commandButton class="btn btn-dark" value="Pesquisar"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div-->
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="">Cadastro de candidatos</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h:form class="" method="post" action="https://formspree.io/">
+                            <div class="form-group"> <label class="">Nome:</label>
+                                <h:inputText type="text" name="nome" class="form-control" placeholder="Informe o nome" value="#{candidatoController.nome}"/>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group"> <label class="">Telefone:</label>
+                                        <h:inputText type="text" name="telefone" class="form-control" placeholder="Informe o telefone" value="#{candidatoController.telefone}"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group"> <label class="">E-mail:</label>
+                                        <h:inputText type="text" name="email" class="form-control" placeholder="Informe o e-mail" value="#{candidatoController.email}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group"> <label class="">Rede social:</label>
+                                        <h:inputText type="text" name="redesocial" class="form-control" placeholder="Informe a rede social" value="#{candidatoController.rede_social}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar"/>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+</ui:composition>

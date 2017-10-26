@@ -12,15 +12,16 @@
             <div class="container text-dark">
                 <div class="row">
                     <div class="col-md-12">
-                        <ul class="nav nav-tabs">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">Pendentes</a>
+                        <ul class="nav nav-tabs" >
+
+                            <li class="nav-item" value="#{funcionarioController.funcionarios}">
+                                <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">Em andamento</a>
+                                <a href="andamentoAvaliador.xhtml" class="nav-link text-danger">Em andamento</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">Finalizadas</a>
+                                <a href="finalizadaAvaliador.xhtml" class="nav-link text-danger">Finalizadas</a>
                             </li>
                         </ul>
                     </div>
@@ -30,11 +31,18 @@
         <div class="py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-2">
-                        <p class="border border-danger text-center">Pontos Fortes</p>
+                    <div class="col-md-6">
+                        <p class="border border-danger text-center">Obrigatório</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="border border-danger text-center">Opcional</p>
                     </div>
                 </div>
                 <div class="row">
+                    <div class="col-md-2">
+                        <p class="border border-danger text-center">Pontos Fortes</p>
+                    </div>
+                    <br/>
                     <div class="col-md-12">
                         <div class="form"> <textarea name="message" rows="8" cols="100"></textarea> </div>
                     </div>
@@ -50,45 +58,35 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="form"> <textarea name="message" rows="8" cols="100"></textarea> </div>
+                        <div class="form">
+                            <textarea name="message" rows="8" cols="100"></textarea>
+                        </div>
                     </div>
                 </div>
-                <!--div class="row">
-                    <div class="col-md-12">
-                        <form method="POST" action="uploadFile" enctype="multipart/form-data" class="text-left"> <strong class="text-danger">Enviar Imagem</strong>
-                            <input type="file" name="file"/> </form>
+            </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <p class="border border-danger text-center">Parecer</p>
                     </div>
-                </div-->
+                </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <img src="" alt="" style="width:300;height:400;"/>
-                    </div>
-                </div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <div class="py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <p class="border border-danger text-center">Parecer</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form"> <textarea name="message" rows="8" cols="100"></textarea> </div>
-                            </div>
-                        </div>
+                        <div class="form"> <textarea name="message" rows="8" cols="100"></textarea> </div>
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-2"></div>
                             <div class="col-md-2"></div>
                             <div class="col-md-2"></div>
                             <div class="col-md-2">
-                                <br></br>
-                                <br></br>
-                                <br></br>
+                                <br/>
+                                <br/>
+                                <br/>
                                 <a class="btn btn-dark" href="">Salvar </a>
                             </div>
                             <div class="col-md-2"></div>

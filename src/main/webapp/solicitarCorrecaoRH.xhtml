@@ -23,7 +23,6 @@
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="cadastroFuncionario.xhtml">Funcionário</a>
                                 </div>
-                                <!--a href="cadastroFuncionario.xhtml" class="nav-link text-danger">Cadastro</a-->
                             </li>
                             <li class="nav-item">
                                 <a href="solicitarCorrecaoRH.xhtml" class="nav-link text-danger">Avaliações</a>
@@ -36,32 +35,58 @@
                 </div>
             </div>
         </div>
-        <div class="py-1">
+        <div class="py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 m-1">
-                        <h2 class="">Home</h2>
+                    <div class="col-md-12">
+                        <h1 class="">Encaminhamento de avaliação</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-5"><div class="container"><div class="row">
+            <div class="col-md-6"><h4 class="text-left">Avaliador</h4>
+                <h:selectOneListbox>Selecione o avaliador:
+                    <f:selectItem itemValue="#{funcionarioController.nome}"></f:selectItem>
+                </h:selectOneListbox></div>
+            <div class="col-md-6">
+                <h4 class="">Candidato</h4>
+                <form class="form-inline" method="post" action="https://formspree.io/">
+                    <h:inputText name="email" class="form-control" placeholder="Pesquise nome candidato" value="#{candidatoController.nome}"/>
+                    <h:commandButton class="btn btn-dark" value="Pesquisar"/>
+                </form>
+            </div>
+        </div>
+        </div>
+        </div>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="">Candidatos encontrados</h5>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                            <li class="breadcrumb-item active">Provas Pendentes</li>
-                        </ul>
-                        <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                           <h:dataTable value="#{avaliacaoController.funcionarios}" var="avaliador" >
-                               <h:column>
-                                   <f:facet name="header">Avaliador</f:facet>#{avaliador.nome}
-                               </h:column>
-                               <h:column>
-                                   <a href="#">Provas aguardando correção (#{avaliador.qtd_provas})</a>
-                               </h:column>
-                           </h:dataTable>
-                        </ul>
+                        <h:dataTable value="#{candidatoController.nome}" var="candidato" >
+                            <h:column>
+                                <f:facet name="header">Nome</f:facet>#{candidato.nome}
+                            </h:column>
+                        </h:dataTable>
+                    </ul>
                     </div>
                 </div>
             </div>
         </div>
-
-    </ui:define>
-</ui:composition>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn btn-dark" href="">Enviar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </ui:define>
+        </ui:composition>
