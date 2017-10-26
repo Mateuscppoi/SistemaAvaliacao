@@ -4,7 +4,6 @@ import dto.criterios.DTOCriteriosDelete;
 import dto.criterios.DTOCriteriosInsert;
 import dto.criterios.DTOCriteriosUpdate;
 import model.CriteriosProva;
-import model.Funcionario;
 import model.Linguagem;
 
 import javax.inject.Inject;
@@ -19,8 +18,8 @@ public class CriteriosDAO {
     @Inject
     private EntityManager manager;
 
-    public List<Linguagem> showLinguagem () {
-        return manager.createQuery("select f from Linguagem f where  = true").getResultList();
+    public List<CriteriosProva> showCriterios () {
+        return manager.createQuery("select f from CriteriosProva f where  = true").getResultList();
     }
 
     public CriteriosProva getById(Long id) {

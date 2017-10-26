@@ -3,6 +3,7 @@ package dto.prova;
 import model.Candidato;
 import model.Linguagem;
 
+import java.util.Date;
 import java.util.List;
 
 public class DTOProvaInsert {
@@ -39,4 +40,6 @@ public class DTOProvaInsert {
     public List<Linguagem> getLinguagem() {
         return linguagem;
     }
+
+
 }
