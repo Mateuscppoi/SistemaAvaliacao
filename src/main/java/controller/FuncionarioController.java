@@ -1,13 +1,10 @@
 package controller;
 
 import dao.FuncionarioDAO;
-<<<<<<< HEAD
 import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
-=======
 import dto.funcionarios.DTOFuncionarioDelete;;
->>>>>>> b90266edeffc000919ae1a6a04bac8351e594bbb
 import model.Avaliacao;
 import model.Funcionario;
 import model.Linguagem;
@@ -40,17 +37,12 @@ public class FuncionarioController {
     private List<Avaliacao> avaliacao;
     private Boolean ativo;
 
-
-<<<<<<< HEAD
-=======
     public FuncionarioController() {
         funcionarios = new ArrayList<Funcionario>();
     }
 
     private List<Funcionario> funcionarios;
 
-
->>>>>>> b90266edeffc000919ae1a6a04bac8351e594bbb
     public List<Funcionario> getFuncionarios() {
         return funcionarios;
     }

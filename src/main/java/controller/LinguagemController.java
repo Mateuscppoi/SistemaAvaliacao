@@ -1,23 +1,40 @@
 package controller;
 
+import dao.LinguagemDAO;
 import model.Linguagem;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 
 @ManagedBean
+@ApplicationScoped
+@Named
 public class LinguagemController {
 
-    private Linguagem linguagem;
+    @Inject
+    private LinguagemDAO dao;
+
     private String descricao;
 
-    public Linguagem getLinguagem() {
+    private List<Linguagem> linguagem;
+
+    public LinguagemController() {
+        linguagem = new ArrayList<Linguagem>();
+    }
+
+    public List<Linguagem> getLinguagem() {
         return linguagem;
     }
 
-    public void setLinguagem(Linguagem linguagem) {
+    public void setLinguagem(List<Linguagem> linguagem) {
         this.linguagem = linguagem;
     }
 
@@ -42,5 +59,10 @@ public class LinguagemController {
         factory.close();
 
         return "Completado";
+    }
+
+    @PostConstruct
+    public void showLinguagem(){
+        linguagem.addAll(dao.showLinguaguem());
     }
 }
