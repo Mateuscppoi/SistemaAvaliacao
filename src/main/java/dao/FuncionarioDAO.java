@@ -60,7 +60,7 @@ public class FuncionarioDAO {
     }
 
     @Transactional
-    public String DeleteFuncionario(DTOFuncionarioDelete request){
+    public String deleteFuncionario(DTOFuncionarioDelete request){
         Funcionario funcionario = getByName(request.getNome());
         funcionario.setAtivo(Boolean.FALSE);
         try {
