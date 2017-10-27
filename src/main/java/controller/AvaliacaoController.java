@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class AvaliacaoController {
     private String pontosFortes;
     private String pontosMelhorar;
     private String parecer;
-    private Date dataEntregaProvaAvaliador;
+    private Calendar dataEntregaProvaAvaliador;
     private Date dataConclusaoAvaliacao;
     private List<Avaliacao> avaliacoes;
     private String status_ava;
@@ -118,11 +119,11 @@ public class AvaliacaoController {
         this.parecer = parecer;
     }
 
-    public Date getDataEntregaProvaAvaliador() {
+    public Calendar getDataEntregaProvaAvaliador() {
         return dataEntregaProvaAvaliador;
     }
 
-    public void setDataEntregaProvaAvaliador(Date dataEntregaProvaAvaliador) {
+    public void setDataEntregaProvaAvaliador(Calendar dataEntregaProvaAvaliador) {
         this.dataEntregaProvaAvaliador = dataEntregaProvaAvaliador;
     }
 
@@ -143,11 +144,11 @@ public class AvaliacaoController {
         return dao.deleteAvaliacao(avaliacao);
     }
     public String updateAvaliacao(){
-        DTOAvaliacaoUpdate avaliacao = new DTOAvaliacaoUpdate(id,linkProva,pontosFortes,pontosMelhorar,parecer,dataEntregaProvaAvaliador);
+        DTOAvaliacaoUpdate avaliacao = new DTOAvaliacaoUpdate(id,linkProva,pontosFortes,pontosMelhorar,parecer);
     return dao.updtadeAvaliacao(avaliacao);
     }
     public String novaAvaliacao(){
-        DTOAvaliacaoInsert avaliacao = new DTOAvaliacaoInsert(nome,linkProva,pontosFortes,pontosMelhorar,parecer,status_ava);
+        DTOAvaliacaoInsert avaliacao = new DTOAvaliacaoInsert(nome,linkProva,pontosFortes,pontosMelhorar,parecer,dataEntregaProvaAvaliador,dataConclusaoAvaliacao,status_ava);
         return dao.novaAvaliacao(avaliacao);
     }
 }
