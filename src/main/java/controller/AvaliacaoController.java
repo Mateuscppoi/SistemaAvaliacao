@@ -114,12 +114,9 @@ public class AvaliacaoController {
     public void setDataConclusaoAvaliacao(Date dataConclusaoAvaliacao) {
         this.dataConclusaoAvaliacao = dataConclusaoAvaliacao;
     }
-
     @PostConstruct
-    public void showAvaliacao() {
-        avaliacoes.addAll(dao.showAvaliacoes());
-    }
-
+    public void showAvaliacao(){ avaliacoes.addAll(dao.showAvaliacoes());}
+    
     public String deleteAvaliacao() {
         DTOAvaliacaoDelete avaliacao = new DTOAvaliacaoDelete(id);
         return "Deletado";

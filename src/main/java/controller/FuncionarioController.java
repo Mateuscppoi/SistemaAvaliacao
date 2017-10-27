@@ -144,7 +144,5 @@ public class FuncionarioController {
     public String novoFuncionario() {
         DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email,senha,avaliador,administrador,ativo);
         return dao.novoFuncionario(funcionario);
-
     }
 }
-
