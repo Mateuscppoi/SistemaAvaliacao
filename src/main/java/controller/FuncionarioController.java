@@ -129,11 +129,9 @@ public class FuncionarioController {
         funcionarios = new ArrayList<Funcionario>();
         funcionarios.addAll(dao.showFuncionarios());
     }
-
-
     public String deleteFuncionario() {
         DTOFuncionarioDelete funcionario = new DTOFuncionarioDelete(false, nome);
-        return dao.DeleteFuncionario(funcionario);
+        return dao.deleteFuncionario(funcionario);
     }
 
     public String updateFuncionario() {
