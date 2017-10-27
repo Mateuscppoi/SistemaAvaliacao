@@ -3,6 +3,7 @@ package controller;
 import dao.FuncionarioDAO;
 import dao.Transactional;
 import dto.funcionarios.DTOFuncionarioDelete;
+import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
 
 import model.Avaliacao;
@@ -133,6 +134,12 @@ public class FuncionarioController {
     public String updateFuncionario() {
         DTOFuncionarioUpdate funcionario = new DTOFuncionarioUpdate(nome,email,senha);
         return dao.updateFuncionario(funcionario);
+    }
+
+    public String novoFuncionario() {
+        DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email,senha,avaliador,administrador,ativo);
+        return dao.novoFuncionario(funcionario);
+
     }
 }
 

@@ -1,8 +1,11 @@
 package controller;
 
+import dao.CandidatoDAO;
+import dao.FuncionarioDAO;
 import model.Candidato;
 
 import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -10,12 +13,15 @@ import javax.persistence.Persistence;
 @ManagedBean
 public class CandidatoController {
 
+    @Inject
+    private CandidatoDAO dao;
+
     private String nome;
     private String email;
     private String telefone;
     private String rede_social;
     private Boolean contratado;
-    private Boolean visivel;
+
 
 
     public String getNome() {
@@ -56,14 +62,6 @@ public class CandidatoController {
 
     public void setContratado(Boolean contratado) {
         this.contratado = contratado;
-    }
-
-    public Boolean getVisivel() {
-        return visivel;
-    }
-
-    public void setVisivel(Boolean visivel) {
-        this.visivel = visivel;
     }
 
     public String retornaCandidato() {

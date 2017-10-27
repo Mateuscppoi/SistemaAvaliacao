@@ -37,15 +37,24 @@ public class FuncionarioDAO {
         return (Funcionario) query.getSingleResult();
     }
 
+    public Integer showPendentes() {
+        return manager.createQuery("select a.status_ava from Avaliacao a where status_ava = 'PENDENTE' ").getMaxResults();
+    }
+
     @Transactional
     public String novoFuncionario(DTOFuncionarioInsert request){
         Funcionario funcionario = new Funcionario();
-        funcionario.setAdministrador(request.getAdministrador());
-        funcionario.setAvaliador(request.getAvaliador());
+        if (request.getAdministrador() == true) {
+            funcionario.setAdministrador(true);
+            funcionario.setAvaliador(false);
+        } else {
+            funcionario.setAdministrador(false);
+            funcionario.setAvaliador(true);
+        }
         funcionario.setNome(request.getNome());
         funcionario.setEmail(request.getEmail());
         funcionario.setSenha(request.getSenha());
-        funcionario.setEspecialidade(manager.find(Linguagem.class, request.getEspecialidade()));
+        funcionario.setEspecialidade(manager.find(Linguagem.class, 3L));
         funcionario.setAtivo(true);
         manager.persist(funcionario);
 
@@ -80,5 +89,6 @@ public class FuncionarioDAO {
 
         return "Completado";
     }
+
 
 }

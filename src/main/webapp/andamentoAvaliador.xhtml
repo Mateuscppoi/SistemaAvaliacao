@@ -10,17 +10,25 @@
     <ui:define name="corpo">
         <div class="py-5">
             <div class="container text-dark">
+<<<<<<< HEAD
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs" >
                             <li class="nav-item">
                                 <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes</a>
+=======
+                <div class="row" >
+                    <div class="col-md-12" >
+                        <ul class="nav nav-tabs"  >
+                            <li class="nav-item">
+                                <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes (#{funcionarioController.showPendentes})</a>
+>>>>>>> 5226d9cc402cf47b7ab66934fb62aac34d0f42d2
                             </li>
                             <li class="nav-item">
-                                <a href="andamentoAvaliador.xhtml" class="nav-link text-danger">Em andamento</a>
+                                <a href="andamentoAvaliador.xhtml" class="nav-link text-danger">Em andamento (#{funcionarioController.showPendentes})</a>
                             </li>
                             <li class="nav-item">
-                                <a href="finalizadaAvaliador.xhtml" class="nav-link text-danger">Finalizadas</a>
+                                <a href="finalizadaAvaliador.xhtml" class="nav-link text-danger">Finalizadas (#{funcionarioController.showPendentes})</a>
                             </li>
                         </ul>
                     </div>
