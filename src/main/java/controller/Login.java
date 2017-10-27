@@ -53,7 +53,7 @@ public class Login {
 			HttpSession session = (HttpSession) ec.getSession(false);
 			session.setAttribute("email", this.email);
 
-			return "/homeAval";
+			return "/homeAvaliador";
     	}
     	
 		if (funcionario.getAdministrador()) {
