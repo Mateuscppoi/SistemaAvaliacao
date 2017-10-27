@@ -1,29 +1,25 @@
 package controller;
 
+import dao.CriteriosDAO;
 import model.CriteriosProva;
 import model.Linguagem;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @ManagedBean
+@ApplicationScoped
+@Named
 public class CriteriosController {
 
-    private CriteriosProva criteriosProva = new CriteriosProva();
+    private CriteriosDAO dao;
     private String descricao;
     private Boolean criteriosObrigatorios;
     private Linguagem linguagem;
-
-
-    public CriteriosProva getCriteriosProva() {
-        return criteriosProva;
-    }
-
-    public void setCriteriosProva(CriteriosProva criteriosProva) {
-        this.criteriosProva = criteriosProva;
-    }
 
     public String getDescricao() {
         return descricao;

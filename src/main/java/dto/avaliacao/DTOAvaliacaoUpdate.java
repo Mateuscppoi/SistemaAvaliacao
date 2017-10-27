@@ -1,7 +1,5 @@
 package dto.avaliacao;
 
-import java.util.Date;
-
 public class DTOAvaliacaoUpdate {
     private final Long id;
     private final String link_prova;

@@ -14,8 +14,11 @@ import java.util.List;
 
 @Named
 public class FuncionarioDAO {
+
     @Inject
     private EntityManager manager;
+
+    public Integer possui;
 
     public List<Funcionario> showFuncionarios () {
         return manager.createQuery("select f from Funcionario f where avaliador = true ").getResultList();
@@ -41,22 +44,29 @@ public class FuncionarioDAO {
 
     @Transactional
     public String novoFuncionario(DTOFuncionarioInsert request){
-        Funcionario funcionario = new Funcionario();
-        if (request.getAdministrador() == true) {
-            funcionario.setAdministrador(true);
-            funcionario.setAvaliador(false);
-        } else {
-            funcionario.setAdministrador(false);
-            funcionario.setAvaliador(true);
-        }
-        funcionario.setNome(request.getNome());
-        funcionario.setEmail(request.getEmail());
-        funcionario.setSenha(request.getSenha());
-        funcionario.setEspecialidade(manager.find(Linguagem.class, 3L));
-        funcionario.setAtivo(true);
-        manager.persist(funcionario);
+        possui = 0;
+      // /  query.setParameter("pNome","%"+request.getNome()+"%");
+     //   possui = query.getMaxResults();
+        if (possui != 0) {
+            Funcionario funcionario = new Funcionario();
+            if (request.getAdministrador() == true) {
+                funcionario.setAdministrador(true);
+                funcionario.setAvaliador(false);
+            } else {
+                funcionario.setAdministrador(false);
+                funcionario.setAvaliador(true);
+            }
+            funcionario.setNome(request.getNome());
+            funcionario.setEmail(request.getEmail());
+            funcionario.setSenha(request.getSenha());
+            funcionario.setEspecialidade(manager.find(Linguagem.class, 3L));
+            funcionario.setAtivo(true);
+            manager.persist(funcionario);
 
-        return "Completado";
+            return "Completado";
+        }
+
+        return "Ja existe";
     }
 
     @Transactional

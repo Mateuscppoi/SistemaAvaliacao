@@ -122,7 +122,7 @@ public class AvaliacaoController {
         return "Deletado";
     }
     public String updateAvaliacao(){
-        DTOAvaliacaoUpdate avaliacao = new DTOAvaliacaoUpdate(id,linkProva,pontosFortes,pontosMelhorar,parecer,dataEntregaProvaAvaliador);
+        DTOAvaliacaoUpdate avaliacao = new DTOAvaliacaoUpdate(id,linkProva,pontosFortes,pontosMelhorar,parecer);
     return "Editado";
     }
 }
