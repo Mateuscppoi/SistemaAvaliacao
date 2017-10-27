@@ -3,7 +3,6 @@ package dao;
 import dto.prova.DTOProvaDelete;
 import dto.prova.DTOProvaInsert;
 import dto.prova.DTOProvaUpdate;
-import model.Funcionario;
 import model.Linguagem;
 import model.Prova;
 
