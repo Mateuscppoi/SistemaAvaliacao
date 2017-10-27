@@ -14,8 +14,6 @@ public class Avaliacao {
     @PrimaryKeyJoinColumn
     private  Prova prova;
 
-
-
     @Column
     private Boolean corrigida;
 
@@ -37,6 +35,8 @@ public class Avaliacao {
     @Column
     private Date dataConclusaoAvaliacao;
 
+    @Column
+    private String status_ava;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "avaliador_id", nullable = false)
@@ -121,5 +121,13 @@ public class Avaliacao {
 
     public void setCorrigida(Boolean corrigida) {
         this.corrigida = corrigida;
+    }
+
+    public String getStatus_ava() {
+        return status_ava;
+    }
+
+    public void setStatus_ava(String status_ava) {
+        this.status_ava = status_ava;
     }
 }

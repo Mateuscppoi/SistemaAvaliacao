@@ -3,6 +3,10 @@ package dao;
 import dto.prova.DTOProvaDelete;
 import dto.prova.DTOProvaInsert;
 import dto.prova.DTOProvaUpdate;
+<<<<<<< HEAD
+=======
+import model.Funcionario;
+>>>>>>> 5226d9cc402cf47b7ab66934fb62aac34d0f42d2
 import model.Linguagem;
 import model.Prova;
 
@@ -39,10 +43,17 @@ public class ProvaDAO {
     @Transactional
     public String novoProva(DTOProvaInsert request){
         Prova prova = new Prova();
+<<<<<<< HEAD
         prova.setId_prova(request.getLink_prova());
         prova.setPrazo(request.getPrazo());
         prova.setData_solic_ava(request.getData_solic_ava());
         prova.setCandidato(request.getCandidato());
+=======
+     /*   prova.setId_prova(request.getLink_prova());
+        prova.setPrazo(request.getPrazo());
+        prova.setData_solic_ava(request.getData_solic_ava());
+        prova.setCandidato(request.getCandidato());*/
+>>>>>>> 5226d9cc402cf47b7ab66934fb62aac34d0f42d2
         manager.persist(prova);
 
         return "Completado";

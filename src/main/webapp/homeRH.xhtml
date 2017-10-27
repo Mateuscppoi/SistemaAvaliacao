@@ -17,11 +17,11 @@
                                 <a href="homeRH.xhtml" class="nav-link text-dark"><i class="fa fa-home fa-home"></i>Home</a>
                             </li>
                             <li class="nav-item">
-                                <button class="btn dropdown-toggle btn-outline-danger" data-toggle="dropdown"> Cadastro </button>
+                                <button class="btn dropdown-toggle btn-outline-danger border border-light" data-toggle="dropdown"> Cadastro </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="cadastroCandidato.xhtml">Candidato</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="cadastroPessoa.cadastroFuncionario.xhtml">Funcionário</a>
+                                    <a class="dropdown-item" href="cadastroFuncionario.xhtml">Funcionário</a>
                                 </div>
                                 <!--a href="cadastroFuncionario.xhtml" class="nav-link text-danger">Cadastro</a-->
                             </li>
@@ -49,7 +49,7 @@
                             <li class="breadcrumb-item active">Provas Pendentes</li>
                         </ul>
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                           <h:dataTable value="#{avaliacaoController.funcionarios}" var="avaliador" >
+                           <h:dataTable value="#{funcionarioController.funcionarios}" var="avaliador" >
                                <h:column>
                                    <f:facet name="header">Avaliador</f:facet>#{avaliador.nome}
                                </h:column>

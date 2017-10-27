@@ -17,7 +17,7 @@
                                 <a href="homeRH.xhtml" class="nav-link text-dark"><i class="fa fa-home fa-home"></i>Home</a>
                             </li>
                             <li class="nav-item">
-                                <button class="btn dropdown-toggle btn-outline-danger" data-toggle="dropdown"> Cadastro </button>
+                                <button class="btn dropdown-toggle btn-outline-danger border border-light" data-toggle="dropdown"> Cadastro </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="cadastroCandidato.xhtml">Candidato</a>
                                     <div class="dropdown-divider"></div>
@@ -55,6 +55,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                        <h1 class="">Cadastro de candidatos</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
                         <h:form class="" method="post" action="https://formspree.io/">
                             <div class="form-group"> <label class="">Nome:</label>
                                 <h:inputText type="text" name="nome" class="form-control" placeholder="Informe o nome" value="#{candidatoController.nome}"/>
@@ -80,7 +89,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar"/>
+                                    <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar" action="#{candidatoController.retornaCandidato}"/>
                                 </div>
                             </div>
                         </h:form>

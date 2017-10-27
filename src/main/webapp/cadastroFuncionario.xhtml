@@ -17,13 +17,12 @@
                                 <a href="homeRH.xhtml" class="nav-link text-dark"><i class="fa fa-home fa-home"></i>Home</a>
                             </li>
                             <li class="nav-item">
-                                <button class="btn dropdown-toggle btn-outline-danger" data-toggle="dropdown"> Cadastro </button>
+                                <button class="btn dropdown-toggle btn-outline-danger border border-light" data-toggle="dropdown"> Cadastro </button>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="cadastroCandidato.xhtml">Candidato</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="cadastroPessoa.cadastroFuncionario.xhtml">Funcionário</a>
+                                    <a class="dropdown-item" href="cadastroFuncionario.xhtml">Funcionário</a>
                                 </div>
-                                <!--a href="cadastroFuncionario.xhtml" class="nav-link text-danger">Cadastro</a-->
                             </li>
                             <li class="nav-item">
                                 <a href="solicitarCorrecaoRH.xhtml" class="nav-link text-danger">Avaliações</a>
@@ -55,6 +54,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
+                        <h1 class="">Cadastro de funcionários</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
                         <h:form class="" method="post" action="https://formspree.io/">
                             <div class="form-group"> <label class="">Nome:</label>
                                 <h:inputText type="text" name="nome" class="form-control" placeholder="Informe o nome" value="#{funcionarioController.nome}"/>
@@ -68,9 +76,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6" style="">
-                        <div class="form-group"> <label class="">Especialidade:</label>
-                            <h:inputText type="text" name="especialidade" class="form-control" placeholder="Informe a especialidade" value="#{funcionarioController.especialidade}"/>
-                        </div>
+                      <div class="form-group"> <label class="">Especialidade:</label>
+                          <h:selectOneListbox>
+                              <f:selectItem>Teste</f:selectItem>
+                          </h:selectOneListbox>
+                                <!--<div class="dropdown-menu">
+                                    <button class="btn dropdown-toggle btn-outline-danger border border-light" data-toggle="dropdown"> Cadastro </button>
+                                </div>-->
+                      </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group"> <label class="">Senha:</label>
@@ -80,20 +93,20 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <h:selectOneRadio>
-                            <f:selectItem intemValue="#{funcionarioController.administrador}" itemLabel="Adminitrador"/>
-                            <f:selectItem intemValue="#{funcionarioController.avaliador}" itemLabel="Avaliador"/>
+                        <h:selectOneRadio value="#{funcionarioController.administrador}">
+                            <f:selectItem itemValue="true" itemLabel="Adminitrador"/>
+                            <f:selectItem itemValue="false" itemLabel="Avaliador"/>
                         </h:selectOneRadio>
                     </div>
                             <div class="col-md-6">
                                 <h:selectBooleanCheckbox>
-                                    <f:selectItem intemValue="#{funcionarioController.ativo}" itemLabel="Inativo"></f:selectItem>
+                                    <f:selectItem intemValue="#{funcionarioController.ativo}">Inativo </f:selectItem>
                                 </h:selectBooleanCheckbox>
                             </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
-                        <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar"/>
+                        <h:commandButton class="btn m-3 btn-dark" href="" value="Salvar" action="#{funcionarioController.novoFuncionario}"/>
                     </div>
                 </div>
                         </h:form>
