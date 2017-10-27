@@ -31,7 +31,7 @@ public class AvaliacaoController {
     private String pontosMelhorar;
     private String parecer;
     private Calendar dataEntregaProvaAvaliador;
-    private Date dataConclusaoAvaliacao;
+    private String dataConclusaoAvaliacao;
     private List<Avaliacao> avaliacoes;
     private String status_ava;
 
@@ -127,13 +127,14 @@ public class AvaliacaoController {
         this.dataEntregaProvaAvaliador = dataEntregaProvaAvaliador;
     }
 
-    public Date getDataConclusaoAvaliacao() {
+    public String getDataConclusaoAvaliacao() {
         return dataConclusaoAvaliacao;
     }
 
-    public void setDataConclusaoAvaliacao(Date dataConclusaoAvaliacao) {
+    public void setDataConclusaoAvaliacao(String dataConclusaoAvaliacao) {
         this.dataConclusaoAvaliacao = dataConclusaoAvaliacao;
     }
+
     @PostConstruct
     public void showAvaliacao(){
         avaliacoes = new ArrayList<Avaliacao>();
@@ -145,14 +146,10 @@ public class AvaliacaoController {
     }
     public String updateAvaliacao(){
         DTOAvaliacaoUpdate avaliacao = new DTOAvaliacaoUpdate(id,linkProva,pontosFortes,pontosMelhorar,parecer);
-<<<<<<< HEAD
-    return "Editado";
-=======
     return dao.updtadeAvaliacao(avaliacao);
     }
     public String novaAvaliacao(){
         DTOAvaliacaoInsert avaliacao = new DTOAvaliacaoInsert(nome,linkProva,pontosFortes,pontosMelhorar,parecer,dataEntregaProvaAvaliador,dataConclusaoAvaliacao,status_ava);
         return dao.novaAvaliacao(avaliacao);
->>>>>>> 9c05f180a5289cf58a46ec5b0e4301637dc4f7d0
     }
 }

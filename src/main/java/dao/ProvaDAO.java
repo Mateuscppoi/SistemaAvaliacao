@@ -38,7 +38,7 @@ public class ProvaDAO {
         prova.setLink_prova(request.getLink_prova());
         prova.setPrazo(request.getPrazo());
         prova.setData_solic_ava(Calendar.getInstance());
-        prova.setCandidato(request.getCandidato());
+        prova.setCandidato(request.getCandidato().get(0));
         prova.setCriteriosProva(request.getCriteriosProva());
 
         manager.persist(prova);

@@ -15,12 +15,12 @@ public class Prova {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "candidato_id_candidato", nullable = false)
-    private List<Candidato> candidato;
+    private Candidato candidato;
 
     @Column
     private String link_prova;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "linguagem_id_linguagem", nullable = false)
     private List<CriteriosProva> criteriosProva;
 
@@ -42,11 +42,11 @@ public class Prova {
         this.id_prova = id_prova;
     }
 
-    public List<Candidato> getCandidato() {
+    public Candidato getCandidato() {
         return candidato;
     }
 
-    public void setCandidato(List<Candidato> candidato) {
+    public void setCandidato(Candidato candidato) {
         this.candidato = candidato;
     }
 

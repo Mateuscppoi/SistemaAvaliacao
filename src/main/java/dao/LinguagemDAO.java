@@ -14,11 +14,12 @@ import java.util.List;
 @Named
 public class LinguagemDAO {
 
+
     @Inject
     private EntityManager manager;
 
     public List<Linguagem> showLinguagem () {
-        return manager.createQuery("select f from Linguagem f where nome = true ").getResultList();
+        return manager.createQuery("select l from Linguagem l").getResultList();
     }
 
     public Linguagem getById(Long id) {
@@ -29,7 +30,7 @@ public class LinguagemDAO {
     }
 
     public Linguagem getByName(String nome) {
-        Query query = manager.createQuery("select f from Linguagem f where nome like :pNome");
+        Query query = manager.createQuery("select f from Linguagem f where descricao like :pNome");
         query.setParameter("pNome","%"+nome+"%");
 
         return (Linguagem) query.getSingleResult();

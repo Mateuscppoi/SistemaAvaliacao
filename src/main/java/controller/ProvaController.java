@@ -18,10 +18,7 @@ import javax.persistence.Persistence;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-<<<<<<< HEAD
-=======
 
->>>>>>> 9c05f180a5289cf58a46ec5b0e4301637dc4f7d0
 
 @ManagedBean
 @ApplicationScoped
@@ -35,11 +32,7 @@ public class ProvaController {
     private Integer id;
     private String link_prova;
     private List<CriteriosProva> criteriosProva;
-<<<<<<< HEAD
     private List<Linguagem> linguagem;
-=======
-    private Linguagem linguagem;
->>>>>>> 9c05f180a5289cf58a46ec5b0e4301637dc4f7d0
     private String prazo;
     private Calendar data_solic_ava;
     private String status;
@@ -56,29 +49,12 @@ public class ProvaController {
         this.prazo = prazo;
     }
 
-<<<<<<< HEAD
-    public List<Linguagem> getLinguagem() {
-        return linguagem;
-    }
-
-    public void setLinguagem(List<Linguagem> linguagem) {
-        this.linguagem = linguagem;
-=======
-    public ProvaDAO getDao() {
-        return dao;
-    }
-
-    public void setDao(ProvaDAO dao) {
-        this.dao = dao;
-    }
-
     public List<Candidato> getCandidato() {
         return candidato;
     }
 
     public void setCandidato(List<Candidato> candidato) {
         this.candidato = candidato;
->>>>>>> 9c05f180a5289cf58a46ec5b0e4301637dc4f7d0
     }
 
     public List<CriteriosProva> getCriteriosProva() {
@@ -89,12 +65,12 @@ public class ProvaController {
         this.criteriosProva = criteriosProva;
     }
 
-    public void setCandidato(List<Candidato> candidato) {
-        this.candidato = candidato;
+    public List<Linguagem> getLinguagem() {
+        return linguagem;
     }
 
-    public List<Candidato> getCandidato() {
-        return candidato;
+    public void setLinguagem(List<Linguagem> linguagem) {
+        this.linguagem = linguagem;
     }
 
     public void setData_solic_ava(Calendar data_solic_ava) {
@@ -137,7 +113,7 @@ public class ProvaController {
  //   }
 
     public String insereProva() {
-        DTOProvaInsert prova = new DTOProvaInsert(link_prova,prazo,data_solic_ava,candidato,criteriosProva);
+        DTOProvaInsert prova = new DTOProvaInsert(link_prova,prazo,data_solic_ava,candidato, criteriosProva);
         return dao.novoProva(prova);
     }
 }

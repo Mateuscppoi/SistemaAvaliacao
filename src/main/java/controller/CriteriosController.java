@@ -1,13 +1,13 @@
 package controller;
 
 import dao.CriteriosDAO;
-<<<<<<< HEAD
+
 import model.CriteriosProva;
 import model.Linguagem;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-=======
+
 import dao.Transactional;
 import dto.avaliacao.DTOAvaliacaoUpdate;
 import dto.criterios.DTOCriteriosDelete;
@@ -17,10 +17,9 @@ import model.CriteriosProva;
 import model.Linguagem;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
->>>>>>> 9c05f180a5289cf58a46ec5b0e4301637dc4f7d0
+
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -33,15 +32,12 @@ import java.util.List;
 @Named
 public class CriteriosController {
 
-<<<<<<< HEAD
-    private CriteriosDAO dao;
-=======
     @Inject
     private CriteriosDAO dao;
 
     private Long id;
     private CriteriosProva criteriosProva = new CriteriosProva();
->>>>>>> 9c05f180a5289cf58a46ec5b0e4301637dc4f7d0
+
     private String descricao;
     private Boolean criteriosObrigatorios;
     private List<Linguagem> linguagem;
@@ -55,8 +51,6 @@ public class CriteriosController {
         this.id = id;
     }
 
-<<<<<<< HEAD
-=======
     public CriteriosDAO getDao() {
         return dao;
     }
@@ -81,7 +75,6 @@ public class CriteriosController {
         this.criteriosProva = criteriosProva;
     }
 
->>>>>>> 9c05f180a5289cf58a46ec5b0e4301637dc4f7d0
     public String getDescricao() {
         return descricao;
     }

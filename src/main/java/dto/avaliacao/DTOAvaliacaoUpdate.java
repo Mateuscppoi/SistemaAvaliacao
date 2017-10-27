@@ -1,6 +1,7 @@
 package dto.avaliacao;
 
 public class DTOAvaliacaoUpdate {
+
     private final Long id;
     private final String link_prova;
     private final String pontos_fortes;

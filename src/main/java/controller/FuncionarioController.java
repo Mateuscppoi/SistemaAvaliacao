@@ -31,7 +31,9 @@ public class FuncionarioController {
     private String nome;
     private String email;
     private String senha;
-    private List<Linguagem> especialidade;
+    private Linguagem linguagemSelecionado;
+
+
     private Boolean avaliador;
     private Boolean administrador;
     private List<Avaliacao> avaliacao;
@@ -84,12 +86,12 @@ public class FuncionarioController {
         this.senha = senha;
     }
 
-    public List<Linguagem> getEspecialidade() {
-        return especialidade;
+    public Linguagem getLinguagemSelecionado() {
+        return linguagemSelecionado;
     }
 
-    public void setEspecialidade(List<Linguagem> especialidade) {
-        this.especialidade = especialidade;
+    public void setLinguagemSelecionado(Linguagem linguagemSelecionado) {
+        this.linguagemSelecionado = linguagemSelecionado;
     }
 
     public Boolean getAvaliador() {
@@ -140,7 +142,7 @@ public class FuncionarioController {
     }
 
     public String novoFuncionario() {
-        DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email,senha,avaliador,administrador,ativo);
+        DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email,senha,linguagemSelecionado,avaliador,administrador,ativo);
         return dao.novoFuncionario(funcionario);
     }
 }

@@ -59,7 +59,7 @@ public class FuncionarioDAO {
             funcionario.setNome(request.getNome());
             funcionario.setEmail(request.getEmail());
             funcionario.setSenha(request.getSenha());
-            funcionario.setEspecialidade(manager.find(Linguagem.class, 3L));
+            funcionario.setEspecialidade(request.getEspecialidade());
             funcionario.setAtivo(true);
             manager.persist(funcionario);
 

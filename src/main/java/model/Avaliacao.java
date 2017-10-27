@@ -1,5 +1,7 @@
 package model;
 
+import org.jboss.classfilewriter.annotations.LongAnnotationValue;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,6 +17,7 @@ public class Avaliacao {
     private  Prova prova;
 
     @Column
+
     private Boolean corrigida;
 
     @Column

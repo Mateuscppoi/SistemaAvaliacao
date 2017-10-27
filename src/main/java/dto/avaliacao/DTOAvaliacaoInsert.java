@@ -14,14 +14,10 @@ public class DTOAvaliacaoInsert {
     private final String pontos_melhorar;
     private final String parecer;
     private final Calendar entrega_prova_avaliador;
-    private final Date conclusao_avaliacao;
+    private final String conclusao_avaliacao;
     private String status_ava;
 
-<<<<<<< HEAD
     public DTOAvaliacaoInsert(String nome, String link_prova, String pontos_fortes, String pontos_melhorar, String parecer, Calendar entrega_prova_avaliador, String conclusao_avaliacao, String status_ava) {
-=======
-    public DTOAvaliacaoInsert(String nome, String link_prova, String pontos_fortes, String pontos_melhorar, String parecer, Calendar entrega_prova_avaliador, Date conclusao_avaliacao, String status_ava) {
->>>>>>> 9c05f180a5289cf58a46ec5b0e4301637dc4f7d0
         this.nome = nome;
         this.link_prova = link_prova;
         this.pontos_fortes = pontos_fortes;
@@ -64,7 +60,7 @@ public class DTOAvaliacaoInsert {
         return entrega_prova_avaliador;
     }
 
-    public Date getConclusao_avaliacao() {
+    public String getConclusao_avaliacao() {
         return conclusao_avaliacao;
     }
 
