@@ -16,11 +16,12 @@ public class TesteFuncionarioController {
         EntityManager manager = factory.createEntityManager();
 
         Funcionario funcionario = new Funcionario();
-        funcionario.setNome("Tamara");
-        funcionario.setEmail("tamara.rules@db1.com.br");
-        funcionario.setSenha("sein");
+        funcionario.setNome("admin");
+        funcionario.setEmail("admin");
+        funcionario.setSenha("admin");
         funcionario.setAvaliador(false);
         funcionario.setAdministrador(true);
+        funcionario.setAtivo(true);
         funcionario.setEspecialidade(manager.find(Linguagem.class, 3L));
         manager.getTransaction().begin();
         manager.persist(funcionario);

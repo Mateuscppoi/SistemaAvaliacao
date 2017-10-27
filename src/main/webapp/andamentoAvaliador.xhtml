@@ -13,8 +13,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs" >
-
-                            <li class="nav-item" value="#{funcionarioController.funcionarios}">
+                            <li class="nav-item">
                                 <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes</a>
                             </li>
                             <li class="nav-item">
@@ -38,12 +37,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                            <h:dataTable value="#{provaController.status}" >
+                            <h:dataTable  >
                                 <h:column>
-                                    <f:facet name="header">Prova</f:facet>#{provaController.id}
+                                    <f:facet name="header">Prova</f:facet>
                                 </h:column>
                                 <h:column>
-                                    <a href="avaliacaoDoAvaliador.xhtml">Prazo para correção (#{provaController.prazo})</a>
+                                    <a href="avaliacaoDoAvaliador.xhtml">Prazo para correção ()</a>
                                 </h:column>
                             </h:dataTable>
                         </ul>

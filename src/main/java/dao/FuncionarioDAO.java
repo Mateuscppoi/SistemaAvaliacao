@@ -6,6 +6,8 @@ import dto.funcionarios.DTOFuncionarioUpdate;
 import model.Funcionario;
 import model.Linguagem;
 
+import javax.annotation.ManagedBean;
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
