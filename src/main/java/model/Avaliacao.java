@@ -33,7 +33,7 @@ public class Avaliacao {
     private Date dataEntregaProvaAvaliador;
 
     @Column
-    private Date dataConclusaoAvaliacao;
+    private String dataConclusaoAvaliacao;
 
     @Column
     private String status_ava;
@@ -90,14 +90,13 @@ public class Avaliacao {
         this.dataEntregaProvaAvaliador = dataEntregaProvaAvaliador;
     }
 
-    public Date getDataConclusaoAvaliacao() {
+    public String getDataConclusaoAvaliacao() {
         return dataConclusaoAvaliacao;
     }
 
-    public void setDataConclusaoAvaliacao(Date dataConclusaoAvaliacao) {
+    public void setDataConclusaoAvaliacao(String dataConclusaoAvaliacao) {
         this.dataConclusaoAvaliacao = dataConclusaoAvaliacao;
     }
-
 
     public Funcionario getFuncionario() {
         return funcionario;

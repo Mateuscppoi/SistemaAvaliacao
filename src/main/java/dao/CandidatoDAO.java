@@ -8,6 +8,7 @@ import model.Linguagem;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.List;
 
 @Named
@@ -17,23 +18,25 @@ public class CandidatoDAO {
     private EntityManager manager;
 
     public List<Candidato> showCandidato () {
-        return manager.createQuery("select f from Candidato f where nome = ").getResultList();
+        return manager.createQuery("select c from Candidato c").getResultList();
     }
 
-    public String novoCandidato(dto.candidato.DTOCandidatoInsert request){
-        Candidato candidato = new Candidato();
+    public Candidato getById(Long id) {
+        Query query = manager.createQuery("select c from Candidato c where id = :pId");
+        query.setParameter("pId",id);
 
-        candidato.setNome(request.getNome());
-        candidato.setEmail(request.getEmail());
-        candidato.setTelefone(request.getTelefone());
-        candidato.setEmail(request.getEmail());
-        candidato.setRede_social(request.getRede_social());
-        candidato.setContratado(true);
+        return (Candidato) query.getSingleResult();
+    }
 
+    public Linguagem getByName(String nome) {
+        Query query = manager.createQuery("select f from Ca f where nome like :pNome");
+        query.setParameter("pNome","%"+nome+"%");
 
-        manager.getTransaction().begin();
-        manager.persist(candidato);
-        manager.getTransaction().commit();
+        return (Linguagem) query.getSingleResult();
+    }
+
+    public String novoCandidato(DTOCandidatoInsert request){
+
 
         return "Realizado com sucesso";
     }

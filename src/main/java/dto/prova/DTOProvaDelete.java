@@ -1,11 +1,13 @@
 package dto.prova;
 
 public class DTOProvaDelete {
+    private final Long id;
     private final String link_prova;
     private final String prazo;
     private final String data_solic_ava;
 
-    public DTOProvaDelete(String link_prova, String prazo, String data_solic_ava) {
+    public DTOProvaDelete(Long id, String link_prova, String prazo, String data_solic_ava) {
+        this.id = id;
         this.link_prova = link_prova;
         this.prazo = prazo;
         this.data_solic_ava = data_solic_ava;
@@ -21,5 +23,9 @@ public class DTOProvaDelete {
 
     public String getData_solic_ava() {
         return data_solic_ava;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

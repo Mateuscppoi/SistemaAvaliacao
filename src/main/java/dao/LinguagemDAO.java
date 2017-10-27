@@ -48,7 +48,7 @@ public class LinguagemDAO {
     public String DeleteLinguagem(DTOLinguagemDelete request){
         Linguagem linguagem = getByName(request.getNome());
         try {
-            manager.merge(linguagem);
+            manager.remove(linguagem);
         } catch (Exception e) {
             System.err.println(e.getMessage());
             return "Erro";
@@ -60,6 +60,7 @@ public class LinguagemDAO {
     public String updateLinguagem (DTOLinguagemUpdate request) {
 
         Linguagem linguagem = getByName(request.getNome());
+        linguagem.setDescricao(request.getNome());
         try {
             manager.merge(linguagem);
         } catch (Exception e) {

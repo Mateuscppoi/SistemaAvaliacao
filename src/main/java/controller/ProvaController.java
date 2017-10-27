@@ -1,31 +1,48 @@
 package controller;
 
+import dao.FuncionarioDAO;
+import dao.ProvaDAO;
+import dto.prova.DTOProvaInsert;
 import model.Candidato;
 import model.CriteriosProva;
+import model.Linguagem;
 import model.Prova;
 
 import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Calendar;
 import java.util.Date;
 
 
 @ManagedBean
 public class ProvaController {
 
+    @Inject
+    private ProvaDAO dao;
 
     private Candidato candidato;
     private Integer id;
-    private String import_prova;
+    private String link_prova;
     private CriteriosProva criteriosProva;
-    private String linguagem;
-    private Integer prazo;
-    private Date data_solic_ava;
+    private Linguagem linguagem;
+    private String prazo;
+    private Calendar data_solic_ava;
     private String status;
 
 
 //   private Avaliacao avaliacao;
+
+
+    public String getPrazo() {
+        return prazo;
+    }
+
+    public void setPrazo(String prazo) {
+        this.prazo = prazo;
+    }
 
     public Candidato getCandidato() {
         return candidato;
@@ -33,14 +50,6 @@ public class ProvaController {
 
     public void setCandidato(Candidato candidato) {
         this.candidato = candidato;
-    }
-
-    public String getImport_prova() {
-        return import_prova;
-    }
-
-    public void setImport_prova(String import_prova) {
-        this.import_prova = import_prova;
     }
 
     public CriteriosProva getCriteriosProva() {
@@ -51,23 +60,15 @@ public class ProvaController {
         this.criteriosProva = criteriosProva;
     }
 
-    public String getLinguagem() {
+    public Linguagem getLinguagem() {
         return linguagem;
     }
 
-    public void setLinguagem(String linguagem) {
+    public void setLinguagem(Linguagem linguagem) {
         this.linguagem = linguagem;
     }
 
-    public Integer getPrazo() {
-        return prazo;
-    }
-
-    public void setPrazo(Integer prazo) {
-        this.prazo = prazo;
-    }
-
-    public void setData_solic_ava(Date data_solic_ava) {
+    public void setData_solic_ava(Calendar data_solic_ava) {
         this.data_solic_ava = data_solic_ava;
     }
 
@@ -83,6 +84,18 @@ public class ProvaController {
         return id;
     }
 
+    public String getLink_prova() {
+        return link_prova;
+    }
+
+    public void setLink_prova(String link_prova) {
+        this.link_prova = link_prova;
+    }
+
+    public Calendar getData_solic_ava() {
+        return data_solic_ava;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -94,24 +107,8 @@ public class ProvaController {
  //       this.avaliacao = avaliacao;
  //   }
 
-    public String retornaProva() {
-
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
-        EntityManager manager = factory.createEntityManager();
-
-        Prova prova = new Prova();
-        prova.setCandidato(manager.find(Candidato.class, getCandidato()));
-        prova.setImport_prova(import_prova);
-        prova.setCriteriosProva(manager.find(CriteriosProva.class, getLinguagem()));
-        Date data  = new Date();
-        prova.setData_solic_ava(data);
-        prova.setPrazo(prazo);
-        manager.getTransaction().begin();
-        manager.persist(prova);
-        manager.getTransaction().commit();
-
-        factory.close();
-
-        return"Completado";
+    public String insereProva() {
+        DTOProvaInsert prova = new DTOProvaInsert(link_prova,prazo,data_solic_ava,candidato,linguagem);
+        return dao.novoProva(prova);
     }
 }

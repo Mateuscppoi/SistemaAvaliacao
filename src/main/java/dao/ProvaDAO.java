@@ -3,10 +3,7 @@ package dao;
 import dto.prova.DTOProvaDelete;
 import dto.prova.DTOProvaInsert;
 import dto.prova.DTOProvaUpdate;
-<<<<<<< HEAD
-=======
 import model.Funcionario;
->>>>>>> 5226d9cc402cf47b7ab66934fb62aac34d0f42d2
 import model.Linguagem;
 import model.Prova;
 
@@ -14,6 +11,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.Calendar;
 import java.util.List;
 
 @Named
@@ -23,19 +21,12 @@ public class ProvaDAO {
     private EntityManager manager;
 
     public List<Prova> showProva () {
-        return manager.createQuery("select f from Prova f where  = true ").getResultList();
+        return manager.createQuery("select p from Prova p").getResultList();
     }
 
     public Prova getById(Long id) {
-        Query query = manager.createQuery("select f from Prova f where id = :pId");
+        Query query = manager.createQuery("select p from Prova p where id = :pId");
         query.setParameter("pId",id);
-
-        return (Prova) query.getSingleResult();
-    }
-
-    public Prova getByName(String nome) {
-        Query query = manager.createQuery("select f from Prova f where  like :");
-        query.setParameter("pNome","%"+nome+"%");
 
         return (Prova) query.getSingleResult();
     }
@@ -43,17 +34,13 @@ public class ProvaDAO {
     @Transactional
     public String novoProva(DTOProvaInsert request){
         Prova prova = new Prova();
-<<<<<<< HEAD
-        prova.setId_prova(request.getLink_prova());
+
+        prova.setLink_prova(request.getLink_prova());
         prova.setPrazo(request.getPrazo());
-        prova.setData_solic_ava(request.getData_solic_ava());
+        prova.setData_solic_ava(Calendar.getInstance());
         prova.setCandidato(request.getCandidato());
-=======
-     /*   prova.setId_prova(request.getLink_prova());
-        prova.setPrazo(request.getPrazo());
-        prova.setData_solic_ava(request.getData_solic_ava());
-        prova.setCandidato(request.getCandidato());*/
->>>>>>> 5226d9cc402cf47b7ab66934fb62aac34d0f42d2
+        prova.setCriteriosProva(request.getCriteriosProva());
+
         manager.persist(prova);
 
         return "Completado";
@@ -61,7 +48,7 @@ public class ProvaDAO {
 
     @Transactional
     public String DeleteProva(DTOProvaDelete request){
-        Prova prova = getByName(request.getLink_prova());
+        Prova prova = getById(request.getId());
                 try {
             manager.merge(prova);
         } catch (Exception e) {
@@ -73,8 +60,9 @@ public class ProvaDAO {
 
     @Transactional
     public String updateProva (DTOProvaUpdate request) {
-
-        Prova prova = getByName(request.getData_solic_ava());
+        Prova prova = getById(request.getId());
+        prova.setLink_prova(request.getLink_prova());
+        prova.setPrazo(request.getPrazo());
         try {
             manager.merge(prova);
         } catch (Exception e) {
