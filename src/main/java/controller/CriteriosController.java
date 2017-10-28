@@ -1,31 +1,16 @@
 package controller;
 
 import dao.CriteriosDAO;
-
 import model.CriteriosProva;
 import model.Linguagem;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-
-import dao.Transactional;
-import dto.avaliacao.DTOAvaliacaoUpdate;
 import dto.criterios.DTOCriteriosDelete;
 import dto.criterios.DTOCriteriosInsert;
 import dto.criterios.DTOCriteriosUpdate;
-import model.CriteriosProva;
-import model.Linguagem;
-
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
-
 import javax.inject.Named;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import java.util.ArrayList;
-import java.util.List;
 
 @ManagedBean
 @ApplicationScoped

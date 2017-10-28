@@ -4,12 +4,10 @@ import dto.candidato.DTOCandidatoInsert;
 import dto.candidato.DTOCandidatoUpdate;
 import model.Candidato;
 import model.Linguagem;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import java.util.List;
 
 @Named
 public class CandidatoDAO {

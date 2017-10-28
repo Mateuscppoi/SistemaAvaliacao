@@ -4,21 +4,14 @@ import dao.FuncionarioDAO;
 import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
-
-import dto.funcionarios.DTOFuncionarioDelete;;
-
-
 import model.Avaliacao;
 import model.Funcionario;
 import model.Linguagem;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.ArrayList;
-import java.util.List;
 
 @ManagedBean
 @ApplicationScoped

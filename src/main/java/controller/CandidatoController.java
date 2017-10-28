@@ -1,9 +1,7 @@
 package controller;
 
 import dao.CandidatoDAO;
-import dao.FuncionarioDAO;
 import model.Candidato;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;

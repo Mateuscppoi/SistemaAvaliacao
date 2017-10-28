@@ -1,8 +1,5 @@
 package dto.avaliacao;
 
-import java.util.Calendar;
-import java.util.Date;
-
 public class DTOAvaliacaoInsert {
 
     private final String entrega_nao_realizada = "Não corrigida";

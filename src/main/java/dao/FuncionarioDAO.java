@@ -4,13 +4,10 @@ import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
 import model.Funcionario;
-import model.Linguagem;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import java.util.List;
 
 @Named
 public class FuncionarioDAO {

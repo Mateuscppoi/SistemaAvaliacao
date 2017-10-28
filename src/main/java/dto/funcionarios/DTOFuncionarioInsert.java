@@ -1,9 +1,6 @@
 package dto.funcionarios;
 
-import model.Avaliacao;
 import model.Linguagem;
-
-import java.util.List;
 
 public class DTOFuncionarioInsert {
     private final String nome;

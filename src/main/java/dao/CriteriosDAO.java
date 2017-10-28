@@ -4,13 +4,10 @@ import dto.criterios.DTOCriteriosDelete;
 import dto.criterios.DTOCriteriosInsert;
 import dto.criterios.DTOCriteriosUpdate;
 import model.CriteriosProva;
-import model.Linguagem;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import java.util.List;
 
 @Named
 public class CriteriosDAO {

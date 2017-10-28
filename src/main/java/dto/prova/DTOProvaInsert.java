@@ -2,11 +2,6 @@ package dto.prova;
 
 import model.Candidato;
 import model.CriteriosProva;
-import model.Linguagem;
-
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
 
 public class DTOProvaInsert {
     private final String link_prova;

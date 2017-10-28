@@ -1,7 +1,5 @@
 package dao;
 
-import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
