@@ -5,18 +5,18 @@ import dao.Transactional;
 import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
+<<<<<<< HEAD
 
+=======
+>>>>>>> a6c474da07a975026a757fe14dbba3b81d3f9c99
 import model.Avaliacao;
 import model.Funcionario;
 import model.Linguagem;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
-import java.util.ArrayList;
-import java.util.List;
 
 @ManagedBean
 @ApplicationScoped
@@ -29,7 +29,9 @@ public class FuncionarioController {
     private String nome;
     private String email;
     private String senha;
-    private List<Linguagem> especialidade;
+    private Linguagem linguagemSelecionado;
+
+
     private Boolean avaliador;
     private Boolean administrador;
     private List<Avaliacao> avaliacao;
@@ -72,12 +74,12 @@ public class FuncionarioController {
         this.senha = senha;
     }
 
-    public List<Linguagem> getEspecialidade() {
-        return especialidade;
+    public Linguagem getLinguagemSelecionado() {
+        return linguagemSelecionado;
     }
 
-    public void setEspecialidade(List<Linguagem> especialidade) {
-        this.especialidade = especialidade;
+    public void setLinguagemSelecionado(Linguagem linguagemSelecionado) {
+        this.linguagemSelecionado = linguagemSelecionado;
     }
 
     public Boolean getAvaliador() {
@@ -124,11 +126,9 @@ public class FuncionarioController {
     public void showFuncionario() {
         funcionarios.addAll(dao.showFuncionarios());
     }
-
-
     public String deleteFuncionario() {
         DTOFuncionarioDelete funcionario = new DTOFuncionarioDelete(false, nome);
-        return dao.DeleteFuncionario(funcionario);
+        return dao.deleteFuncionario(funcionario);
     }
 
     public String updateFuncionario() {
@@ -137,9 +137,7 @@ public class FuncionarioController {
     }
 
     public String novoFuncionario() {
-        DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email,senha,avaliador,administrador,ativo);
+        DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email,senha,linguagemSelecionado,avaliador,administrador,ativo);
         return dao.novoFuncionario(funcionario);
-
     }
 }
-

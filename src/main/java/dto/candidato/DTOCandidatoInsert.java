@@ -1,7 +1,5 @@
 package dto.candidato;
 
-import java.util.List;
-
 import model.Prova;
 
 public class DTOCandidatoInsert {

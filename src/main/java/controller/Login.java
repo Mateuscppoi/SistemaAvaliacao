@@ -8,7 +8,6 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
-
 import dao.AcessoLogin;
 import model.Funcionario;
 
@@ -53,7 +52,7 @@ public class Login {
 			HttpSession session = (HttpSession) ec.getSession(false);
 			session.setAttribute("email", this.email);
 
-			return "/homeAval";
+			return "/homeAvaliador";
     	}
     	
 		if (funcionario.getAdministrador()) {

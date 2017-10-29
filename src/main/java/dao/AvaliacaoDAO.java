@@ -1,16 +1,13 @@
 package dao;
 
-
 import dto.avaliacao.DTOAvaliacaoDelete;
 import dto.avaliacao.DTOAvaliacaoInsert;
 import dto.avaliacao.DTOAvaliacaoUpdate;
 import model.Avaliacao;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import java.util.List;
 
 @Named
 public class AvaliacaoDAO {
@@ -18,11 +15,11 @@ public class AvaliacaoDAO {
     private EntityManager manager;
 
     public List<Avaliacao> showAvaliacoes(){
-        return manager.createQuery("select f from Avaliacao f").getResultList();
+        return manager.createQuery("select A from Avaliacao A").getResultList();
     }
 
     public Avaliacao getById(Long id){
-        Query query = manager.createQuery("select f from Avaliacao f where id=:pId");
+        Query query = manager.createQuery("select A from Avaliacao A where id =:pId");
         query.setParameter("pId",id);
         return (Avaliacao) query.getSingleResult();
     }
@@ -33,8 +30,7 @@ public class AvaliacaoDAO {
         avaliacao.setPontosFortes(request.getPontos_fortes());
         avaliacao.setPontosMelhorar(request.getPontos_melhorar());
         avaliacao.setParecer(request.getParecer());
-     //   avaliacao.setDataEntregaProvaAvaliador(request.getEntrega_prova_avaliador());
-       // avaliacao.setDataConclusaoAvaliacao(request.getConclusao_avaliacao());
+        avaliacao.setDataConclusaoAvaliacao(request.getEntrega_nao_realizada());
         manager.persist(avaliacao);
         return "Avaliação Corrigida";
     }
@@ -51,8 +47,7 @@ public class AvaliacaoDAO {
         avaliacao.setPontosFortes(request.getPontos_fortes());
         avaliacao.setPontosMelhorar(request.getPontos_melhorar());
         avaliacao.setParecer(request.getParecer());
-        avaliacao.setDataEntregaProvaAvaliador(request.getConclusao_avaliacao());
-        avaliacao.setDataConclusaoAvaliacao(request.getConclusao_avaliacao());
+        avaliacao.setDataConclusaoAvaliacao(request.getEntrega_realizada());
         try {
             manager.merge(avaliacao);
         } catch (Exception e){

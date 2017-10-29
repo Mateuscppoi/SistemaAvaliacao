@@ -3,9 +3,9 @@ package dto.criterios;
 public class DTOCriteriosDelete {
 
     private final String descricao;
-    private final Integer id;
+    private final Long id;
 
-    public DTOCriteriosDelete(String descricao, Integer id) {
+    public DTOCriteriosDelete(String descricao, Long id) {
         this.descricao = descricao;
         this.id = id;
     }
@@ -14,5 +14,7 @@ public class DTOCriteriosDelete {
         return descricao;
     }
 
-    public Integer getId() { return id; }
+    public Long getId() {
+        return id;
+    }
 }

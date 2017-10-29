@@ -4,20 +4,25 @@ import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
 import model.Funcionario;
+<<<<<<< HEAD
 import model.Linguagem;
 
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
+=======
+>>>>>>> a6c474da07a975026a757fe14dbba3b81d3f9c99
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-import java.util.List;
 
 @Named
 public class FuncionarioDAO {
+
     @Inject
     private EntityManager manager;
+
+    public Integer possui;
 
     public List<Funcionario> showFuncionarios () {
         return manager.createQuery("select f from Funcionario f where avaliador = true ").getResultList();
@@ -43,26 +48,33 @@ public class FuncionarioDAO {
 
     @Transactional
     public String novoFuncionario(DTOFuncionarioInsert request){
-        Funcionario funcionario = new Funcionario();
-        if (request.getAdministrador() == true) {
-            funcionario.setAdministrador(true);
-            funcionario.setAvaliador(false);
-        } else {
-            funcionario.setAdministrador(false);
-            funcionario.setAvaliador(true);
-        }
-        funcionario.setNome(request.getNome());
-        funcionario.setEmail(request.getEmail());
-        funcionario.setSenha(request.getSenha());
-        funcionario.setEspecialidade(manager.find(Linguagem.class, 3L));
-        funcionario.setAtivo(true);
-        manager.persist(funcionario);
+        possui = 0;
+      // /  query.setParameter("pNome","%"+request.getNome()+"%");
+     //   possui = query.getMaxResults();
+        if (possui != 0) {
+            Funcionario funcionario = new Funcionario();
+            if (request.getAdministrador() == true) {
+                funcionario.setAdministrador(true);
+                funcionario.setAvaliador(false);
+            } else {
+                funcionario.setAdministrador(false);
+                funcionario.setAvaliador(true);
+            }
+            funcionario.setNome(request.getNome());
+            funcionario.setEmail(request.getEmail());
+            funcionario.setSenha(request.getSenha());
+            funcionario.setEspecialidade(request.getEspecialidade());
+            funcionario.setAtivo(true);
+            manager.persist(funcionario);
 
-        return "Completado";
+            return "Completado";
+        }
+
+        return "Ja existe";
     }
 
     @Transactional
-    public String DeleteFuncionario(DTOFuncionarioDelete request){
+    public String deleteFuncionario(DTOFuncionarioDelete request){
         Funcionario funcionario = getByName(request.getNome());
         funcionario.setAtivo(Boolean.FALSE);
         try {

@@ -16,8 +16,12 @@
 =======
 			<property name="javax.persistence.jdbc.user" value="postgres" />
 			<property name="javax.persistence.jdbc.password" value="fcv" />
+<<<<<<< HEAD
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/testsolutions" />
 >>>>>>> 5226d9cc402cf47b7ab66934fb62aac34d0f42d2
+=======
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/testSolutions" />
+>>>>>>> a6c474da07a975026a757fe14dbba3b81d3f9c99
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true" />

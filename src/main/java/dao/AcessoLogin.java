@@ -3,9 +3,7 @@ package dao;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-
 import model.Funcionario;
-
 
 public class AcessoLogin {
 	

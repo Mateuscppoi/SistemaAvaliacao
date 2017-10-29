@@ -10,5 +10,4 @@ public class DTOAvaliacaoDelete {
     public Long getId() {
         return id;
     }
-
 }

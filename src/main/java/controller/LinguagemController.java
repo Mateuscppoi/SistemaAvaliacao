@@ -2,7 +2,6 @@ package controller;
 
 import dao.LinguagemDAO;
 import model.Linguagem;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -11,8 +10,6 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.ArrayList;
-import java.util.List;
 
 @ManagedBean
 @ApplicationScoped
@@ -26,6 +23,7 @@ public class LinguagemController {
 
     private List<Linguagem> linguagem;
 
+
     public LinguagemController() {
         linguagem = new ArrayList<Linguagem>();
     }
@@ -34,6 +32,10 @@ public class LinguagemController {
         return linguagem;
     }
 
+    public List<Linguagem> getLinguagemCombobox() {
+        showLinguagem();
+        return this.linguagem;
+    }
     public void setLinguagem(List<Linguagem> linguagem) {
         this.linguagem = linguagem;
     }
@@ -63,6 +65,8 @@ public class LinguagemController {
 
     @PostConstruct
     public void showLinguagem(){
-        linguagem.addAll(dao.showLinguagem());
+       this.linguagem = new ArrayList<Linguagem>();
+        //linguagem = new ArrayList<Linguagem>();
+        this.linguagem.addAll(dao.showLinguagem());
     }
 }

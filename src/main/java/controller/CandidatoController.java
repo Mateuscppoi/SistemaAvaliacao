@@ -1,16 +1,18 @@
 package controller;
 
 import dao.CandidatoDAO;
-import dao.FuncionarioDAO;
 import model.Candidato;
-
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @ManagedBean
+@ApplicationScoped
+@Named
 public class CandidatoController {
 
     @Inject

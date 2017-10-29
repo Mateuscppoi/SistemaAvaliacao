@@ -2,8 +2,6 @@ package dto.criterios;
 
 import model.Linguagem;
 
-import java.util.List;
-
 public class DTOCriteriosInsert {
 
     private final String descricao;

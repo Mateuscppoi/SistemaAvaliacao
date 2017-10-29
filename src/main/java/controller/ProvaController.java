@@ -1,73 +1,69 @@
 package controller;
 
+import dao.ProvaDAO;
+import dto.prova.DTOProvaInsert;
 import model.Candidato;
 import model.CriteriosProva;
-import model.Prova;
-
+import model.Linguagem;
+import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import java.util.Date;
-
+import javax.inject.Inject;
+import javax.inject.Named;
 
 @ManagedBean
+@ApplicationScoped
+@Named
 public class ProvaController {
 
+    @Inject
+    private ProvaDAO dao;
 
-    private Candidato candidato;
+    private List<Candidato> candidato;
     private Integer id;
-    private String import_prova;
-    private CriteriosProva criteriosProva;
-    private String linguagem;
-    private Integer prazo;
-    private Date data_solic_ava;
+    private String link_prova;
+    private List<CriteriosProva> criteriosProva;
+    private List<Linguagem> linguagem;
+    private String prazo;
+    private Calendar data_solic_ava;
     private String status;
 
 
 //   private Avaliacao avaliacao;
 
-    public Candidato getCandidato() {
-        return candidato;
-    }
 
-    public void setCandidato(Candidato candidato) {
-        this.candidato = candidato;
-    }
-
-    public String getImport_prova() {
-        return import_prova;
-    }
-
-    public void setImport_prova(String import_prova) {
-        this.import_prova = import_prova;
-    }
-
-    public CriteriosProva getCriteriosProva() {
-        return criteriosProva;
-    }
-
-    public void setCriteriosProva(CriteriosProva criteriosProva) {
-        this.criteriosProva = criteriosProva;
-    }
-
-    public String getLinguagem() {
-        return linguagem;
-    }
-
-    public void setLinguagem(String linguagem) {
-        this.linguagem = linguagem;
-    }
-
-    public Integer getPrazo() {
+    public String getPrazo() {
         return prazo;
     }
 
-    public void setPrazo(Integer prazo) {
+    public void setPrazo(String prazo) {
         this.prazo = prazo;
     }
 
-    public void setData_solic_ava(Date data_solic_ava) {
+    public List<Candidato> getCandidato() {
+        return candidato;
+    }
+
+    public void setCandidato(List<Candidato> candidato) {
+        this.candidato = candidato;
+    }
+
+    public List<CriteriosProva> getCriteriosProva() {
+        return criteriosProva;
+    }
+
+    public void setCriteriosProva(List<CriteriosProva> criteriosProva) {
+        this.criteriosProva = criteriosProva;
+    }
+
+    public List<Linguagem> getLinguagem() {
+        return linguagem;
+    }
+
+    public void setLinguagem(List<Linguagem> linguagem) {
+        this.linguagem = linguagem;
+    }
+
+    public void setData_solic_ava(Calendar data_solic_ava) {
         this.data_solic_ava = data_solic_ava;
     }
 
@@ -83,6 +79,18 @@ public class ProvaController {
         return id;
     }
 
+    public String getLink_prova() {
+        return link_prova;
+    }
+
+    public void setLink_prova(String link_prova) {
+        this.link_prova = link_prova;
+    }
+
+    public Calendar getData_solic_ava() {
+        return data_solic_ava;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -94,24 +102,8 @@ public class ProvaController {
  //       this.avaliacao = avaliacao;
  //   }
 
-    public String retornaProva() {
-
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
-        EntityManager manager = factory.createEntityManager();
-
-        Prova prova = new Prova();
-        prova.setCandidato(manager.find(Candidato.class, getCandidato()));
-        prova.setImport_prova(import_prova);
-        prova.setCriteriosProva(manager.find(CriteriosProva.class, getLinguagem()));
-        Date data  = new Date();
-        prova.setData_solic_ava(data);
-        prova.setPrazo(prazo);
-        manager.getTransaction().begin();
-        manager.persist(prova);
-        manager.getTransaction().commit();
-
-        factory.close();
-
-        return"Completado";
+    public String insereProva() {
+        DTOProvaInsert prova = new DTOProvaInsert(link_prova,prazo,data_solic_ava,candidato, criteriosProva);
+        return dao.novoProva(prova);
     }
 }
