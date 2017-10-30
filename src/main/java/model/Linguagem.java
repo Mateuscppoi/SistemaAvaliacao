@@ -1,10 +1,12 @@
 package model;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "linguagem", schema = "sistemadeavaliacao")
-public class Linguagem implements Serializable{
+public class Linguagem implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
