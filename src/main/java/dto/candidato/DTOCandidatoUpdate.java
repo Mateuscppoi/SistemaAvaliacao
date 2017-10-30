@@ -2,6 +2,8 @@ package dto.candidato;
 
 import model.Prova;
 
+import java.util.List;
+
 public class DTOCandidatoUpdate {
     private final String nome;
     private final String email;

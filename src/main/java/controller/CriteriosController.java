@@ -11,6 +11,8 @@ import dto.criterios.DTOCriteriosUpdate;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
 
 @ManagedBean
 @ApplicationScoped
