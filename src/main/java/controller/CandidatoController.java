@@ -2,6 +2,8 @@ package controller;
 
 import dao.CandidatoDAO;
 import model.Candidato;
+import model.Funcionario;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -9,6 +11,8 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 
 @ManagedBean
 @ApplicationScoped
@@ -23,8 +27,15 @@ public class CandidatoController {
     private String telefone;
     private String rede_social;
     private Boolean contratado;
+    private List<Candidato> candidatos;
 
+    public List<Candidato> getCandidatos() {
+        return candidatos;
+    }
 
+    public void setCandidatos(List<Candidato> candidatos) {
+        this.candidatos = candidatos;
+    }
 
     public String getNome() {
         return nome;
@@ -78,5 +89,10 @@ public class CandidatoController {
         candidato.setRede_social(rede_social);
         candidato.setContratado(false);
         return "Completado";
+    }
+
+    public void showCandidato() {
+        candidatos = new ArrayList<Candidato>();
+        candidatos.addAll(dao.showCandidato());
     }
 }

@@ -27,9 +27,6 @@
                             <li class="nav-item">
                                 <a href="solicitarCorrecaoRH.xhtml" class="nav-link text-danger">Avaliações</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">Configurações da prova</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -76,11 +73,9 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6" style="">
-                      <div class="form-group"> <label class="">Especialidade:</label>
-                          <h:selectOneMenu value="#{funcionarioController.linguagemSelecionado}" label="linguagem">
-                              <f:selectItems value="#{linguagemController.linguagemCombobox}" var="linguagem" itemValue="#{linguagem}" itemLabel="#{linguagem.descricao}"></f:selectItems>
-                          </h:selectOneMenu>
-                      </div>
+                        <label class="">Especialidade:</label>
+                        <h:inputText type="text" name="linguagem" class="form-control" label="linguagem" placeholder="Informe a linguagem" value="#{funcionarioController.linguagem}"/>
+
                     </div>
                     <div class="col-md-6">
                         <div class="form-group"> <label class="">Senha:</label>
@@ -97,7 +92,7 @@
                     </div>
                             <div class="col-md-6">
                                 <h:selectBooleanCheckbox label="inativo">
-                                    <f:selectItem intemValue="#{funcionarioController.ativo}">Inativo </f:selectItem>
+                                    <f:selectItem intemValue="#{funcionarioController.ativo}">Ativo </f:selectItem>
                                 </h:selectBooleanCheckbox>
                             </div>
                 </div>
