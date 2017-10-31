@@ -56,9 +56,9 @@
         <div class="py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
-                        <button type="submit" class="btn btn-dark">Novo</button>
-                    </div>
+                   <h:selectOneMenu label="Informe a linguagem">
+                       <f:selectItem itemValue="2" itemLabel="Java"/>
+                   </h:selectOneMenu>
                     <div class="col-md-6 text-right">
                         <form class="form-inline">
                             <input type="text" name="pesquisar" class="form-control" placeholder=""/>
@@ -73,16 +73,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group"> <label for="Textarea">Obrigatório</label>
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <input type="text" name="input01" value="" placeholder="Novo" class="border border-light w-100"/> </li>
-                                <li class="list-group-item">
-                                    <input type="text" name="input01" value="" placeholder="Novo" class="border border-light w-100"/> </li>
-                                <li class="list-group-item">
-                                    <input type="text" name="input01" value="" placeholder="Novo" class="border border-light w-100"/> </li>
-                                <li class="list-group-item">
-                                    <input type="text" name="input01" value="" placeholder="Novo" class="border border-light w-100"/> </li>
-                            </ul>
+                            <h:dataTable value="#{criteriosController.criterios}" var="criterios" >
+                                <h:column>
+                                    <f:facet name="header">Criterio</f:facet>#{criterios.descricao}
+                                </h:column>
+                                <h:column>
+                                    <a href="#">Obrigatorio = (#{criterios.criteriosObrigatorios})</a>
+                                </h:column>
+                            </h:dataTable>
                         </div>
                     </div>
                     <div class="col-md-6">

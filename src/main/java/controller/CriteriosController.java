@@ -28,6 +28,7 @@ public class CriteriosController {
     private String descricao;
     private Boolean criteriosObrigatorios;
     private List<Linguagem> linguagem;
+    private Integer linguagem_id;
     private List<CriteriosProva> criterios;
 
     public Long getId() {
@@ -78,6 +79,14 @@ public class CriteriosController {
         this.criteriosObrigatorios = criteriosObrigatorios;
     }
 
+    public Integer getLinguagem_id() {
+        return linguagem_id;
+    }
+
+    public void setLinguagem_id(Integer linguagem_id) {
+        this.linguagem_id = linguagem_id;
+    }
+
     public List<Linguagem> getLinguagem() {
         return linguagem;
     }
@@ -91,16 +100,16 @@ public class CriteriosController {
         criterios = new ArrayList<CriteriosProva>();
         criterios.addAll(dao.showCriterios());
     }
-    public String deleteCriterios(){
+ /*   public String deleteCriterios(){
         DTOCriteriosDelete criterios = new DTOCriteriosDelete(descricao,id);
         return dao.deleteCriterios(criterios);
     }
     public String updateCriterios(){
         DTOCriteriosUpdate criterios = new DTOCriteriosUpdate(descricao);
         return dao.updateCriterios(criterios);
-    }
+    } */
     public String novoCriterio(){
-        DTOCriteriosInsert criterios = new DTOCriteriosInsert(descricao,criteriosObrigatorios,linguagem);
+        DTOCriteriosInsert criterios = new DTOCriteriosInsert(descricao,criteriosObrigatorios,linguagem_id);
         return dao.novoCriterio(criterios);
     }
 }

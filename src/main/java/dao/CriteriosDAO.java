@@ -19,33 +19,18 @@ public class CriteriosDAO {
         return manager.createQuery("select c from CriteriosProva c").getResultList();
     }
 
-    public CriteriosProva getById(Long id) {
-        Query query = manager.createQuery("select c from CriteriosProva c where id = :pId");
-        query.setParameter("pId",id);
-
-        return (CriteriosProva) query.getSingleResult();
-    }
-
-    public CriteriosProva getByName(String criterio) {
-        Query query = manager.createQuery("select f from CriteriosProva f where like :pcriterio");
-        query.setParameter("pcriterios","%"+criterio+"%");
-
-        return (CriteriosProva) query.getSingleResult();
-    }
-
     @Transactional
     public String novoCriterio(DTOCriteriosInsert request){
         CriteriosProva criteriosProva = new CriteriosProva();
         criteriosProva.setDescricao(request.getDescricao());
         criteriosProva.setCriteriosObrigatorios(request.getObrigatorio());
-        //criteriosProva.setLinguagem(request.getLinguagem());
-
+        criteriosProva.setLinguagem_id(request.getLinguagem());
         manager.persist(criteriosProva);
 
         return "Completado";
     }
 
-    @Transactional
+  /*  @Transactional
     public String deleteCriterios(DTOCriteriosDelete request){
         CriteriosProva criteriosProva = getByName(request.getDescricao());
         try {
@@ -70,5 +55,6 @@ public class CriteriosDAO {
 
         return "Completado";
     }
+    */
 
 }

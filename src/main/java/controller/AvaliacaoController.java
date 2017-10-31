@@ -29,10 +29,11 @@ public class AvaliacaoController {
     private String pontosFortes;
     private String pontosMelhorar;
     private String parecer;
-    private Calendar dataEntregaProvaAvaliador;
-    private String dataConclusaoAvaliacao;
+    private String dataEntregaProvaAvaliador;
+    private Calendar dataConclusaoAvaliacao;
     private List<Avaliacao> avaliacoes;
     private String status_ava;
+    private Integer prova_id;
 
     public String getStatus_ava() {
         return status_ava;
@@ -118,20 +119,29 @@ public class AvaliacaoController {
         this.parecer = parecer;
     }
 
-    public Calendar getDataEntregaProvaAvaliador() {
-        return dataEntregaProvaAvaliador;
-    }
 
-    public void setDataEntregaProvaAvaliador(Calendar dataEntregaProvaAvaliador) {
+    public void setDataEntregaProvaAvaliador(String dataEntregaProvaAvaliador) {
         this.dataEntregaProvaAvaliador = dataEntregaProvaAvaliador;
     }
 
-    public String getDataConclusaoAvaliacao() {
+    public Calendar getDataConclusaoAvaliacao() {
         return dataConclusaoAvaliacao;
     }
 
-    public void setDataConclusaoAvaliacao(String dataConclusaoAvaliacao) {
+    public void setDataConclusaoAvaliacao(Calendar dataConclusaoAvaliacao) {
         this.dataConclusaoAvaliacao = dataConclusaoAvaliacao;
+    }
+
+    public String getDataEntregaProvaAvaliador() {
+        return dataEntregaProvaAvaliador;
+    }
+
+    public Integer getProva_id() {
+        return prova_id;
+    }
+
+    public void setProva_id(Integer prova_id) {
+        this.prova_id = prova_id;
     }
 
     @PostConstruct
@@ -148,7 +158,7 @@ public class AvaliacaoController {
     return dao.updtadeAvaliacao(avaliacao);
     }
     public String novaAvaliacao(){
-        DTOAvaliacaoInsert avaliacao = new DTOAvaliacaoInsert(nome,linkProva,pontosFortes,pontosMelhorar,parecer,dataEntregaProvaAvaliador,dataConclusaoAvaliacao,status_ava);
+        DTOAvaliacaoInsert avaliacao = new DTOAvaliacaoInsert(nome,linkProva,pontosFortes,pontosMelhorar,parecer,dataEntregaProvaAvaliador,dataConclusaoAvaliacao,status_ava, prova_id);
         return dao.novaAvaliacao(avaliacao);
     }
 }

@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -10,12 +11,10 @@ public class Avaliacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @PrimaryKeyJoinColumn
-    private  Prova prova;
+    @Column
+    private Integer prova_id;
 
     @Column
-
     private Boolean corrigida;
 
     @Column
@@ -31,17 +30,13 @@ public class Avaliacao {
     private String parecer;
 
     @Column
-    private Date dataEntregaProvaAvaliador;
-
-    @Column
-    private String dataConclusaoAvaliacao;
+    private Calendar dataConclusaoAvaliacao;
 
     @Column
     private String status_ava;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "avaliador_id", nullable = false)
-    private Funcionario funcionario;
+    @Column
+    private Integer funcionario_id;
 
     public Long getId() {
         return id;
@@ -49,6 +44,22 @@ public class Avaliacao {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Integer getProva_id() {
+        return prova_id;
+    }
+
+    public void setProva_id(Integer prova_id) {
+        this.prova_id = prova_id;
+    }
+
+    public Boolean getCorrigida() {
+        return corrigida;
+    }
+
+    public void setCorrigida(Boolean corrigida) {
+        this.corrigida = corrigida;
     }
 
     public String getLinkProva() {
@@ -83,44 +94,12 @@ public class Avaliacao {
         this.parecer = parecer;
     }
 
-    public Date getDataEntregaProvaAvaliador() {
-        return dataEntregaProvaAvaliador;
-    }
-
-    public void setDataEntregaProvaAvaliador(Date dataEntregaProvaAvaliador) {
-        this.dataEntregaProvaAvaliador = dataEntregaProvaAvaliador;
-    }
-
-    public String getDataConclusaoAvaliacao() {
+    public Calendar getDataConclusaoAvaliacao() {
         return dataConclusaoAvaliacao;
     }
 
-    public void setDataConclusaoAvaliacao(String dataConclusaoAvaliacao) {
+    public void setDataConclusaoAvaliacao(Calendar dataConclusaoAvaliacao) {
         this.dataConclusaoAvaliacao = dataConclusaoAvaliacao;
-    }
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
-
-    public Prova getProva() {
-        return prova;
-    }
-
-    public void setProva(Prova prova) {
-        this.prova = prova;
-    }
-
-    public Boolean getCorrigida() {
-        return corrigida;
-    }
-
-    public void setCorrigida(Boolean corrigida) {
-        this.corrigida = corrigida;
     }
 
     public String getStatus_ava() {
@@ -129,5 +108,13 @@ public class Avaliacao {
 
     public void setStatus_ava(String status_ava) {
         this.status_ava = status_ava;
+    }
+
+    public Integer getFuncionario_id() {
+        return funcionario_id;
+    }
+
+    public void setFuncionario_id(Integer funcionario_id) {
+        this.funcionario_id = funcionario_id;
     }
 }

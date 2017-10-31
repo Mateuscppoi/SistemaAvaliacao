@@ -12,6 +12,7 @@ import java.util.List;
 
 @Named
 public class AvaliacaoDAO {
+
     @Inject
     private EntityManager manager;
 
@@ -19,11 +20,6 @@ public class AvaliacaoDAO {
         return manager.createQuery("select A from Avaliacao A").getResultList();
     }
 
-    public Avaliacao getById(Long id){
-        Query query = manager.createQuery("select A from Avaliacao A where id =:pId");
-        query.setParameter("pId",id);
-        return (Avaliacao) query.getSingleResult();
-    }
     @Transactional
     public String novaAvaliacao(DTOAvaliacaoInsert request){
         Avaliacao avaliacao = new Avaliacao();
@@ -31,19 +27,20 @@ public class AvaliacaoDAO {
         avaliacao.setPontosFortes(request.getPontos_fortes());
         avaliacao.setPontosMelhorar(request.getPontos_melhorar());
         avaliacao.setParecer(request.getParecer());
-        avaliacao.setDataConclusaoAvaliacao(request.getEntrega_nao_realizada());
+        avaliacao.setDataConclusaoAvaliacao(request.getConclusao_avaliacao());
+        avaliacao.setCorrigida(false);
+        avaliacao.setProva_id(request.getProva_id());
         manager.persist(avaliacao);
         return "Avaliação Corrigida";
     }
     @Transactional
     public String deleteAvaliacao(DTOAvaliacaoDelete request){
-        Avaliacao avaliacao = getById(request.getId());
-        manager.remove(avaliacao);
+        manager.remove(request.getId());
+
     return "Deletado";
     }
-    @Transactional
+  /*  @Transactional
     public String updtadeAvaliacao (DTOAvaliacaoUpdate request){
-        Avaliacao avaliacao = getById(request.getId());
         avaliacao.setLinkProva(request.getLink_prova());
         avaliacao.setPontosFortes(request.getPontos_fortes());
         avaliacao.setPontosMelhorar(request.getPontos_melhorar());
@@ -57,5 +54,5 @@ public class AvaliacaoDAO {
         }
         return "Editado";
     }
-
+*/
 }
