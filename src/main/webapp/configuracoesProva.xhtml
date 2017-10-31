@@ -8,16 +8,6 @@
                 lang="pt-br">
 
     <ui:define name="corpo">
-<nav class="navbar navbar-expand-md navbar-dark bg-danger" style="">
-    <div class="container">
-        <a class="navbar-brand" href="login.xhtml">
-            <img src="img/DB1-01.jpg"/> </a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-        <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
-            <a class="btn navbar-btn ml-2 text-white btn-dark"><i class="fa d-inline fa-lg fa-user-circle-o"></i>Login/Logoff</a>
-        </div>
-    </div>
-</nav>
 <div class="py-5">
     <div class="container text-dark">
         <div class="row">
@@ -27,19 +17,18 @@
                         <a href="homeRH.xhtml" class="nav-link text-dark"><i class="fa fa-home fa-home"></i>Home</a>
                     </li>
                     <li class="nav-item">
-                        <button class="btn dropdown-toggle btn-outline-danger" data-toggle="dropdown"> Cadastro </button>
+                        <button class="btn dropdown-toggle btn-outline-danger border border-light" data-toggle="dropdown"> Cadastro </button>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="cadastroCandidato.xhtml">Candidato</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="cadastroPessoa.xhtml">Funcionário</a>
+                            <a class="dropdown-item" href="cadastroFuncionario.xhtml">Funcionário</a>
                         </div>
-                        <!--a href="cadastroPessoa.xhtml" class="nav-link text-danger">Cadastro</a-->
                     </li>
                     <li class="nav-item">
                         <a href="solicitarCorrecaoRH.xhtml" class="nav-link text-danger">Avaliações</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-danger">Configurações da prova</a>
+                        <a href="configuracoesProva.xhtml" class="nav-link text-danger">Configurações de prova</a>
                     </li>
                 </ul>
             </div>
@@ -61,7 +50,7 @@
                    </h:selectOneMenu>
                     <div class="col-md-6 text-right">
                         <form class="form-inline">
-                            <h:commandButton class="btn button" data-target="#criterios">Listar</h:commandButton>>
+                            <h:commandButton class="btn button" target="#criterios" value="Listar"/>
                         </form>
                     </div>
                 </div>
@@ -92,6 +81,7 @@
             </table>
         </div>
     </div>
+</div>
 </div>
     </ui:define>
 </ui:composition>

@@ -3,6 +3,7 @@ package dao;
 import dto.prova.DTOProvaDelete;
 import dto.prova.DTOProvaInsert;
 import dto.prova.DTOProvaUpdate;
+import model.Candidato;
 import model.Prova;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -35,8 +36,6 @@ public class ProvaDAO {
         prova.setLink_prova(request.getLink_prova());
         prova.setPrazo(request.getPrazo());
         prova.setData_solic_ava(Calendar.getInstance());
-        prova.setCandidato(request.getCandidato().get(0));
-        prova.setCriteriosProva(request.getCriteriosProva());
 
         manager.persist(prova);
 

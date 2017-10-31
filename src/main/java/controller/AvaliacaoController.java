@@ -153,10 +153,7 @@ public class AvaliacaoController {
         DTOAvaliacaoDelete avaliacao = new DTOAvaliacaoDelete(id);
         return dao.deleteAvaliacao(avaliacao);
     }
-    public String updateAvaliacao(){
-        DTOAvaliacaoUpdate avaliacao = new DTOAvaliacaoUpdate(id,linkProva,pontosFortes,pontosMelhorar,parecer);
-    return dao.updtadeAvaliacao(avaliacao);
-    }
+
     public String novaAvaliacao(){
         DTOAvaliacaoInsert avaliacao = new DTOAvaliacaoInsert(nome,linkProva,pontosFortes,pontosMelhorar,parecer,dataEntregaProvaAvaliador,dataConclusaoAvaliacao,status_ava, prova_id);
         return dao.novaAvaliacao(avaliacao);

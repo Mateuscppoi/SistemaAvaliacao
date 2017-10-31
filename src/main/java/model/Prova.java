@@ -35,11 +35,14 @@ public class Prova {
     @Column
     private Calendar data_solic_ava;
 
-   @MapsId
+    @Column
+    private Integer avaliacao_id;
+
+    /*@MapsId
    @OneToOne
    @JoinColumn(name = "prova_id")
    private Avaliacao avaliacao;
-
+*/
     public Long getId() {
         return id;
     }
@@ -47,6 +50,8 @@ public class Prova {
     public void setId(Long id) {
         this.id = id;
     }
+
+
 
 /*public Candidato getCandidato() {
         return candidato;
@@ -102,5 +107,13 @@ public class Prova {
 
     public void setCriteriosProva(Integer criteriosProva) {
         this.criteriosProva = criteriosProva;
+    }
+
+    public Integer getAvaliacao_id() {
+        return avaliacao_id;
+    }
+
+    public void setAvaliacao_id(Integer avaliacao_id) {
+        this.avaliacao_id = avaliacao_id;
     }
 }
