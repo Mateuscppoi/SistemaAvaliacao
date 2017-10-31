@@ -27,9 +27,6 @@
                             <li class="nav-item">
                                 <a href="solicitarCorrecaoRH.xhtml" class="nav-link text-danger">Avaliações</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-danger">Configurações da prova</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -45,10 +42,9 @@
             </div>
         </div>
         <div class="py-5"><div class="container"><div class="row">
-            <div class="col-md-6" ><h4 class="text-left" >Avaliador</h4>
-                <h:selectOneListbox value="#{funcionarioController.funcionarios}" var="avaliador">Selecione o avaliador:
-                    <f:selectItem>#{avaliador.nome}</f:selectItem>
-                </h:selectOneListbox></div>
+            <div class="col-md-6"><h4 class="text-left">Avaliador</h4>
+                <h:inputText name="nomeAvaliador" class="form-control" placeholder="avaliador" value="#{funcionarioController.nome}"/>
+            </div>
             <div class="col-md-6">
                 <h4 class="">Candidato</h4>
                 <form class="form-inline" method="post" action="https://formspree.io/">
@@ -69,9 +65,9 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                        <h:dataTable value="#{candidatoController.nome}" var="candidato" >
-                            <h:column>
-                                <f:facet name="header">Nome</f:facet>#{candidato.nome}
+                        <h:dataTable>
+                            <h:column value="">
+                                <f:facet name="header">Nome</f:facet>
                             </h:column>
                         </h:dataTable>
                     </ul>

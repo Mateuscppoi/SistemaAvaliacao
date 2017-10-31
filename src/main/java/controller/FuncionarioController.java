@@ -11,12 +11,14 @@ import dto.funcionarios.DTOFuncionarioUpdate;
 >>>>>>> a6c474da07a975026a757fe14dbba3b81d3f9c99
 import model.Avaliacao;
 import model.Funcionario;
-import model.Linguagem;
+//import model.Linguagem;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.ArrayList;
+import java.util.List;
 
 @ManagedBean
 @ApplicationScoped
@@ -29,9 +31,8 @@ public class FuncionarioController {
     private String nome;
     private String email;
     private String senha;
-    private Linguagem linguagemSelecionado;
-
-
+    private String linguagem;
+    //private Linguagem linguagemSelecionado;
     private Boolean avaliador;
     private Boolean administrador;
     private List<Avaliacao> avaliacao;
@@ -74,16 +75,24 @@ public class FuncionarioController {
         this.senha = senha;
     }
 
-    public Linguagem getLinguagemSelecionado() {
-        return linguagemSelecionado;
-    }
-
-    public void setLinguagemSelecionado(Linguagem linguagemSelecionado) {
-        this.linguagemSelecionado = linguagemSelecionado;
-    }
+//    public Linguagem getLinguagemSelecionado() {
+//        return linguagemSelecionado;
+//    }
+//
+//    public void setLinguagemSelecionado(Linguagem linguagemSelecionado) {
+//        this.linguagemSelecionado = linguagemSelecionado;
+//    }
 
     public Boolean getAvaliador() {
         return avaliador;
+    }
+
+    public String getLinguagem() {
+        return linguagem;
+    }
+
+    public void setLinguagem(String linguagem) {
+        this.linguagem = linguagem;
     }
 
     public void setAvaliador(Boolean avaliador) {
@@ -137,7 +146,7 @@ public class FuncionarioController {
     }
 
     public String novoFuncionario() {
-        DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email,senha,linguagemSelecionado,avaliador,administrador,ativo);
+        DTOFuncionarioInsert funcionario = new DTOFuncionarioInsert(nome,email,senha,linguagem,avaliador,administrador,ativo);
         return dao.novoFuncionario(funcionario);
     }
 }

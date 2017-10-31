@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "avaliacao", schema = "sistemadeavaliacao")

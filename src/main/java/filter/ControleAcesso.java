@@ -9,6 +9,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 
 public class ControleAcesso implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

@@ -15,14 +15,13 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.List;
 
 @Named
 public class FuncionarioDAO {
 
     @Inject
     private EntityManager manager;
-
-    public Integer possui;
 
     public List<Funcionario> showFuncionarios () {
         return manager.createQuery("select f from Funcionario f where avaliador = true ").getResultList();
@@ -48,10 +47,10 @@ public class FuncionarioDAO {
 
     @Transactional
     public String novoFuncionario(DTOFuncionarioInsert request){
-        possui = 0;
+        //possui = 0;
       // /  query.setParameter("pNome","%"+request.getNome()+"%");
      //   possui = query.getMaxResults();
-        if (possui != 0) {
+        //if (possui != 0) {
             Funcionario funcionario = new Funcionario();
             if (request.getAdministrador() == true) {
                 funcionario.setAdministrador(true);
@@ -63,15 +62,15 @@ public class FuncionarioDAO {
             funcionario.setNome(request.getNome());
             funcionario.setEmail(request.getEmail());
             funcionario.setSenha(request.getSenha());
-            funcionario.setEspecialidade(request.getEspecialidade());
+            funcionario.setLinguagem(request.getLinguagem());
             funcionario.setAtivo(true);
             manager.persist(funcionario);
 
             return "Completado";
         }
 
-        return "Ja existe";
-    }
+        //return "Ja existe";
+    //}
 
     @Transactional
     public String deleteFuncionario(DTOFuncionarioDelete request){

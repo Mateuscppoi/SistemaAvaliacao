@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "funcionario", schema = "sistemadeavaliacao")
@@ -19,9 +20,12 @@ public class Funcionario {
     @Column
     private String senha;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Column
+    private String linguagem;
+
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "especialidade", nullable = false)
-    private Linguagem especialidade;
+    private Linguagem especialidade;*/
 
     @Column
     private Boolean avaliador;
@@ -78,13 +82,13 @@ public class Funcionario {
         this.senha = senha;
     }
 
-    public Linguagem getEspecialidade() {
+    /*public Linguagem getEspecialidade() {
         return especialidade;
     }
 
     public void setEspecialidade(Linguagem especialidade) {
         this.especialidade = especialidade;
-    }
+    }*/
 
     public Boolean getAvaliador() {
         return avaliador;
@@ -116,5 +120,13 @@ public class Funcionario {
 
     public void setAvaliacao(List<Avaliacao> avaliacao) {
         this.avaliacao = avaliacao;
+    }
+
+    public String getLinguagem() {
+        return linguagem;
+    }
+
+    public void setLinguagem(String linguagem) {
+        this.linguagem = linguagem;
     }
 }
