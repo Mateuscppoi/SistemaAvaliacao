@@ -1,7 +1,10 @@
 package controller;
 
 import dao.CandidatoDAO;
+import dto.candidato.DTOCandidatoInsert;
 import model.Candidato;
+import model.Prova;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -9,6 +12,7 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 @ManagedBean
 @ApplicationScoped
@@ -23,6 +27,7 @@ public class CandidatoController {
     private String telefone;
     private String rede_social;
     private Boolean contratado;
+    private List<Prova> prova;
 
 
 
@@ -66,17 +71,16 @@ public class CandidatoController {
         this.contratado = contratado;
     }
 
-    public String retornaCandidato() {
+    public List<Prova> getProva() {
+        return prova;
+    }
 
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
-        EntityManager manager = factory.createEntityManager();
+    public void setProva(List<Prova> prova) {
+        this.prova = prova;
+    }
 
-        Candidato candidato = new Candidato();
-        candidato.setNome(nome);
-        candidato.setEmail(email);
-        candidato.setTelefone(telefone);
-        candidato.setRede_social(rede_social);
-        candidato.setContratado(false);
-        return "Completado";
+    public String insereCandidato() {
+        DTOCandidatoInsert candidato = new DTOCandidatoInsert(nome,email,telefone,rede_social,contratado = false);
+        return dao.insertCandidato(candidato);
     }
 }

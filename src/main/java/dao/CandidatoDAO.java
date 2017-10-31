@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import java.util.List;
 
 @Named
 public class CandidatoDAO {
@@ -26,16 +27,15 @@ public class CandidatoDAO {
         return (Candidato) query.getSingleResult();
     }
 
-    public Linguagem getByName(String nome) {
-        Query query = manager.createQuery("select f from Ca f where nome like :pNome");
-        query.setParameter("pNome","%"+nome+"%");
-
-        return (Linguagem) query.getSingleResult();
-    }
-
-    public String novoCandidato(DTOCandidatoInsert request){
-
-
+    @Transactional
+    public String insertCandidato(DTOCandidatoInsert request){
+        Candidato candidato = new Candidato();
+        candidato.setNome(request.getNome());
+        candidato.setContratado(false);
+        candidato.setRede_social(request.getRede_social());
+        candidato.setTelefone(request.getTelefone());
+        candidato.setEmail(request.getEmail());
+        manager.persist(candidato);
         return "Realizado com sucesso";
     }
 
