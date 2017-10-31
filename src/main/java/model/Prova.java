@@ -10,7 +10,7 @@ public class Prova {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Long id_prova;
+    private Long id;
 
     @Column
     private Integer candidato_id;
@@ -40,15 +40,15 @@ public class Prova {
    @JoinColumn(name = "prova_id")
    private Avaliacao avaliacao;
 
-    public Long getId_prova() {
-        return id_prova;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_prova(Long id_prova) {
-        this.id_prova = id_prova;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    /*public Candidato getCandidato() {
+/*public Candidato getCandidato() {
         return candidato;
     }
 
