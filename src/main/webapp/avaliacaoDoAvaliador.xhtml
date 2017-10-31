@@ -13,15 +13,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs" >
-
                             <li class="nav-item" value="#{funcionarioController.funcionarios}">
-                                <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes</a>
+                                <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes(#{funcionario.qtd_provas})</a>
                             </li>
                             <li class="nav-item">
-                                <a href="andamentoAvaliador.xhtml" class="nav-link text-danger">Em andamento</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="finalizadaAvaliador.xhtml" class="nav-link text-danger">Finalizadas</a>
+                                <a href="finalizadaAvaliador.xhtml" class="nav-link text-danger">Finalizadas (#{funcionario.qtd_provas})</a>
                             </li>
                         </ul>
                     </div>

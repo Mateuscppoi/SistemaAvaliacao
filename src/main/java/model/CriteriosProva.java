@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table (name = "criterios", schema = "sistemadeavaliacao")
 public class CriteriosProva {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,12 +16,8 @@ public class CriteriosProva {
     @Column(nullable = false)
     private Boolean criteriosObrigatorios;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "linguagem_id", nullable = false)
-    private Linguagem linguagem;
-
-
-
+    @Column
+    private Integer linguagem_id;
 
     public Long getId() {
         return id;
@@ -46,13 +43,11 @@ public class CriteriosProva {
         this.criteriosObrigatorios = criteriosObrigatorios;
     }
 
-    public Linguagem getLinguagem() {
-        return linguagem;
+    public Integer getLinguagem_id() {
+        return linguagem_id;
     }
 
-    public void setLinguagem(Linguagem linguagem) {
-        this.linguagem = linguagem;
+    public void setLinguagem_id(Integer linguagem_id) {
+        this.linguagem_id = linguagem_id;
     }
 }
-
-

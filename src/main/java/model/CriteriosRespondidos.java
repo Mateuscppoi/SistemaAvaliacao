@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 
 public class CriteriosRespondidos {
 
@@ -11,13 +12,41 @@ public class CriteriosRespondidos {
     @Column
     private Boolean respondido;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "avaliacao_id", nullable = true)
-    private Avaliacao avaliacao;
+    @Column
+    private Integer avaliação_id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "linguagem_id")
-    private Linguagem linguagem;
+    @Column
+    private Integer linguagem_id;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Boolean getRespondido() {
+        return respondido;
+    }
+
+    public void setRespondido(Boolean respondido) {
+        this.respondido = respondido;
+    }
+
+    public Integer getAvaliação_id() {
+        return avaliação_id;
+    }
+
+    public void setAvaliação_id(Integer avaliação_id) {
+        this.avaliação_id = avaliação_id;
+    }
+
+    public Integer getLinguagem_id() {
+        return linguagem_id;
+    }
+
+    public void setLinguagem_id(Integer linguagem_id) {
+        this.linguagem_id = linguagem_id;
+    }
 }

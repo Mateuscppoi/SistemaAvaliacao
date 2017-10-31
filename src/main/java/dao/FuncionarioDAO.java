@@ -4,13 +4,6 @@ import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
 import model.Funcionario;
-<<<<<<< HEAD
-import model.Linguagem;
-
-import javax.annotation.ManagedBean;
-import javax.annotation.PostConstruct;
-=======
->>>>>>> a6c474da07a975026a757fe14dbba3b81d3f9c99
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;

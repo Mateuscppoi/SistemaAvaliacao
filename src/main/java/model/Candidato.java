@@ -27,9 +27,8 @@ public class Candidato {
     @Column
     private Boolean contratado;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "candidato")
-    private List<Prova> prova;
-
+    @Column
+    private Integer prova_id;
 
     public Long getId_candidato() {
         return id_candidato;
@@ -77,5 +76,13 @@ public class Candidato {
 
     public void setContratado(Boolean contratado) {
         this.contratado = contratado;
+    }
+
+    public Integer getProva_id() {
+        return prova_id;
+    }
+
+    public void setProva_id(Integer prova_id) {
+        this.prova_id = prova_id;
     }
 }

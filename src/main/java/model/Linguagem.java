@@ -14,8 +14,14 @@ public class Linguagem implements Serializable {
     @Column
     private String descricao;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "linguagem")
-    private List<CriteriosProva> criteriosProvas;
+    @Column
+    private Integer criteriosProvas_id;
+
+    @Column
+    private Integer funcionario_id;
+
+    /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "linguagem")
+    private List<CriteriosProva> criteriosProvas;*/
 
    /* @OneToMany(fetch = FetchType.LAZY, mappedBy = "especialidade")
     private List<Funcionario> funcionario;*/
@@ -28,6 +34,22 @@ public class Linguagem implements Serializable {
         this.id = id;
     }
 
+    public Integer getCriteriosProvas_id() {
+        return criteriosProvas_id;
+    }
+
+    public void setCriteriosProvas_id(Integer criteriosProvas_id) {
+        this.criteriosProvas_id = criteriosProvas_id;
+    }
+
+    public Integer getFuncionario_id() {
+        return funcionario_id;
+    }
+
+    public void setFuncionario_id(Integer funcionario_id) {
+        this.funcionario_id = funcionario_id;
+    }
+
     public String getDescricao() {
         return descricao;
     }
@@ -36,13 +58,13 @@ public class Linguagem implements Serializable {
         this.descricao = descricao;
     }
 
-    public List<CriteriosProva> getCriteriosProvas() {
+   /* public List<CriteriosProva> getCriteriosProvas() {
         return criteriosProvas;
     }
 
     public void setCriteriosProvas(List<CriteriosProva> criteriosProvas) {
         this.criteriosProvas = criteriosProvas;
-    }
+    }*/
 
     /*public List<Funcionario> getFuncionario() {
         return funcionario;

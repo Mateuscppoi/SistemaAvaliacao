@@ -12,22 +12,29 @@ public class Prova {
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id_prova;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Column
+    private Integer candidato_id;
+
+    /*@ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "candidato_id_candidato", nullable = false)
-    private Candidato candidato;
+    private Candidato candidato;*/
 
     @Column
     private String link_prova;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @Column
+    private Integer criteriosProva;
+
+    /*@OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "linguagem_id_linguagem", nullable = false)
-    private List<CriteriosProva> criteriosProva;
+    private List<CriteriosProva> criteriosProva;*/
 
     @Column
     private String prazo;
 
     @Column
     private Calendar data_solic_ava;
+
    @MapsId
    @OneToOne
    @JoinColumn(name = "prova_id")
@@ -41,21 +48,21 @@ public class Prova {
         this.id_prova = id_prova;
     }
 
-    public Candidato getCandidato() {
+    /*public Candidato getCandidato() {
         return candidato;
     }
 
     public void setCandidato(Candidato candidato) {
         this.candidato = candidato;
-    }
+    }*/
 
-    public List<CriteriosProva> getCriteriosProva() {
+    /*public List<CriteriosProva> getCriteriosProva() {
         return criteriosProva;
     }
 
     public void setCriteriosProva(List<CriteriosProva> criteriosProva) {
         this.criteriosProva = criteriosProva;
-    }
+    }*/
 
     public String getLink_prova() {
         return link_prova;
@@ -79,5 +86,21 @@ public class Prova {
 
     public void setData_solic_ava(Calendar data_solic_ava) {
         this.data_solic_ava = data_solic_ava;
+    }
+
+    public Integer getCandidato_id() {
+        return candidato_id;
+    }
+
+    public void setCandidato_id(Integer candidato_id) {
+        this.candidato_id = candidato_id;
+    }
+
+    public Integer getCriteriosProva() {
+        return criteriosProva;
+    }
+
+    public void setCriteriosProva(Integer criteriosProva) {
+        this.criteriosProva = criteriosProva;
     }
 }

@@ -33,8 +33,11 @@ public class Funcionario {
     @Column
     private Boolean administrador;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario")
-    private List<Avaliacao> avaliacao;
+    @Column
+    private Integer avaliacao_id;
+
+/*    @OneToMany(fetch = FetchType.LAZY, mappedBy = "funcionario")
+    private List<Avaliacao> avaliacao;*/
 
     @Column
     private Integer qtd_provas;
@@ -114,13 +117,13 @@ public class Funcionario {
         this.ativo = ativo;
     }
 
-    public List<Avaliacao> getAvaliacao() {
+ /*   public List<Avaliacao> getAvaliacao() {
         return avaliacao;
     }
 
     public void setAvaliacao(List<Avaliacao> avaliacao) {
         this.avaliacao = avaliacao;
-    }
+    }*/
 
     public String getLinguagem() {
         return linguagem;
@@ -128,5 +131,13 @@ public class Funcionario {
 
     public void setLinguagem(String linguagem) {
         this.linguagem = linguagem;
+    }
+
+    public Integer getAvaliacao_id() {
+        return avaliacao_id;
+    }
+
+    public void setAvaliacao_id(Integer avaliacao_id) {
+        this.avaliacao_id = avaliacao_id;
     }
 }

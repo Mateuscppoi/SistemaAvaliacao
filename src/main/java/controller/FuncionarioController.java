@@ -5,10 +5,7 @@ import dao.Transactional;
 import dto.funcionarios.DTOFuncionarioDelete;
 import dto.funcionarios.DTOFuncionarioInsert;
 import dto.funcionarios.DTOFuncionarioUpdate;
-<<<<<<< HEAD
 
-=======
->>>>>>> a6c474da07a975026a757fe14dbba3b81d3f9c99
 import model.Avaliacao;
 import model.Funcionario;
 //import model.Linguagem;
