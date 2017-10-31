@@ -61,7 +61,7 @@
                    </h:selectOneMenu>
                     <div class="col-md-6 text-right">
                         <form class="form-inline">
-                            <h:commandButton type="button" class="btn button" data-target="#criterios">Listar</h:commandButton>>
+                            <h:commandButton class="btn button" data-target="#criterios">Listar</h:commandButton>>
                         </form>
                     </div>
                 </div>
@@ -72,6 +72,12 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th> Criterios </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
                         <h:dataTable value="#{criteriosController.criterios}" var="criterios" >
                             <h:column>
                                 <f:facet name="header">Criterio</f:facet>#{criterios.descricao}
@@ -80,8 +86,9 @@
                                 <a href="#">Obrigatorio = #{criterios.criteriosObrigatorios}</a>
                             </h:column>
                         </h:dataTable>
+                        </td>
                     </tr>
-                </thead>
+                </tbody>
             </table>
         </div>
     </div>
