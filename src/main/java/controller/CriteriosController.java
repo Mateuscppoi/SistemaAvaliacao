@@ -3,12 +3,10 @@ package controller;
 import dao.CriteriosDAO;
 import model.CriteriosProva;
 import model.Linguagem;
+
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import dto.criterios.DTOCriteriosDelete;
-import dto.criterios.DTOCriteriosInsert;
-import dto.criterios.DTOCriteriosUpdate;
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.ArrayList;
@@ -97,9 +95,11 @@ public class CriteriosController {
 
     @PostConstruct
     public void showCriterios(){
+        System.out.println("passou nos criterios");
         criterios = new ArrayList<CriteriosProva>();
         criterios.addAll(dao.showCriterios());
     }
+
  /*   public String deleteCriterios(){
         DTOCriteriosDelete criterios = new DTOCriteriosDelete(descricao,id);
         return dao.deleteCriterios(criterios);
@@ -107,9 +107,9 @@ public class CriteriosController {
     public String updateCriterios(){
         DTOCriteriosUpdate criterios = new DTOCriteriosUpdate(descricao);
         return dao.updateCriterios(criterios);
-    } */
+    }
     public String novoCriterio(){
         DTOCriteriosInsert criterios = new DTOCriteriosInsert(descricao,criteriosObrigatorios,linguagem_id);
         return dao.novoCriterio(criterios);
-    }
+    }*/
 }
