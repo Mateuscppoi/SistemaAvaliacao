@@ -19,12 +19,9 @@ public class TesteProvaController {
         EntityManager manager = factory.createEntityManager();
 
         Prova prova = new Prova();
-        prova.setCandidato(manager.find(Candidato.class, 4L));
-        prova.setImport_prova("");
-        prova.setCriteriosProva(manager.find(CriteriosProva.class, 2L));
+        prova.setCandidato_id(2);
+        prova.setCriteriosProva(3);
         Date data  = new Date();
-        prova.setData_solic_ava(data);
-        prova.setPrazo(40);
         manager.getTransaction().begin();
         manager.persist(prova);
         manager.getTransaction().commit();

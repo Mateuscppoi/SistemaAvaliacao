@@ -1,6 +1,7 @@
 package controller;
 
 import dao.CriteriosDAO;
+import dto.criterios.DTOCriteriosInsert;
 import model.CriteriosProva;
 import model.Linguagem;
 
@@ -9,6 +10,8 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +22,19 @@ public class CriteriosController {
 
     @Inject
     private CriteriosDAO dao;
-
     private Long id;
     private CriteriosProva criteriosProva = new CriteriosProva();
+    private Linguagem linguagemSelecionado;
 
     private String descricao;
     private Boolean criteriosObrigatorios;
     private List<Linguagem> linguagem;
     private Integer linguagem_id;
     private List<CriteriosProva> criterios;
+
+    public CriteriosController () {
+        criterios = new ArrayList<CriteriosProva>();
+    }
 
     public Long getId() {
         return id;
@@ -59,6 +66,14 @@ public class CriteriosController {
 
     public void setCriteriosProva(CriteriosProva criteriosProva) {
         this.criteriosProva = criteriosProva;
+    }
+
+    public Linguagem getLinguagemSelecionado() {
+        return linguagemSelecionado;
+    }
+
+    public void setLinguagemSelecionado(Linguagem linguagemSelecionado) {
+        this.linguagemSelecionado = linguagemSelecionado;
     }
 
     public String getDescricao() {
@@ -93,11 +108,10 @@ public class CriteriosController {
         this.linguagem = linguagem;
     }
 
-    @PostConstruct
     public void showCriterios(){
         System.out.println("passou nos criterios");
         criterios = new ArrayList<CriteriosProva>();
-        criterios.addAll(dao.showCriterios());
+        criterios.addAll(dao.showCriterios(linguagem_id));
     }
 
  /*   public String deleteCriterios(){
@@ -107,9 +121,9 @@ public class CriteriosController {
     public String updateCriterios(){
         DTOCriteriosUpdate criterios = new DTOCriteriosUpdate(descricao);
         return dao.updateCriterios(criterios);
-    }
+    }*/
     public String novoCriterio(){
         DTOCriteriosInsert criterios = new DTOCriteriosInsert(descricao,criteriosObrigatorios,linguagem_id);
         return dao.novoCriterio(criterios);
-    }*/
+    }
 }

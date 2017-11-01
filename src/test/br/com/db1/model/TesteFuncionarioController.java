@@ -22,7 +22,7 @@ public class TesteFuncionarioController {
         funcionario.setAvaliador(false);
         funcionario.setAdministrador(true);
         funcionario.setAtivo(true);
-        funcionario.setEspecialidade(manager.find(Linguagem.class, 3L));
+        funcionario.setLinguagem("java");
         manager.getTransaction().begin();
         manager.persist(funcionario);
         manager.getTransaction().commit();

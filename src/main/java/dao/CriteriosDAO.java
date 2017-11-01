@@ -4,6 +4,8 @@ import dto.criterios.DTOCriteriosDelete;
 import dto.criterios.DTOCriteriosInsert;
 import dto.criterios.DTOCriteriosUpdate;
 import model.CriteriosProva;
+import model.Linguagem;
+
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -15,8 +17,10 @@ public class CriteriosDAO {
     @Inject
     private EntityManager manager;
 
-    public List<CriteriosProva> showCriterios () {
-        return manager.createQuery("select c from CriteriosProva c").getResultList();
+    public List<CriteriosProva> showCriterios (Integer id) {
+       Query query = manager.createQuery("select c from CriteriosProva c where linguagem_id = :pId");
+       query.setParameter("pId",id);
+      return query.getResultList();
     }
 
     @Transactional

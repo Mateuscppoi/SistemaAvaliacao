@@ -123,7 +123,7 @@ public class CandidatoController {
     }*/
 
     public String insereCandidato() {
-        DTOCandidatoInsert candidato = new DTOCandidatoInsert(nome,email,telefone,rede_social,contratado = false, id, prova_id);
+        DTOCandidatoInsert candidato = new DTOCandidatoInsert(nome,email,telefone,rede_social,contratado = false);
         return dao.insertCandidato(candidato);
     }
 

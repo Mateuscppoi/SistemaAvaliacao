@@ -10,7 +10,7 @@ public class Candidato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @PrimaryKeyJoinColumn
-    private Long id;
+    private Long id_candidato;
 
     @Column
     private String nome;
@@ -30,12 +30,12 @@ public class Candidato {
     @Column
     private Integer prova_id;
 
-    public Long getId() {
-        return id;
+    public Long getId_candidato() {
+        return id_candidato;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_candidato(Long id_candidato) {
+        this.id_candidato = id_candidato;
     }
 
     public String getNome() {

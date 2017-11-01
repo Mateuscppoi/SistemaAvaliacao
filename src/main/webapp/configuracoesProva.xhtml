@@ -47,17 +47,36 @@
         <div class="py-5">
             <div class="container">
                 <div class="row">
-                   <h:selectOneMenu label="Informe a linguagem">
+                   <h:selectOneMenu label="Informe a linguagem" value="#{criteriosController.linguagem_id}">
                        <f:selectItem itemValue="2" itemLabel="Java"/>
+                       <f:selectItem itemValue="3" itemLabel="DotNet"/>
+                       <f:selectItem itemValue="4" itemLabel="php"/>
+                       <f:selectItem itemValue="5" itemLabel="JavaScript"/>
+                       <f:selectItem itemValue="6" itemLabel="Delphi"/>
+                       <f:selectItem itemValue="7" itemLabel="SQL"/>
+                       <f:selectItem itemValue="8" itemLabel="Python"/>
+                       <f:selectItem itemValue="9" itemLabel="Outros"/>
                    </h:selectOneMenu>
                     <div class="col-md-6 text-right">
-                            <h:commandButton class="btn"  value="Listar" onclick="mostra()" action="#{criteriosController.showCriterios}"/>
+                            <h:commandButton class="btn"  value="Listar" action="#{criteriosController.showCriterios}"/>
                     </div>
                 </div>
             </div>
         </div>
+            <div>
+                <h:inputText type="text" name="criterioDescricao" class="form-control" label="criterioDescricao" placeholder="Informe o critério" value="#{criteriosController.descricao}"/>
+            </div>
+            <div class="col-md-6">
+                <h:selectOneRadio value="#{criteriosController.criteriosObrigatorios}" label="a" > Obrigatorio
+                    <f:selectItem itemValue="true" itemLabel="Sim"/>
+                    <f:selectItem itemValue="false" itemLabel="não"/>
+                </h:selectOneRadio>
+            </div>
+            <div class="col-md-6 text-right">
+                <h:commandButton class="btn"  value="Adicionar" action="#{criteriosController.novoCriterio}"/>
+            </div>
         </h:form>
-        <div id="criterios" class="collapse">
+        <div>
             <div class="col-xs-12">
                 <h:dataTable value="#{criteriosController.criterios}" var="criterios" >
                     <h:column>

@@ -16,9 +16,9 @@ public class TesteCriterios {
         EntityManager manager = factory.createEntityManager();
 
         CriteriosProva criteriosProva = new CriteriosProva();
-        criteriosProva.setDescricao("Sprint");
+        criteriosProva.setDescricao("sei la 1");
         criteriosProva.setCriteriosObrigatorios(true);
-        criteriosProva.setLinguagem(manager.find(Linguagem.class, 2L));
+        criteriosProva.setLinguagem_id(3);
         manager.getTransaction().begin();
         manager.persist(criteriosProva);
         manager.getTransaction().commit();

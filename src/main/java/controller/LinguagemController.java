@@ -21,6 +21,7 @@ public class LinguagemController {
     @Inject
     private LinguagemDAO dao;
 
+    private Long id;
     private String descricao;
 
     private List<Linguagem> linguagem;
@@ -50,6 +51,14 @@ public class LinguagemController {
         this.descricao = descricao;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String retornaTipo () {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("db1start");
         EntityManager manager = factory.createEntityManager();
@@ -65,10 +74,8 @@ public class LinguagemController {
         return "Completado";
     }
 
-    @PostConstruct
     public void showLinguagem(){
        this.linguagem = new ArrayList<Linguagem>();
-        //linguagem = new ArrayList<Linguagem>();
-        this.linguagem.addAll(dao.showLinguagem());
+       this.linguagem.addAll(dao.showLinguagem());
     }
 }
