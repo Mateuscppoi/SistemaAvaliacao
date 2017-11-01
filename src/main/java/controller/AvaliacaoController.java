@@ -159,8 +159,4 @@ public class AvaliacaoController {
         return dao.novaAvaliacao(avaliacao);
     }
 
-    public void showAvaliacaoCorrigida() {
-        avaliacoes = new ArrayList<Avaliacao>();
-        avaliacoes.addAll(dao.showAvaliacoesCorrigidas());
-    }
 }
