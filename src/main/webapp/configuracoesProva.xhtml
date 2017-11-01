@@ -3,7 +3,6 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:p="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 lang="pt-br">
 
@@ -35,6 +34,7 @@
         </div>
     </div>
 </div>
+
 <div class="py-5">
     <div class="container">
         <div class="row">
@@ -42,6 +42,8 @@
                 <h4 class="">Configurações da prova</h4>
             </div>
         </div>
+        <h:form class="form-inline">
+
         <div class="py-5">
             <div class="container">
                 <div class="row">
@@ -49,39 +51,35 @@
                        <f:selectItem itemValue="2" itemLabel="Java"/>
                    </h:selectOneMenu>
                     <div class="col-md-6 text-right">
-                        <form class="form-inline">
-                            <h:commandButton class="btn button" target="#criterios" value="Listar"/>
-                        </form>
+                            <h:commandButton class="btn"  value="Listar" onclick="mostra()" action="#{criteriosController.showCriterios}"/>
                     </div>
                 </div>
             </div>
         </div>
+        </h:form>
         <div id="criterios" class="collapse">
             <div class="col-xs-12">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th> Criterios </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                        <h:dataTable value="#{criteriosController.criterios}" var="criterios" >
-                            <h:column>
-                                <f:facet name="header">Criterio</f:facet>#{criterios.descricao}
-                            </h:column>
-                            <h:column>
-                                <a href="#">Obrigatorio = #{criterios.criteriosObrigatorios}</a>
-                            </h:column>
-                        </h:dataTable>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <h:dataTable value="#{criteriosController.criterios}" var="criterios" >
+                    <h:column>
+                        <f:facet name="header">Criterio</f:facet>#{criterios.descricao}
+                    </h:column>
+                    <h:column>
+                        <a>Obrigatorio = #{criterios.criteriosObrigatorios}</a>
+                    </h:column>
+                </h:dataTable>
+            </div>
         </div>
     </div>
 </div>
-</div>
+        <script>
+            function mostra() {
+                var x = document.getElementById("criterios");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
     </ui:define>
 </ui:composition>

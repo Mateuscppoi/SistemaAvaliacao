@@ -132,6 +132,7 @@ public class FuncionarioController {
     public void showFuncionario() {
         funcionarios.addAll(dao.showFuncionarios());
     }
+
     public String deleteFuncionario() {
         DTOFuncionarioDelete funcionario = new DTOFuncionarioDelete(false, nome);
         return dao.deleteFuncionario(funcionario);
