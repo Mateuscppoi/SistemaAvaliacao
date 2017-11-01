@@ -5,6 +5,7 @@ import dto.candidato.DTOCandidatoInsert;
 import model.Candidato;
 import model.Prova;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
@@ -27,7 +28,10 @@ public class CandidatoController {
     private String telefone;
     private String rede_social;
     private Boolean contratado;
-    private List<Prova> prova;
+    private Long id;
+    private Integer prova_id;
+    private List<Candidato> candidatos;
+    //private List<Prova> prova;
 
 
 
@@ -71,16 +75,56 @@ public class CandidatoController {
         this.contratado = contratado;
     }
 
-    public List<Prova> getProva() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Integer getProva_id() {
+        return prova_id;
+    }
+
+    public void setProva_id(Integer prova_id) {
+        this.prova_id = prova_id;
+    }
+
+    public List<Candidato> getCandidatos() {
+        return candidatos;
+    }
+
+    public void setCandidatos(List<Candidato> candidatos) {
+        this.candidatos = candidatos;
+    }
+
+    public CandidatoDAO getDao() {
+        return dao;
+    }
+
+    public void setDao(CandidatoDAO dao) {
+        this.dao = dao;
+    }
+
+    /*    public List<Prova> getProva() {
         return prova;
     }
 
     public void setProva(List<Prova> prova) {
         this.prova = prova;
-    }
+    }*/
+ /*   @PostConstruct
+    public void showCandidato() {
+        candidatos.addAll(dao.showCandidato());
+    }*//*   @PostConstruct
+    public void showCandidato() {
+        candidatos.addAll(dao.showCandidato());
+    }*/
 
     public String insereCandidato() {
-        DTOCandidatoInsert candidato = new DTOCandidatoInsert(nome,email,telefone,rede_social,contratado = false);
+        DTOCandidatoInsert candidato = new DTOCandidatoInsert(nome,email,telefone,rede_social,contratado = false, id, prova_id);
         return dao.insertCandidato(candidato);
     }
+
 }

@@ -21,7 +21,7 @@ public class FuncionarioDAO {
     }
 
     public Funcionario getById(Long id) {
-        Query query = manager.createQuery("select f from Funcionario f where id = :pId");
+        Query query = manager.createQuery("select f from Funcionario f where id_funcionario = :pId");
         query.setParameter("pId",id);
 
         return (Funcionario) query.getSingleResult();

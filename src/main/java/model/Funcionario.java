@@ -1,7 +1,6 @@
 package model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "funcionario", schema = "sistemadeavaliacao")
@@ -9,7 +8,7 @@ public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id_funcionario;
 
     @Column
     private String nome;
@@ -53,12 +52,12 @@ public class Funcionario {
         this.qtd_provas = qtd_provas;
     }
 
-    public Long getId() {
-        return id;
+    public Long getId_funcionario() {
+        return id_funcionario;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_funcionario(Long id) {
+        this.id_funcionario = id_funcionario;
     }
 
     public String getNome() {

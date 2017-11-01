@@ -35,6 +35,8 @@ public class CandidatoDAO {
         candidato.setRede_social(request.getRede_social());
         candidato.setTelefone(request.getTelefone());
         candidato.setEmail(request.getEmail());
+        candidato.setId(request.getId());
+        candidato.setProva_id(request.getProva_id().intValue());
         manager.persist(candidato);
         return "Realizado com sucesso";
     }
