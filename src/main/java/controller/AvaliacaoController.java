@@ -158,6 +158,12 @@ public class AvaliacaoController {
         avaliacoes = new ArrayList<Avaliacao>();
         avaliacoes.addAll(dao.showAvaliacoes());
     }
+
+    @PostConstruct
+    public void showAvaliacaoConcluida() {
+        avaliacoes = new ArrayList<Avaliacao>();
+        avaliacoes.addAll(dao.showAvaliacaoConcluida());
+    }
     public String deleteAvaliacao() {
         DTOAvaliacaoDelete avaliacao = new DTOAvaliacaoDelete(id);
         return dao.deleteAvaliacao(avaliacao);

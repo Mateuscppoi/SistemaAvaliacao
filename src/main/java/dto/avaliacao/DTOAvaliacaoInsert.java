@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class DTOAvaliacaoInsert {
 
-    private final String entrega_nao_realizada = "Não corrigida";
+    private final String entrega_nao_realizada = "Não Corrigida";
     private final String entrega_realizada = "Corrigida";
 
     private final String nome;

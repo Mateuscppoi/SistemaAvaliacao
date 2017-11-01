@@ -20,6 +20,10 @@ public class AvaliacaoDAO {
         return manager.createQuery("select A from Avaliacao A").getResultList();
     }
 
+    public List<Avaliacao> showAvaliacaoConcluida() {
+        return manager.createQuery("select A from Avaliacao A where status_ava = 'Não Corrigida'").getResultList();
+    }
+
     @Transactional
     public String novaAvaliacao(DTOAvaliacaoInsert request){
         Avaliacao avaliacao = new Avaliacao();

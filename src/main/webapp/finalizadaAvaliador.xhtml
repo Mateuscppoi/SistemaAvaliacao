@@ -13,11 +13,11 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="nav nav-tabs" >
-                            <li class="nav-item" value="#{funcionarioController.funcionarios}">
-                                <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes(#{funcionario.qtd_provas})</a>
+                            <li class="nav-item">
+                                <a href="homeAvaliador.xhtml"  class="nav-link text-danger">Pendentes</a>
                             </li>
                             <li class="nav-item">
-                                <a href="finalizadaAvaliador.xhtml" class="nav-link text-danger">Finalizadas (#{funcionario.qtd_provas})</a>
+                                <a href="finalizadaAvaliador.xhtml" class="nav-link text-danger">Finalizadas</a>
                             </li>
                         </ul>
                     </div>
@@ -34,15 +34,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="breadcrumb" style="margin-bottom: 0px; margin-top: 0px;">
-                            <h:dataTable value="#{provaController.status}" >
+                            <h:dataTable value="#{avaliacaoController.avaliacoes}" >
                                 <h:column>
-                                    <f:facet name="header">Prova</f:facet>#{provaController.id}
+                                    <f:facet name="header">Prova</f:facet>
                                 </h:column>
                                 <h:column>
-                                    <a href="avaliacaoDoAvaliador.xhtml">Provas Corrigidas (#{avaliacaoController.showAvaliacoes}</a>
-                                </h:column>
-                                <h:column>
-                                    <a href="avaliacaoDoAvaliador.xhtml">Prazo para correção (#{provaController.prazo})</a>
+                                    <h:inputText>Provas Corrigidas (#{avaliacaoController.prova_id}</h:inputText>
                                 </h:column>
                             </h:dataTable>
                         </ul>
