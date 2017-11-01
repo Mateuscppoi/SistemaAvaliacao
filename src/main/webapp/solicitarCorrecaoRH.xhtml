@@ -44,9 +44,12 @@
                 </div>
             </div>
         </div>
+        <h:form>
         <div class="py-5"><div class="container"><div class="row">
             <div class="col-md-6"><h4 class="text-left">Avaliador</h4>
-                <h:inputText name="nomeAvaliador" class="form-control" placeholder="avaliador" value="#{funcionarioController.nome}"/>
+                <h:selectOneMenu label="Informe a linguagem" value="#{avaliacaoController.id_funcionario}">
+                    <f:selectItem itemValue="2" itemLabel="Java"/>
+                </h:selectOneMenu>
             </div>
            <div class="col-md-6">
                 <h4 class="">Link da prova</h4>
@@ -57,7 +60,8 @@
         </div>
         </div>
         </div>
-        <!--     <div class="py-5">
+        </h:form>
+             <div class="py-5">
                  <div class="container">
                      <div class="row">
                          <div class="col-md-12">
@@ -84,7 +88,7 @@
                          </div>
                      </div>
                  </div>
-             </div>-->
+             </div>
         <div class="py-5">
             <div class="container">
                 <div class="row">

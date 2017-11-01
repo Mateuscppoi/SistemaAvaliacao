@@ -12,21 +12,20 @@ public class DTOAvaliacaoInsert {
     private final String pontos_fortes;
     private final String pontos_melhorar;
     private final String parecer;
+    private final Integer id_funcionario;
     private final String entrega_prova_avaliador;
-    private final Calendar conclusao_avaliacao;
     private String status_ava;
     private Integer prova_id;
 
-    public DTOAvaliacaoInsert(String nome, String link_prova, String pontos_fortes, String pontos_melhorar, String parecer, String entrega_prova_avaliador, Calendar conclusao_avaliacao, String status_ava, Integer prova_id) {
+    public DTOAvaliacaoInsert(String nome, String link_prova, String pontos_fortes, String pontos_melhorar, String parecer, Integer id_funcionario, String entrega_prova_avaliador, String status_ava) {
         this.nome = nome;
         this.link_prova = link_prova;
         this.pontos_fortes = pontos_fortes;
         this.pontos_melhorar = pontos_melhorar;
         this.parecer = parecer;
+        this.id_funcionario = id_funcionario;
         this.entrega_prova_avaliador = entrega_prova_avaliador;
-        this.conclusao_avaliacao = conclusao_avaliacao;
         this.status_ava = status_ava;
-        this.prova_id = prova_id;
     }
 
     public String getNome() {
@@ -61,10 +60,6 @@ public class DTOAvaliacaoInsert {
         return entrega_prova_avaliador;
     }
 
-    public Calendar getConclusao_avaliacao() {
-        return conclusao_avaliacao;
-    }
-
     public void setStatus_ava(String status_ava) {
         this.status_ava = status_ava;
     }
@@ -75,5 +70,9 @@ public class DTOAvaliacaoInsert {
 
     public Integer getProva_id() {
         return prova_id;
+    }
+
+    public Integer getId_funcionario() {
+        return id_funcionario;
     }
 }

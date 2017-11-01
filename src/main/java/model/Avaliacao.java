@@ -30,9 +30,6 @@ public class Avaliacao {
     private String parecer;
 
     @Column
-    private Calendar dataConclusaoAvaliacao;
-
-    @Column
     private String status_ava;
 
     @Column
@@ -92,14 +89,6 @@ public class Avaliacao {
 
     public void setParecer(String parecer) {
         this.parecer = parecer;
-    }
-
-    public Calendar getDataConclusaoAvaliacao() {
-        return dataConclusaoAvaliacao;
-    }
-
-    public void setDataConclusaoAvaliacao(Calendar dataConclusaoAvaliacao) {
-        this.dataConclusaoAvaliacao = dataConclusaoAvaliacao;
     }
 
     public String getStatus_ava() {
