@@ -19,6 +19,9 @@ public class AvaliacaoDAO {
     public List<Avaliacao> showAvaliacoes(){
         return manager.createQuery("select A from Avaliacao A").getResultList();
     }
+    public List<Avaliacao> showAvaliacoesCorrigidas() {
+        return manager.createQuery("select A from avaliacao where  corrigida = true").getResultList();
+    }
 
     @Transactional
     public String novaAvaliacao(DTOAvaliacaoInsert request){
@@ -28,7 +31,7 @@ public class AvaliacaoDAO {
         avaliacao.setPontosMelhorar(request.getPontos_melhorar());
         avaliacao.setParecer(request.getParecer());
         avaliacao.setDataConclusaoAvaliacao(request.getConclusao_avaliacao());
-        avaliacao.setCorrigida(false);
+        avaliacao.setCorrigida(true);
         avaliacao.setProva_id(request.getProva_id());
         manager.persist(avaliacao);
         return "Avaliação Corrigida";

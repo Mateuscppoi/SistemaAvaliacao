@@ -3,7 +3,6 @@ package controller;
 import dao.AvaliacaoDAO;
 import dto.avaliacao.DTOAvaliacaoDelete;
 import dto.avaliacao.DTOAvaliacaoInsert;
-import dto.avaliacao.DTOAvaliacaoUpdate;
 import model.Avaliacao;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -145,17 +144,23 @@ public class AvaliacaoController {
     }
 
     @PostConstruct
-    public void showAvaliacao(){
+    public void showAvaliacao() {
         avaliacoes = new ArrayList<Avaliacao>();
         avaliacoes.addAll(dao.showAvaliacoes());
     }
+
     public String deleteAvaliacao() {
         DTOAvaliacaoDelete avaliacao = new DTOAvaliacaoDelete(id);
         return dao.deleteAvaliacao(avaliacao);
     }
 
-    public String novaAvaliacao(){
-        DTOAvaliacaoInsert avaliacao = new DTOAvaliacaoInsert(nome,linkProva,pontosFortes,pontosMelhorar,parecer,dataEntregaProvaAvaliador,dataConclusaoAvaliacao,status_ava, prova_id);
+    public String novaAvaliacao() {
+        DTOAvaliacaoInsert avaliacao = new DTOAvaliacaoInsert(nome, linkProva, pontosFortes, pontosMelhorar, parecer, dataEntregaProvaAvaliador, dataConclusaoAvaliacao, status_ava, prova_id);
         return dao.novaAvaliacao(avaliacao);
+    }
+
+    public void showAvaliacaoCorrigida() {
+        avaliacoes = new ArrayList<Avaliacao>();
+        avaliacoes.addAll(dao.showAvaliacoesCorrigidas());
     }
 }
